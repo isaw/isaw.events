@@ -1,8 +1,9 @@
-.. contents::
 
-.. Note!
-   -----
-   Update the following URLs to point to your:
+Code repository available at http://github.com/christophwarner/isaw
+
+This repository can be cloned via the command:
+
+git clone git@github.com:christopherwarner/isaw.git isaw
 
    - code repository
    - bug tracker
