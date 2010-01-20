@@ -1,4 +1,5 @@
 """Definition of the events content type
+   Testing some extra
 """
 
 from zope.interface import implements, directlyProvides
