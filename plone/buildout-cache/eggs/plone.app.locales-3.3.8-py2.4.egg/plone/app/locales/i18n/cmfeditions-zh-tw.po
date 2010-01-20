@@ -1,0 +1,354 @@
+# Translation of cmfeditions.pot to Chinese (Traditional)
+# T.C. Chou <tcchou@tcchou.org>, 2002-2009
+msgid ""
+msgstr ""
+"Project-Id-Version: CMFEditions\n"
+"POT-Creation-Date: 2009-07-08 09:15+0000\n"
+"PO-Revision-Date: 2009-07-08 21:16+0800\n"
+"Last-Translator: TsungWei Hu <marr.tw@gmail.com>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: zh-tw\n"
+"Language-Name: 繁體中文\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: cmfeditions\n"
+"X-Is-Fallback-For: zh\n"
+
+#: CMFEditions/skins/CMFEditions/revertversion.py:26
+msgid "${title} has been reverted to version ${version}."
+msgstr "${title} 將被回復到版本 ${version}。"
+
+#. Default: "First version"
+#: CMFEditions/browser/diff.pt:51
+msgid "First version"
+msgstr "第一版"
+
+#. Default: "History"
+#: CMFEditions/profiles/default/actions.xml
+msgid "History"
+msgstr "歷史"
+
+#: CMFEditions/skins/CMFEditions/revertversion.py:31
+msgid "Reverted to version ${version}"
+msgstr "回復到版本 ${version}"
+
+#. Default: "Second version"
+#: CMFEditions/browser/diff.pt:61
+msgid "Second version"
+msgstr "第二版"
+
+#. Default: "Show differences"
+#: CMFEditions/browser/diff.pt:82
+msgid "Show differences"
+msgstr "顯示差異"
+
+#: CMFEditions/skins/CMFEditions/revertversion.py:35
+msgid "The most current version of the file could not be saved before reverting because the file is too large."
+msgstr "目前最新版本的檔案由於太大了，在回復之前，將無法儲存。"
+
+#. Default: "There are no changes between the selected versions."
+#: CMFEditions/browser/diff.pt:77
+msgid "There are no changes between the selected versions."
+msgstr "已選的版本之間沒有不同。"
+
+#. Default: "This field has no inline difference view."
+#: CMFEditions/browser/diff.pt:97
+msgid "This field has no inline difference view."
+msgstr "這項欄位無行內差異檢視。"
+
+#: CMFEditions/skins/CMFEditions/update_version_on_edit.cpy:35
+msgid "Versioning for this file has been disabled because it is too large"
+msgstr "由於這個檔案過大，已取消其版本記錄功能。"
+
+#. Default: "Working Copy"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:61
+msgid "Working Copy"
+msgstr "工作版本"
+
+#. Default: "as code"
+#: CMFEditions/browser/diff.pt:85
+msgid "as code"
+msgstr "程式碼"
+
+#. Default: "Last modified"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:20
+msgid "box_last_modified"
+msgstr "最近修改"
+
+#. Default: "Save as new revision"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:188
+msgid "button_save_as_new_version"
+msgstr "儲存成一個新版本"
+
+#. Default: "You can have different settings for each content type. Content can be automatically versioned, and you can also opt to create a version when you revert a revision."
+#: CMFEditions/skins/CMFEditions/versioning_config_form.pt:31
+msgid "description_version_settings"
+msgstr "可以針對每種內容型態進行不同設定。內容可以自動記錄版本資料，也可以在回復一項變更時，選擇建立一個版本。"
+
+#. Default: "Select to make a version of the current content."
+#: CMFEditions/browser/edit.pt:43
+msgid "help_save_new_version"
+msgstr "選擇目前內容成為一個版本。"
+
+#. Default: "Enter a comment that describes the changes you made."
+#: CMFEditions/browser/edit.pt:56
+msgid "help_version_comment"
+msgstr "輸入備註來描述所做的相關變更。"
+
+#. Default: "At any moment you can save the content you just edited as a new revision. Enter below a comment to identify the version and hit the \"Save as new revision\" button."
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:178
+msgid "help_versioncomment"
+msgstr "在任何時候都可以儲存正在修改的內容，成為一個新版本。在下面輸入備註以辨識版本，然後點選 \"儲存成一個新版本\" 按鈕。"
+
+#. Default: "inline"
+#: CMFEditions/browser/diff.pt:84
+msgid "inline"
+msgstr "行內"
+
+#. Default: "Click here to get the file"
+#: CMFEditions/skins/cmfeditions_views/version_file_view.pt:31
+msgid "label_click_to_get_file"
+msgstr "點選這裡取得檔案"
+
+#. Default: "Compare to current revision"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:133
+msgid "label_compare_current"
+msgstr "和目前版本進行比較"
+
+#. Default: "Compare to previous revision"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:141
+msgid "label_compare_previous"
+msgstr "和之前版本進行比較"
+
+#. Default: "Compare to previous revision"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:91
+msgid "label_compare_to_previous_revision"
+msgstr "和之前版本進行比較"
+
+#. Default: "Compare to revision ${version_id}"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:88
+msgid "label_compare_to_revision"
+msgstr "和版本 ${version_id} 進行比較"
+
+#. Default: "Current"
+#: CMFEditions/browser/diff.pt:53
+msgid "label_current"
+msgstr "目前"
+
+#. Default: "(+) Added"
+#: CMFEditions/skins/CMFEditions/diff_legend.pt:8
+msgid "label_diff_added"
+msgstr "(+) 已新增"
+
+#. Default: "Changed"
+#: CMFEditions/skins/CMFEditions/diff_legend.pt:10
+msgid "label_diff_changed"
+msgstr "已變更"
+
+#. Default: "(-) Deleted"
+#: CMFEditions/skins/CMFEditions/diff_legend.pt:9
+msgid "label_diff_deleted"
+msgstr "(-) 已刪除"
+
+#. Default: "Legend"
+#: CMFEditions/skins/CMFEditions/diff_legend.pt:7
+msgid "label_diff_legend"
+msgstr "說明"
+
+#. Default: "Tag Added"
+#: CMFEditions/skins/CMFEditions/diff_legend.pt:11
+msgid "label_diff_tag_added"
+msgstr "標籤已新增"
+
+#. Default: "Tag Deleted"
+#: CMFEditions/skins/CMFEditions/diff_legend.pt:12
+msgid "label_diff_tag_deleted"
+msgstr "標籤已刪除"
+
+#. Default: "Versioning Enabled?"
+#: CMFEditions/skins/CMFEditions/versioning_config_form.pt:67
+msgid "label_enable_versioning"
+msgstr "啟用版本記錄功能？"
+
+#. Default: "File type"
+#: CMFEditions/skins/cmfeditions_views/version_file_view.pt:53
+msgid "label_file_type"
+msgstr "檔案型態"
+
+#. Default: "${version} (${date})"
+#: CMFEditions/browser/diff.pt:57
+msgid "label_history_version"
+msgstr "${version} (${date})"
+
+#. Default: "Item Type"
+#: CMFEditions/skins/CMFEditions/versioning_config_form.pt:66
+msgid "label_item_type"
+msgstr "項目類型"
+
+#. Default: "modifications from revision ${version_id}"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:72
+msgid "label_modifications_from_revision"
+msgstr "版本 ${version_id} 的修改內容"
+
+#. Default: "New version"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:175
+msgid "label_newversion"
+msgstr "新版本"
+
+#. Default: "No changes"
+#: CMFEditions/skins/CMFEditions/version_diff.pt:34
+msgid "label_no_changes"
+msgstr "無變更"
+
+#. Default: "Preview of Revision ${version_id}"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:203
+msgid "label_preview_version"
+msgstr "預覽版本 ${version_id}"
+
+#. Default: "(jump down)"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:115
+msgid "label_preview_version_below"
+msgstr "(進入)"
+
+#. Default: "(preview)"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:110
+msgid "label_preview_version_link"
+msgstr "(預覽)"
+
+#. Default: "(previously reverted)"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:74
+msgid "label_previously_reverted"
+msgstr "(先前已回復版本)"
+
+#. Default: "Revert to this revision"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:151
+msgid "label_revert"
+msgstr "回復成這個版本"
+
+#. Default: "Save as new version"
+#: CMFEditions/browser/edit.pt:42
+msgid "label_save_new_version"
+msgstr "儲存成一個新版本"
+
+#. Default: "Show code differences"
+#: CMFEditions/skins/CMFEditions/version_diff.pt:46
+msgid "label_show_code_differences"
+msgstr "顯示程式碼差異"
+
+#. Default: "show revisions"
+#: CMFEditions/skins/CMFEditions/versions_history.pt:32
+msgid "label_show_version"
+msgstr "顯示全部版本"
+
+#. Default: "Show visual differences"
+#: CMFEditions/skins/CMFEditions/version_diff.pt:57
+msgid "label_show_visual_differences"
+msgstr "顯示視覺差異"
+
+#. Default: "Versioning Settings"
+#: CMFEditions/skins/CMFEditions/versioning_config_form.pt:29
+msgid "label_title_vers_config"
+msgstr "版本記錄功能設定"
+
+#. Default: "Update"
+#: CMFEditions/browser/diff.pt:73
+msgid "label_update"
+msgstr "更新"
+
+#. Default: "Change note"
+#: CMFEditions/browser/edit.pt:55
+msgid "label_version_comment"
+msgstr "變更備註"
+
+#. Default: "Versionable content types"
+#: CMFEditions/skins/CMFEditions/versioning_config_form.pt:43
+msgid "label_versionable_content_types"
+msgstr "具備版本記錄功能的內容型態"
+
+#. Default: "Show all types"
+#: CMFEditions/skins/CMFEditions/versioning_config_form.pt:48
+msgid "label_versioning_config_show_all"
+msgstr "顯示全部型態"
+
+#. Default: "Show only searchable types"
+#: CMFEditions/skins/CMFEditions/versioning_config_form.pt:52
+msgid "label_versioning_config_show_friendly"
+msgstr "顯示可搜尋的型態"
+
+#. Default: "Policies"
+#: CMFEditions/skins/CMFEditions/versioning_config_form.pt:68
+msgid "label_versioning_policies"
+msgstr "規則"
+
+#. Default: "Recent Versions"
+#: CMFEditions/skins/CMFEditions/versions_history.pt:10
+msgid "label_versions"
+msgstr "最近的版本"
+
+#. Default: "Versions"
+#: CMFEditions/browser/diff.pt:50
+msgid "legend_versions"
+msgstr "版本"
+
+#. Default: "Actions"
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:49
+msgid "listingheader_actions"
+msgstr "動作"
+
+#. Default: "Comment"
+#: CMFEditions/skins/CMFEditions/versions_history.pt:21
+msgid "listingheader_comment"
+msgstr "備註"
+
+#. Default: "Date and Time"
+#: CMFEditions/skins/CMFEditions/versions_history.pt:20
+msgid "listingheader_date_and_time"
+msgstr "日期和時間"
+
+#. Default: "Revision"
+#: CMFEditions/skins/CMFEditions/versions_history.pt:18
+msgid "listingheader_key"
+msgstr "版本"
+
+#. Default: "Performed by"
+#: CMFEditions/skins/CMFEditions/versions_history.pt:19
+msgid "listingheader_performed_by"
+msgstr "執行者"
+
+#. Default: "(No file has been uploaded yet)"
+#: CMFEditions/skins/cmfeditions_views/version_file_view.pt:47
+msgid "no_file_uploaded"
+msgstr "(尚無檔案上傳)"
+
+#. Default: "This object has no version information."
+#: CMFEditions/browser/diff.pt:40
+msgid "no_history"
+msgstr "這個物件尚無版本資訊。"
+
+#. Default: "Versions History"
+#: CMFEditions/skins/CMFEditions/versions_history.pt:13
+msgid "summary_versions_history"
+msgstr "版本歷史"
+
+#. Default: "Changes from revision ${id2} to revision ${id1}"
+#: CMFEditions/skins/CMFEditions/version_diff.pt:30
+msgid "title_changes_between_revs"
+msgstr "版本 ${id2} 與版本 ${id1} 的差異"
+
+#. Default: "Changes since revision ${id2}"
+#: CMFEditions/skins/CMFEditions/version_diff.pt:28
+msgid "title_changes_since_rev"
+msgstr "從版本 ${id2} 以來的修改內容"
+
+#: CMFEditions/browser/diff.py:29
+msgid "version ${version}"
+msgstr "版本 ${version}"
+
+#. Default: "Revisions of \"${title}\""
+#: CMFEditions/skins/CMFEditions/versions_history_form.pt:16
+msgid "versions_of_title"
+msgstr "\"${title}\" 的版本"
+

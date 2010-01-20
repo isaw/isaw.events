@@ -1,0 +1,109 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>html_inserts</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">html_inserts</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/demo/html_inserts.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>frame</td>
+	<td>KSS for a life.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>insertAsFirstChild</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>frame</td>
+	<td>first: KSS for a life.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>frame</td>
+	<td>first: KSS for a life.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>insertAsLastChild</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>frame</td>
+	<td>first: KSS for a life.last:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>frame</td>
+	<td>first: KSS for a life.last:</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>insert</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>frame</td>
+	<td>KSS for a life.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>frame</td>
+	<td>KSS for a life.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>text-to-insert</td>
+	<td>before 1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>insertBefore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4+div</td>
+	<td>KSS for a life. before 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=h4+div</td>
+	<td>KSS for a life. before 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>text-to-insert</td>
+	<td>after 1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>insertAfter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#frame+div</td>
+	<td>KSS for a life. after 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#frame+div</td>
+	<td>KSS for a life. after 1</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

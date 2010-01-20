@@ -1,0 +1,28 @@
+
+#toggleclass-button:click {
+    action-client: toggleClass;
+    toggleClass-value: 'selected';
+} 
+
+#server-toggleclass-button:click {
+    action-server: toggleClass;
+}
+
+#addclass-button:click {
+    action-client: addClass;
+    addClass-value: 'selected';
+} 
+
+#server-addclass-button:click {
+    action-server: addClass;
+}
+
+#removeclass-button:click {
+    action-client: removeClass;
+    removeClass-value: 'selected';
+} 
+
+#server-removeclass-button:click {
+    action-server: removeClass;
+}
+

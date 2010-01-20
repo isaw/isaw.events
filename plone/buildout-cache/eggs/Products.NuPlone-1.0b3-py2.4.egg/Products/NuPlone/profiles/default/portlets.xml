@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<portlets>
+ <portlet 
+   addview="portlets.Language"
+   title="Language"
+   description="A portlet which shows the available languages."
+   />
+</portlets>

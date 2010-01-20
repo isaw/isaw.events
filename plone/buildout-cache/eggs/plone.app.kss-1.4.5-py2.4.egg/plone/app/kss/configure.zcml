@@ -1,0 +1,195 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:kss="http://namespaces.zope.org/kss"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+           >
+
+
+    <!-- Include command macro definitions -->
+    <include package=".commands"/> 
+    <include package=".plugins"/>
+
+    <!-- Utilities and site creation view for selenium testing
+         (It is safe to include this any time, even in production.
+    -->
+    <configure zcml:condition="installed kss.demo">
+        <include package=".demo" />
+    </configure>
+
+    <!-- Bind interfaces a'la 2.5 -->
+
+    <five:implements
+        class="Products.CMFPlone.Portal.PloneSite"
+        interface=".interfaces.IPloneSiteRoot"
+        />
+
+    <five:implements
+        class="Products.CMFCore.PortalContent.PortalContent"
+        interface=".interfaces.IContentish"
+        />
+
+    <five:implements
+        class="Products.Archetypes.BaseContent.BaseContent"
+        interface=".interfaces.IContentish"
+        />
+
+    <five:implements
+        class="Products.CMFCore.PortalFolder.PortalFolder"
+        interface=".interfaces.IFolderish"
+        />
+
+    <five:implements
+        class="Products.Archetypes.BaseFolder.BaseFolder"
+        interface=".interfaces.IFolderish"
+        />
+
+    <five:implements
+        class="Products.CMFCore.PortalContent.PortalContent"
+        interface=".interfaces.IPortalObject"
+        />
+
+    <five:implements
+        class="Products.CMFCore.PortalFolder.PortalFolder"
+        interface=".interfaces.IPortalObject"
+        />
+
+    <five:implements
+        class="Products.Archetypes.BaseContent.BaseContent"
+        interface=".interfaces.IPortalObject"
+        />
+ 
+    <five:implements
+        class="Products.Archetypes.BaseFolder.BaseFolder"
+        interface=".interfaces.IPortalObject"
+        />
+
+    <!-- the kukitresponse methods -->
+
+    <browser:page
+        for=".interfaces.IPortalObject"
+        attribute="replaceByMacro"
+        class=".macro_replacer.MacroView"
+        name="replaceByMacro"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for=".interfaces.IPortalObject"
+        attribute="replaceInnerByMacro"
+        class=".macro_replacer.MacroView"
+        name="replaceInnerByMacro"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for=".interfaces.IPortalObject"
+        attribute="replaceContentRegion"
+        class=".content_replacer.ContentView"
+        name="replaceContentRegion"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for=".interfaces.IPortalObject"
+        attribute="refreshPortlet"
+        class=".portlet_refresher.PortletView"
+        name="refreshPortlet"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for=".interfaces.IPortalObject"
+        attribute="refreshCalendar"
+        class=".calendar.CalendarView"
+        name="refreshCalendar"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for="*"
+        attribute="updateLockInfo"
+        class=".lock.LockView"
+        name="updateLockInfo"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for=".interfaces.IContentish"
+        attribute="save"
+        class=".kupu.KupuSaveView"
+        name="savekupu"
+        permission="cmf.ModifyPortalContent"
+        />
+
+    <browser:page
+        for=".interfaces.IContentish"
+        attribute="contentMenuRefresh"
+        class=".refresh_content_menu.ContentMenuView"
+        name="contentmenurefresh"
+        permission="zope2.View"
+        />
+
+
+	<!-- deprecate this -->
+    <browser:page
+        for=".interfaces.IPortalObject"
+        attribute="replaceMacro"
+        class=".macro_replacer.MacroView"
+        name="replaceMacro"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for="Products.CMFDynamicViewFTI.interface.ISelectableBrowserDefault"
+        attribute="changeViewTemplate"
+        class=".content_replacer.ContentMenuView"
+        name="changeViewTemplate"
+        permission="cmf.ModifyPortalContent"
+        />
+
+    <browser:page
+        for=".interfaces.IPortalObject"
+        attribute="cutObject"
+        class=".content_replacer.ContentMenuView"
+        name="cutObject"
+        permission="zope2.CopyOrMove"
+        />
+
+    <browser:page
+        for=".interfaces.IPortalObject"
+        attribute="copyObject"
+        class=".content_replacer.ContentMenuView"
+        name="copyObject"
+        permission="zope2.CopyOrMove"
+        />
+
+    <browser:page
+        for=".interfaces.IPortalObject"
+        attribute="changeWorkflowState"
+        class=".content_replacer.ContentMenuView"
+        name="changeWorkflowState"
+        permission="zope2.View"
+        />
+
+    <!-- stylesheet registration -->    
+
+    <!-- reload parts of page event hookup -->
+    <subscriber handler=".portlets.attributesTriggerNavigationPortletReload"/>
+    <subscriber handler=".portlets.attributesTriggerRecentPortletReload"/>
+    <subscriber handler=".globalui.attributesTriggerPortalTabsReload"/>
+    <subscriber handler=".globalui.attributesTriggerBreadcrumbsReload"/>
+    <subscriber handler=".globalui.attributesTriggerHeadTitleReload"/>
+    <subscriber handler=".globalui.attributesTriggerDocumentBylineReload"/>
+    <subscriber handler=".portlets.workflowTriggersNavigationPortletReload"/>
+    <subscriber handler=".portlets.workflowTriggersRecentPortletReload"/>
+
+    <!-- proper base url in header -->
+    <browser:viewlet
+        name="plone.htmlhead.kss-base-rul"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        class=".headerviewlet.KSSBaseUrlViewlet"
+        permission="zope2.View" 
+        />
+
+</configure>

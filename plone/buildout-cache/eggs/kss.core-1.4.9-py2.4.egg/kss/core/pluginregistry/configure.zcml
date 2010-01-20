@@ -1,0 +1,32 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+     xmlns:browser="http://namespaces.zope.org/browser"
+     >
+     
+    <!-- XXX concatresource is now included locally. -->
+    <include package="._concatresource" />
+
+    <include package=".json" />
+    
+    <include package=".browser" />
+
+    <!-- Register an adapter for concatresource -->
+    
+    <utility 
+        provides="concatresource.interfaces.IConcatResourceAddon"
+        name="kukit.js"
+        component=".registry.kssConcatResourceAddon"
+        />
+
+    <utility 
+        provides="concatresource.interfaces.IConcatResourceAddon"
+        name="kukit-src.js"
+        component=".registry.kssConcatResourceAddon"
+        />
+
+    <utility 
+        provides="concatresource.interfaces.IConcatResourceAddon"
+        name="kukit-devel.js"
+        component=".registry.kssConcatResourceAddon"
+        />
+
+</configure>

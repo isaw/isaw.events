@@ -1,0 +1,61 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+     xmlns:browser="http://namespaces.zope.org/browser"
+     xmlns:kss="http://namespaces.zope.org/kss"
+     xmlns:zcml="http://namespaces.zope.org/zcml"
+     >
+     
+    <!-- Third party library dependencies -->
+
+    <browser:resource
+        file="3rd_party/prototype.js"
+        name="prototype.js"
+        />
+
+    <browser:resource
+        file="3rd_party/effects.js"
+        name="effects.js"
+        />
+
+    <!-- example plugin registration
+     
+    <kss:eventtype
+        name="myCustomEventType"
+        jsfile="browser/my_plugins.js"
+        />
+  
+    <kss:action
+        name="myCustomAction"
+        jsfile="browser/my_plugins.js"
+        command_factory="selector/global"
+        params_mandatory="param1 param2 ... paramN"
+        params_optional=""
+        />
+  
+    <kss:selectortype
+        name="myCustomSelectorType"
+        jsfile="browser/my_plugins.js"
+        />
+
+    -->
+
+    <!-- Event types -->
+
+    <!-- Client actions & commands -->
+    
+    <kss:action
+        name="effect"
+        jsfile="browser/plugin.js"
+        command_factory="selector"
+        params_mandatory="type"
+        />
+
+    <!-- Command sets -->
+
+    <kss:commandset
+         name="effects"
+         for="kss.core.interfaces.IKSSView"
+         class=".commands.ScriptaculousEffectsCommands"
+         provides=".interfaces.IScriptaculousEffectsCommands"
+         />
+
+</configure>

@@ -1,0 +1,20 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+ 
+  <!-- Configuration of all the plugins distributed
+       with the core system.
+       Individual lines can be commented out.
+   -->
+  
+  <!-- The core plugins -->
+  <include package=".core" />
+
+  <!-- The scriptaculous effects -->
+  <include package=".effects" />
+
+  <!-- The drag and drop -->
+  <!-- This plugin will be deprecated, do not enable by default -->
+  <!--include package=".draganddrop" /-->
+
+</configure>

@@ -1,0 +1,34 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+     xmlns:browser="http://namespaces.zope.org/browser"
+     >
+     
+
+    <!-- Register a view to compute development mode -->
+
+    <browser:page
+        for="*"
+        class=".develview.DevelView"
+        name="kss_devel_mode"
+        permission="zope.Public"
+        allowed_interface=".interfaces.IDevelView"
+        />
+
+    <browser:resource
+        name="kss_devel_ui.js"
+        file="develui.js"
+        permission="zope.Public"
+        />
+
+    <browser:resource
+        name="kss_devel_ui.css"
+        file="develui.css"
+        permission="zope.Public"
+        />
+
+    <browser:resource
+        name="kss_devel_ui.kss"
+        file="develui.kss"
+        permission="zope.Public"
+        />
+
+</configure>

@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+plone/__init__.py
+plone.recipe.command.egg-info/PKG-INFO
+plone.recipe.command.egg-info/SOURCES.txt
+plone.recipe.command.egg-info/dependency_links.txt
+plone.recipe.command.egg-info/entry_points.txt
+plone.recipe.command.egg-info/namespace_packages.txt
+plone.recipe.command.egg-info/not-zip-safe
+plone.recipe.command.egg-info/requires.txt
+plone.recipe.command.egg-info/top_level.txt
+plone/recipe/__init__.py
+plone/recipe/command/__init__.py

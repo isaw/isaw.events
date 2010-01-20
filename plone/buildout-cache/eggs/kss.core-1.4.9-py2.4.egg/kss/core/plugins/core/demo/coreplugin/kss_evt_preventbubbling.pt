@@ -1,0 +1,45 @@
+<html tal:define="viewname string:kss_evt_preventbubbling">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources">
+      <metal:custom_resources fill-slot="custom_resources"> 
+        <style type="text/css">
+          div#parent-node {
+          border: 1px solid red;
+          padding: 0.4em;
+          }
+          #bubbling-node, #not-bubbling-node {
+          font-style: italic;
+          padding: 0.4em;
+          background: #FF8888;
+          }
+        </style>
+      </metal:custom_resources>
+    </metal:header>
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>Prevent bubbling</h2>
+    <p>This demo shows how a rule can prevent bubbling of an event to its parent nodes</p>
+    <h3>Containing DIV</h3>
+    <div id="parent-node" >
+      <p>
+      Click anywhere inside this containing DIV and check the log hereunder.
+      </p>
+      <p id="bubbling-node">Click here to trigger an event in both the P tag and in the parent node.</p>
+      <p>
+      Some text
+      </p>
+      <p id="not-bubbling-node">Click here to trigger an event only in the P tag.</p>
+      <p>
+      Some text
+      </p>
+    </div>
+    <p metal:use-macro="context/@@body_macros/logger">logger</p>
+  </body>
+</html>

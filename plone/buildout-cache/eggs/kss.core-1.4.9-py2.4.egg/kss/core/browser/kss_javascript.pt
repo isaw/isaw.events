@@ -1,0 +1,20 @@
+
+    <script tal:attributes = "src context/++resource++sarissa.js" 
+            type="text/javascript" ></script> 
+    <script tal:attributes="src context/++resource++base2-dom-fp.js" 
+            type="text/javascript" ></script> 
+
+    <tal:block define="kss_devel_mode nocall:context/@@kss_devel_mode | nothing">
+
+    <script tal:condition="python: not kss_devel_mode or kss_devel_mode.isoff()" type="text/javascript"
+      tal:attributes="src context/++resource++kukit.js;"
+      src="++resource++kukit.js">
+    </script>
+
+    <script tal:condition="python: kss_devel_mode and kss_devel_mode.ison()" type="text/javascript"
+      tal:attributes="src context/++resource++kukit-devel.js;"
+      src="++resource++kukit-devel.js">
+    </script>
+
+    </tal:block>
+

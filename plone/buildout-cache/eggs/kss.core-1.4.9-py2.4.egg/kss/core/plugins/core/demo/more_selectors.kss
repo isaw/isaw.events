@@ -1,0 +1,35 @@
+#log-reset a:click, #log-reset:click {
+    action-client: clearChildNodes;
+    clearChildNodes-kssSelector: #logger;
+}
+
+#button-one:annoyclicker-click(annoyMe) {
+}
+
+behaviour:annoyclicker-doit(annoyMe) {
+    action-server:     clickedButton;
+    clickedButton-id:  nodeAttr(id);
+	action-client: log;
+	log-message: "Was here.";
+}
+
+behaviour:annoyclicker-annoy(annoyMe) {
+    action-client: insertHTMLAsLastChild;
+    insertHTMLAsLastChild-kssSelector: #logger;
+    insertHTMLAsLastChild-html: "Keep trying until you get there. ";
+}
+
+#button-two:annoyclicker-click(annoyYou) {
+	evt-annoyclicker-click-count:         2;
+}
+
+behaviour:annoyclicker-doit(annoyYou) {
+    action-server:     clickedButton;
+    clickedButton-id:  nodeAttr(id);
+}
+
+behaviour:annoyclicker-annoy(annoyYou) {
+    action-client: insertHTMLAsLastChild;
+    insertHTMLAsLastChild-kssSelector: #logger;
+    insertHTMLAsLastChild-html: "Keep trying until you get there, from the second button. ";
+}

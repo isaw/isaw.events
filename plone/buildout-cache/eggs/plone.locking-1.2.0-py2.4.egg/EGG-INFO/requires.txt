@@ -1,0 +1,12 @@
+setuptools
+ZODB3
+zope.annotation
+zope.component
+zope.i18nmessageid
+zope.interface
+zope.schema
+zope.viewlet
+
+[test]
+Products.Archetypes
+Products.PloneTestCase

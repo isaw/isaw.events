@@ -1,0 +1,23 @@
+
+/* log reset: we use kssSelector and not the straight way...
+ * since we test the multiprops now.. */
+/* XXX no idea how to wait for the log being cleared,
+ * so I rather just insert a text now */
+#log-reset a:click {
+    evt-click-preventdefault: true;
+    action-client: replaceInnerHTML;
+    replaceInnerHTML-kssSelector: htmlid(target);
+    replaceInnerHTML-html: 'Target';
+}
+    /*clearChildNodes-kssSelector: #logger;>*/
+
+
+
+#fullform-named:click {
+    action-server: submitFullFormIntoRequest form(full2);
+}
+
+#fullform-current:click {
+    action-server: submitFullFormIntoRequest currentForm();
+}
+

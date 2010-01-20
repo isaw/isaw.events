@@ -1,0 +1,44 @@
+<html tal:define="viewname string:more_selectors">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources">
+      <metal:custom_resources fill-slot="custom_resources"> 
+        <style type="text/css">
+            #update-status {
+                border: 1px solid black;
+            }
+        </style>
+      </metal:custom_resources>
+    </metal:header>
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>More complex selectors</h2>
+
+<p>
+This demo implements the annoyclicker-click kss plugin that shows a simple
+pattern of creating stateful (class-like) events in a plugin 
+and how to bind them from kss.
+</p>
+
+<p>
+The first button and the second button are bound to two "event binder
+instances", the first one sends every 3rd click to the server and
+executes a local action otherwise; the second button does
+the same but with a count of two.
+</p>
+
+
+<h3>Demo</h3>
+    <div id="update-status">
+    </div>
+    <input type="button" id="button-one" value="Do it"/>
+    <input type="button" id="button-two" value="Do it again"/>
+    <p metal:use-macro="context/@@body_macros/logger">logger</p>
+  </body>
+</html>

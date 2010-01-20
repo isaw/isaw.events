@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<kukit xmlns="http://www.kukit.org/commands/1.1"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal">
+<commands>
+	<command name="error">
+		<param name="type" tal:content="options/type | nothing">system</param>
+		<param name="message" tal:content="options/message">Exception: reason</param>
+	</command>
+</commands>
+</kukit>

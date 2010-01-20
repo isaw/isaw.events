@@ -1,0 +1,23 @@
+<html tal:define="viewname string:two_selects">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>Two Selects</h2>
+   <form name="two">
+       <select id="first" name="value">
+            <option></option>
+            <option>animals</option>
+            <option>machines</option>
+       </select>
+       <select id="second" />
+    </form>
+  </body>
+</html>

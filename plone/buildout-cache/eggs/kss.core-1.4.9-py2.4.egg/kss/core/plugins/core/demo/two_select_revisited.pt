@@ -1,0 +1,41 @@
+<html tal:define="viewname string:two_select_revisited">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>Master-slave selects revisited</h2>
+    <form name="two">
+        <div>
+            <select class="master-select" id="first-master" name="value">
+                <option></option>
+                <option>animals</option>
+                <option>machines</option>
+            </select>
+            <select id="first-slave"></select>
+        </div>
+        <div>
+            <select class="master-select" id="second-master" name="value">
+                <option></option>
+                <option>animals</option>
+                <option>machines</option>
+            </select>
+            <select id="second-slave"></select>
+        </div>
+        <div>
+            <select class="master-select" id="third-master" name="value">
+                <option></option>
+                <option>animals</option>
+                <option>machines</option>
+            </select>
+            <select id="third-slave"></select>
+        </div>
+    </form>
+  </body>
+</html>

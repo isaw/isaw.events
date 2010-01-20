@@ -1,0 +1,45 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+		   i18n_domain="kss"
+		   >
+
+  <!-- kss prevent bubbling parameter -->
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="kss_evt_preventbubbling.pt"
+      name="kss_evt_preventbubbling.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="kss_evt_preventbubbling.kss"
+    name="kss_evt_preventbubbling.kss"
+  />
+
+  <!-- kss key events -->
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="keyevents.pt"
+      name="kss_keyevents.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="keyevents.kss"
+    name="kss_keyevents.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="keyEvent"
+      name="keyEvent"
+      permission="zope.View"
+      />
+
+
+
+</configure>
+

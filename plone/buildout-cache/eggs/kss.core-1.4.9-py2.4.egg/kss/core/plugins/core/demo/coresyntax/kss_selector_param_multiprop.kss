@@ -1,0 +1,43 @@
+
+
+.clickable:click {
+    evt-click-preventdefault: true;
+}
+
+
+#button_1:click {
+    action-client: setStyle htmlid(button_2);
+    setStyle-name: backgroundColor;
+    setStyle-value: #FFa0a0;
+    action-client: setAttribute htmlid(button_2);
+    setAttribute-name: value;
+    setAttribute-value: 'RESET ME';
+
+}
+
+#button_2:click {
+    action-client: setStyle;
+    setStyle-name: backgroundColor;
+    setStyle-value: white;
+    action-client: setAttribute;
+    setAttribute-name: value;
+    setAttribute-value: 'Watch me';
+}
+
+#button_3:click {
+    action-client: setStyle css("#button_4");
+    setStyle-name: backgroundColor;
+    setStyle-value: #FFa0a0;
+    action-client: setAttribute css('#button_4');
+    setAttribute-name: value;
+    setAttribute-value: 'RESET ME';
+}
+
+#button_4:click {
+    action-client: setStyle;
+    setStyle-name: backgroundColor;
+    setStyle-value: white;
+    action-client: setAttribute;
+    setAttribute-name: value;
+    setAttribute-value: 'Watch me';
+}

@@ -1,0 +1,91 @@
+<html tal:define="viewname string:protocol">
+  <head>
+    <metal:header use-macro="context/@@header_macros/header_resources">
+      <metal:custom_resources fill-slot="custom_resources"> 
+        <style type="text/css">
+          .smallattr { color: yellow; }
+          .largeattr { color: green; }
+        </style>
+      </metal:custom_resources>
+    </metal:header>
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h1>Client - Server Protocol</h1>
+    <p>
+      This demo exercises the communication between the client and the
+      server.
+    </p>
+
+    <h2>Data size of parameters</h2>
+    <p>Some browsers (Firefox in particular) had (or have) problems
+    with large text nodes in XML. The next examples show replacements
+    with large and small datasets.</p>
+
+    <ol>
+      <li><a href="#" id="small-dataset">Small dataset</a></li>
+      <li><a href="#" id="large-dataset">Large dataset</a></li>
+    </ol>
+    <div id="dataset-output">
+      The contents of this node will change
+    </div>
+
+    <p>Currently kss.core treats non-HTML commands differently from
+    others. The following examples show why I think this to be a
+    mistake.</p>
+
+    <ol>
+      <li><a href="#" id="small-attribute">Small attribute</a></li>
+      <li><a href="#" id="large-attribute">Large attribute</a></li>
+    </ol>
+    
+    <div id="attribute-output">
+      The parent node (div) will get an (in)sane amount of classes.
+    </div>
+
+    <h2>XML escaping</h2> 
+    <p>Since the response message is a XML document it should obey the
+    escaping rules of XML.</p>
+
+    <blockquote cite="http://www.w3.org/TR/REC-xml/#syntax">
+    The ampersand character (&amp;) and the left angle bracket (&lt;) MUST
+    NOT appear in their literal form, except when used as markup
+    delimiters, or within a comment, a processing instruction, or a
+    CDATA section. If they are needed elsewhere, they MUST be escaped
+    using either numeric character references or the strings "&amp;amp;"
+    and "&amp;lt;" respectively. The right angle bracket (>) may be
+    represented using the string "&amp;gt;", and MUST, for compatibility,
+    be escaped using either "&amp;gt;" or a character reference when it
+    appears in the string "]]&gt;" in content, when that string is not
+    marking the end of a CDATA section.
+    </blockquote>
+
+    <ol>
+      <li><a href="#" id="amp">Command with an &amp;</a></li>
+      <li><a href="#" id="lt">Command with a &lt;</a></li>
+      <li><a href="#" id="gt">Command with a &gt;</a></li>
+      <li><a href="#" id="endcdata">Command with ]]&gt; in a CDATA block</a></li>
+    </ol>
+
+    <div id="character-output">
+      test data will appear here
+    </div>
+
+    <p>Currently kss.core treats non-HTML commands differently from
+    others. These commands demonstrate if the system works ok with
+    attributes.</p>
+
+    <ol>
+      <li><a href="#" id="attr-amp">Command with an &amp;</a></li>
+      <li><a href="#" id="attr-lt">Command with a &lt;</a></li>
+      <li><a href="#" id="attr-gt">Command with a &gt;</a></li>
+      <li><a href="#" id="attr-endcdata">Command with ]]&gt;</a></li>
+    </ol>
+
+    <a href="#" id="character-attr-output">Link which get a title attribute</a>
+    
+  </body>
+</html>

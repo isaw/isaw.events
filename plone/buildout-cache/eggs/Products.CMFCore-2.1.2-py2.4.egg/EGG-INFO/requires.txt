@@ -1,0 +1,3 @@
+setuptools
+five.localsitemanager>=0.3
+Products.GenericSetup >= 1.3.3

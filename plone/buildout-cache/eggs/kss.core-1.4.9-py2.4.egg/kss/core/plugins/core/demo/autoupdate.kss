@@ -1,0 +1,9 @@
+div#update-area:timeout {
+    evt-timeout-delay: 2000;
+    action-server: getCurrentTime;
+}
+
+input#start-update:click {
+    action-server: getAutoupdateMarkup;
+}
+

@@ -1,0 +1,58 @@
+<html tal:define="viewname string:kss_url_param">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+
+    <h2>Kss url parameter</h2>
+    <form name="edit">
+      <p>Click on buttons will call server-side. Each button exercise a different syntax to express which URL to call. Server will update the <code>div</code> hereunder with corresponding text.</p>
+
+      <div id="target">Target</div>
+
+      <h3>Relative URL</h3>
+      <div class="help">
+      Click the button; it will call <code>urlMethod1</code> on the server.
+      <pre><code>#button_1:click 
+  action-server: urlMethod1;
+}</code></pre></div>
+
+      <div class="container">
+        <a class="button click cursorPointer" id="button_1">Click me !</a>
+      </div>
+
+      <h3>Alias URL</h3>
+      <div class="help">
+      Click the button; it will call <code>urlMethod2</code> on the server.
+      <pre><code>#button_2:click {
+    action-server: urlMethodAlias;
+    urlMethodAlias-kssUrl: "urlMethod2";
+}</code></pre></div>
+
+      <div class="container">
+        <a class="button click cursorPointer" id="button_2">Click me !</a>
+      </div>
+
+      <h3>Alias URL with <code>@@</code></h3>
+      <div class="help">
+          Click the button; it will call <code>@@urlMethod3</code> on the server.
+      <pre><code>#button_3:click {
+    action-server: urlMethodAnotherAlias;
+    urlMethodAnotherAlias-kssUrl: "@@urlMethod3";
+}</code></pre></div>
+
+      <div class="container">
+        <a class="button click cursorPointer" id="button_3">Click me !</a>
+      </div>
+
+    </form>
+
+  </body>
+</html>

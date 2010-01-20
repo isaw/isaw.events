@@ -1,0 +1,12 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <adapter
+        for=".interfaces.IContextFile"
+        provides=".interfaces.ICachedResource"
+        factory=".cachingadapter.CachedResource"
+  />
+
+  <!-- Include the next line for testing only. -->
+  <!--include package=".test" /-->
+  
+ </configure>

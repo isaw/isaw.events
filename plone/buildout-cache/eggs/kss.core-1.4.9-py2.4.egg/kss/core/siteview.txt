@@ -1,0 +1,117 @@
+=========
+Site view
+=========
+
+All KSS views are not only a browser view but provide a site manager
+as well.  The site manager is hooked into the component framework on
+traversal time.  This allows the KSS views to dispatch incomming
+object events to (object, view, event) so that KSS-view-specific event
+handlers can add to the view's commands.
+
+This behaviour is needed for making event driven changes to a page.
+For instance when you change a title in a document you also want the
+menu reloaded.  By using events for this we can achieve a degree of
+decoupling.
+
+The main class which implements views with a site manager is ``SiteView``:
+ 
+  >>> from kss.core.kssview import SiteView
+
+  >>> from zope import component
+  >>> old_sitemanager = component.getSiteManager()
+
+  >>> from zope.publisher.browser import TestRequest
+  >>> class TestObject:
+  ...     pass
+  >>> obj = TestObject()
+  >>> request = TestRequest()
+  >>> view = SiteView(obj, request)
+
+Let's register a handler for an object modified event event and
+SiteView views:
+
+  >>> from zope.lifecycleevent import ObjectModifiedEvent
+  >>> event = ObjectModifiedEvent(obj)
+
+  >>> @component.adapter(TestObject, SiteView, ObjectModifiedEvent)
+  ... def catchTestObjectEvent(event_obj, event_view, event_event):
+  ...     print "Special event handler was invoked, dispatch is working."
+  ...     print "Object is the original one:", event_obj is obj
+  ...     print "View is the original one:", event_view is view
+  ...     print "Event is the original one:", event_event is event
+  ... 
+  >>> component.provideHandler(catchTestObjectEvent)
+
+Without the SiteView view being activated as a site, it won't dispatch
+to the handler:
+
+  >>> from zope.event import notify
+  >>> notify(ObjectModifiedEvent(obj))
+
+Now we make the view the current site.  We'll see that its site
+manager has become the current component registry:
+
+  >>> from zope.app.component.hooks import setSite
+  >>> setSite(view)
+
+  >>> old_sitemanager is component.getSiteManager()
+  False
+  >>> view.getSiteManager() is component.getSiteManager()
+  True
+
+The view also immediately registers its special event handler.  Like
+mentioned earlier this will dispatch to (obj, view, event) handlers,
+including the one we defined above.  So let's send that object
+modified event again.  We expect our site view event handler will be
+invoked with the original object, view and event:
+
+  >>> notify(ObjectModifiedEvent(obj))
+  Special event handler was invoked, dispatch is working.
+  Object is the original one: True
+  View is the original one: True
+  Event is the original one: False
+
+Below a site
+------------
+
+Let's say SiteView is operating below a persistent site, e.g. the root
+folder or a CMF site:
+
+  >>> from zope.app.folder import Folder
+  >>> from zope.app.component.interfaces import ISite
+  >>> from zope.interface import alsoProvides
+  >>> from zope.component.globalregistry import base
+  >>> from zope.component.persistentregistry import PersistentComponents
+
+  >>> site = Folder()
+  >>> components = PersistentComponents()
+  >>> components.__bases__ = (base,)
+  >>> site.setSiteManager(components)
+  >>> alsoProvides(site, ISite)
+
+  >>> setSite(site)
+
+Let's also register a site view event subscriber *globally* and one
+*locally*
+
+  >>> @component.adapter(ISite, SiteView, ObjectModifiedEvent)
+  ... def catchSiteEventGlobally(event_obj, event_view, event_event):
+  ...     print "Global event handler was invoked, dispatch is working."
+  ... 
+  >>> component.provideHandler(catchSiteEventGlobally)
+
+  >>> @component.adapter(ISite, SiteView, ObjectModifiedEvent)
+  ... def catchSiteEventLocally(event_obj, event_view, event_event):
+  ...     print "Local event handler was invoked, dispatch is working."
+  ... 
+  >>> components.registerHandler(catchSiteEventLocally)
+
+Let's now verify the SiteView still works and dispatches component
+lookup accordingly.
+
+  >>> view = SiteView(site, request)
+  >>> setSite(view)
+
+  >>> notify(ObjectModifiedEvent(site))
+  Global event handler was invoked, dispatch is working.
+  Local event handler was invoked, dispatch is working.

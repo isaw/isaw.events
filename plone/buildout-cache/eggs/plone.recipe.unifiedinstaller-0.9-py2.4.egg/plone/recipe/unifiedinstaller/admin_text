@@ -1,0 +1,8 @@
+Use the account information below to log into the Zope Management Interface
+The account has full 'Manager' privileges.
+ 
+  Username: %(user)s
+  Password: %(password)s
+
+This account is created when the object database is initialized. If you
+change the password later, you'll need to use the new password.

@@ -1,0 +1,431 @@
+<configure
+     xmlns="http://namespaces.zope.org/zope"
+     xmlns:browser="http://namespaces.zope.org/browser"
+     xmlns:kss="http://namespaces.zope.org/kss"
+     xmlns:zcml="http://namespaces.zope.org/zcml"
+     >
+    
+    <!-- Include demo setup conditionally -->
+    <include zcml:condition="installed kss.demo" package=".demo" />
+
+     <!-- example plugin registration
+     
+      <kss:eventtype
+          name="myCustomEventType"
+          jsfile="browser/my_plugins.js"
+          />
+  
+      <kss:action
+          name="myCustomAction"
+          jsfile="browser/my_plugins.js"
+          command_factory="selector/global"
+          params_mandatory="param1 param2 ... paramN"
+          params_optional=""
+          />
+  
+      <kss:selectortype
+          name="myCustomSelectorType"
+          jsfile="browser/my_plugins.js"
+          />
+
+      <kss:commandset
+          name="core"
+          provides=".interfaces.IKSSCoreCommands"
+          />
+
+     -->
+
+     <!-- register core plugins 
+          jsfile is omitted since these are defined in the core
+          and the plugin.js file is included statically in kukit.
+     -->
+          
+     <!-- Event types -->
+
+    <kss:eventtype
+        name="blur"
+        />
+    <kss:eventtype
+        name="focus"
+        />
+    <kss:eventtype
+        name="resize"
+        />
+    <kss:eventtype
+        name="click"
+        />
+    <kss:eventtype
+        name="dblclick"
+        />
+    <kss:eventtype
+        name="mousedown"
+        />
+    <kss:eventtype
+        name="mouseup"
+        />
+    <kss:eventtype
+        name="mousemove"
+        />
+    <kss:eventtype
+        name="mouseover"
+        />
+    <kss:eventtype
+        name="mouseout"
+        />
+    <kss:eventtype
+        name="change"
+        />
+    <kss:eventtype
+        name="reset"
+        />
+    <kss:eventtype
+        name="select"
+        />
+    <kss:eventtype
+        name="submit"
+        />
+    <kss:eventtype
+        name="keydown"
+        />
+    <kss:eventtype
+        name="keypress"
+        />
+    <kss:eventtype
+        name="keyup"
+        />
+
+    <kss:eventtype
+        name="timeout"
+        />
+
+    <kss:eventtype
+        name="load"
+        />
+        
+    <kss:eventtype
+        name="iload"
+        />
+
+    <kss:eventtype
+        name="spinneron"
+        />
+
+    <kss:eventtype
+        name="spinneroff"
+        />
+
+    <!-- This does not work yet. -->
+
+    <!--kss:eventtype
+        name="unload"
+        /-->
+
+    <!-- the special error action -->
+
+    <kss:action
+        name="error"
+        command_factory="global"
+        params_optional="message"
+        />
+       
+     <!-- Client actions & commands -->
+	
+    <kss:action
+        name="logDebug"
+        command_factory="global"
+        params_mandatory="message"
+        />
+
+    <kss:action
+        name="log"
+        command_factory="global"
+        params_mandatory="message"
+        />
+
+    <kss:action
+        name="alert"
+        command_factory="global"
+        params_mandatory="message"
+        />
+
+    <kss:action
+        name="replaceInnerHTML"
+        command_factory="selector"
+        params_mandatory="html"
+        />
+
+    <kss:action
+        name="replaceHTML"
+        command_factory="selector"
+        params_mandatory="html"
+        />
+
+    <kss:action
+        name="appendHTML"
+        command_factory="selector"
+        params_mandatory="html"
+        />
+
+    <kss:action
+        name="insertHTMLBefore"
+        command_factory="selector"
+        params_mandatory="html"
+        />
+
+    <kss:action
+        name="insertHTMLAfter"
+        command_factory="selector"
+        params_mandatory="html"
+        />
+
+    <kss:action
+        name="insertHTMLAsFirstChild"
+        command_factory="selector"
+        params_mandatory="html"
+        />
+
+    <kss:action
+        name="insertHTMLAsLastChild"
+        command_factory="selector"
+        params_mandatory="html"
+        />
+
+    <kss:action
+        name="deleteNodeAfter"
+        command_factory="selector"
+        />
+
+    <kss:action
+        name="deleteNodeBefore"
+        command_factory="selector"
+        />
+
+    <kss:action
+        name="deleteNode"
+        command_factory="selector"
+        />
+
+    <kss:action
+        name="clearChildNodes"
+        command_factory="selector"
+        />
+
+    <kss:action
+        name="moveNodeAfter"
+        command_factory="selector"
+        params_mandatory="html_id"
+        />
+
+    <kss:action
+        name="moveNodeBefore"
+        command_factory="selector"
+        params_mandatory="html_id"
+        />
+
+    <kss:action
+        name="copyChildNodesFrom"
+        command_factory="selector"
+        params_mandatory="html_id"
+        />
+
+    <kss:action
+        name="copyChildNodesTo"
+        command_factory="selector"
+        params_mandatory="html_id"
+        />
+
+    <kss:action
+        name="setAttribute"
+        command_factory="selector"
+        params_mandatory="name value"
+        />
+
+    <kss:action
+        name="setKssAttribute"
+        command_factory="selector"
+        params_mandatory="name value"
+        />
+
+    <kss:action
+        name="setStyle"
+        command_factory="selector"
+        params_mandatory="name value"
+        />
+
+    <kss:action
+        name="toggleClass"
+        command_factory="selector"
+        params_mandatory="value"
+        />
+
+    <kss:action
+        name="addClass"
+        command_factory="selector"
+        params_mandatory="value"
+        />
+
+    <kss:action
+        name="removeClass"
+        command_factory="selector"
+        params_mandatory="value"
+        />
+
+    <kss:action
+        name="focus"
+        command_factory="selector"
+        />
+
+    <kss:action
+        name="blur"
+        command_factory="selector"
+        />
+
+    <kss:action
+        name="setStateVar"
+        command_factory="global"
+        params_mandatory="varname value"
+        />
+
+    <kss:action
+        name="continueEvent"
+        command_factory="global"
+        params_mandatory="name"
+        params_optional="allnodes"
+        />
+
+    <kss:action
+        name="executeCommand"
+        />
+
+
+    <!-- Old command names (XXX compatibility, to be deprecated) -->
+
+    <kss:action
+        name="setHtmlAsChild"
+        command_factory="selector"
+        params_mandatory="html"
+        deprecated = "use setInnerHTML instead"
+        />
+          
+    <kss:action
+        name="addAfter"
+        command_factory="selector"
+        params_mandatory="html"
+        deprecated = "use insertHTMLAfter instead"
+        />
+          
+    <kss:action
+        name="removeNextSibling"
+        command_factory="selector"
+        deprecated = "use deleteNodeAfter instead"
+        />
+          
+    <kss:action
+        name="removePreviousSibling"
+        command_factory="selector"
+        deprecated = "use deleteNodeBefore instead"
+        />
+          
+    <kss:action
+        name="removeNode"
+        command_factory="selector"
+        deprecated = "use deleteNode instead"
+        />
+          
+    <kss:action
+        name="clearChildren"
+        command_factory="selector"
+        deprecated = "use clearChildNodes instead"
+        />
+          
+    <kss:action
+        name="copyChildrenFrom"
+        command_factory="selector"
+        params_mandatory="html_id"
+        deprecated = "use copyChildNodesFrom instead"
+        />
+          
+     <kss:action
+        name="copyChildrenTo"
+        command_factory="selector"
+        params_mandatory="html_id"
+        deprecated = "use copyChildNodesTo instead"
+        />
+
+     <kss:action
+        name="setStatevar"
+        command_factory="global"
+        params_mandatory="varname value"
+        deprecated = "use setInnerHTML instead"
+        />
+
+     <!-- Selector types -->
+
+    <kss:selectortype
+        name="css"
+        />
+
+    <kss:selectortype
+        name="htmlid"
+        />
+
+    <kss:selectortype
+        name="samenode"
+        />
+
+    <kss:selectortype
+        name="parentnode"
+        />
+
+     <!-- Parameter producers -->
+
+     <kss:paramprovider
+        name="formVar"
+        />
+
+     <kss:paramprovider
+        name="currentFormVar"
+        />
+
+     <kss:paramprovider
+        name="currentFormVarFromKssAttr"
+        />
+
+     <kss:paramprovider
+        name="form"
+        />
+
+     <kss:paramprovider
+        name="currentForm"
+        />
+
+     <kss:paramprovider
+        name="nodeAttr"
+        />
+
+     <kss:paramprovider
+        name="kssAttr"
+        />
+
+     <kss:paramprovider
+        name="nodeContent"
+        />
+
+     <kss:paramprovider
+        name="stateVar"
+        />
+
+     <kss:paramprovider
+        name="pass"
+        />
+
+    <!-- Command sets -->
+    
+    <kss:commandset
+        name="core"
+        for="kss.core.interfaces.IKSSView"
+        provides=".interfaces.IKSSCoreCommands"
+        class=".commands.KSSCoreCommands"
+        />
+
+</configure>

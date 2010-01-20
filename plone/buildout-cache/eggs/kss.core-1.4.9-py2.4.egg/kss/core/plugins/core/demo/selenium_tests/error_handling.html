@@ -1,0 +1,193 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>error_handling</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">error_handling</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/demo/error_handling.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>logger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>no_error_handler_no_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>logger</td>
+	<td>Error handler activated</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>logger</td>
+	<td>Error handler activated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>no_error_handler_empty_response</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>logger</td>
+	<td>Error handler activated</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>logger</td>
+	<td>Error handler activated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>no_error_handler_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>logger</td>
+	<td>Error handler activated</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>logger</td>
+	<td>Error handler activated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>no_error_handler_explicit_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>logger</td>
+	<td>Error handler activated.</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>logger</td>
+	<td>Error handler activated.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>with_error_handler_no_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>logger</td>
+	<td>Error handler activated</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>logger</td>
+	<td>Error handler activated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#log-reset</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>with_error_handler_empty_response</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>logger</td>
+	<td>Error handler activated</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>logger</td>
+	<td>Error handler activated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#log-reset</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>with_error_handler_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>logger</td>
+	<td>Error handler activated.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>logger</td>
+	<td>Error handler activated.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#log-reset</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>with_error_handler_explicit_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>logger</td>
+	<td>Error handler activated.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>logger</td>
+	<td>Error handler activated.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#log-reset</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>with_timeout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>logger</td>
+	<td>Timeout: error handler activated.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>logger</td>
+	<td>Timeout: error handler activated.</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>update-status</td>
+	<td>Test timeout</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>update-status</td>
+	<td>Test timeout</td>
+</tr>
+</tbody></table>
+</body>
+</html>

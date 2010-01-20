@@ -1,0 +1,63 @@
+<html tal:define="viewname string:binderids">
+  <head>
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  </head>
+  <body>
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+    <!-- START of demo content -->
+
+    <h2>Binder ids</h2>
+
+    <p>We bind the events on these two buttons with different binder ids.
+    Events bound to different binders will not merge. 
+    (Note that this is not the typical usage
+    if event ids, only a simple check that it really works.
+    )If you click the buttons, you must
+    receive logs per each event bound.
+    </p>
+
+    <p>Two loggers are used, because the order in which the events trigger
+    is undefined and browser dependant.
+    </p>
+
+    <hr/>
+
+    <input type="submit" id="button1" class="buttons"
+      value="button1">
+
+    <input type="submit" id="button2" class="buttons bindable_by_parm kssattr-binderid-parm1"
+      value="button2">
+
+    <input type="submit" id="button3" class="buttons bindable_by_parm kssattr-binderid-parm2"
+      value="button3">
+
+    <hr/>
+ 
+    <br />
+
+    <p metal:use-macro="context/@@body_macros/logger">logger</p>
+    
+    <div class="log">
+      <h3>Log 2</h3>
+      <p id="log-reset2"><a class="clickable">Reset</a></p>
+      <div id="logger2"></div>
+    </div>
+
+    <p>First we bind an event with id "manual" to each button. 
+    We also bind event with id "manual2" to the first button. Then
+    we bind events that acquire their id from kssattr to the second and
+    third buttons. This way each button will have 2 click events
+    bound, in the following way:
+    </p>
+
+    <table><thead>
+      <td>Button</td><td>Bound event ids</td>
+    </thead><tbody>
+      <tr><td>button1</td><td>click(manual), click(manual2)</td></tr>
+      <tr><td>button1</td><td>click(manual), click(parm1))</td></tr>
+      <tr><td>button1</td><td>click(manual), click(parm2))</td></tr>
+    </tbody></table>
+
+    <!-- END of demo content -->
+  </body>
+</html>

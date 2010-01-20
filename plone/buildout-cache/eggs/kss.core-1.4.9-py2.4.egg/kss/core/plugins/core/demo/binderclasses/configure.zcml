@@ -1,0 +1,49 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:kss="http://namespaces.zope.org/kss"
+		   i18n_domain="kss"
+		   >
+
+  <!--
+    Set up the demos
+  -->
+
+  <!-- Set up the demo utility, needed for registration -->
+  <utility
+    name="core_demo_for_binderclasses"
+    factory=".zopeconfig.KSSDemos"
+    provides="kss.demo.interfaces.IKSSDemoResource"
+    permission="zope.Public"
+    />
+
+  <!-- Set up resources needed for the demo -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="kss_binder_classes.pt"
+      name="kss_binder_classes.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="kss_binder_classes.kss"
+    name="kss_binder_classes.kss"
+    />
+
+    <!-- set up kss --> 
+    <kss:eventtype
+        name="testbinderclass-alphaone"
+        jsfile="kss_binder_classes.js"
+        />
+
+    <kss:eventtype
+        name="testbinderclass-betaone"
+        jsfile="kss_binder_classes.js"
+        />
+
+    <kss:eventtype
+        name="testbinderclass-betatwo"
+        jsfile="kss_binder_classes.js"
+        />
+
+</configure>
+

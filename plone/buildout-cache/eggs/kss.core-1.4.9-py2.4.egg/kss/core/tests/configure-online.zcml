@@ -1,0 +1,37 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+ 
+    <!-- testing support. Allows testing from a browser,
+         by loading kukittestsuite -->
+
+    <browser:page
+        for="*"
+        class=".ecmaview.EcmaView"
+        name="kukittestsuite"
+        permission="zope.Public"
+        />
+
+    <browser:resource
+        file="../kukit/3rd_party/johnnydebris.net/minisax.js/minisax.js"
+        name="minisax.js"
+        />
+  
+    <browser:resource
+        file="../kukit/3rd_party/johnnydebris.net/jsbase/string.js"
+        name="jsbase-string.js"
+        />
+  
+    <browser:resource
+        file="../kukit/3rd_party/johnnydebris.net/jsbase/array.js"
+        name="jsbase-array.js"
+        />
+  
+    <browser:resource
+        file="../kukit/3rd_party/johnnydebris.net/dommer/dommer.js"
+        name="dommer-dommer.js"
+        />
+  
+    
+
+</configure>

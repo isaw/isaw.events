@@ -1,0 +1,37 @@
+input#field:keyup {
+    evt-keyup-preventdefault:   false;
+    action-server: typewriter_keyup;
+    typewriter_keyup-keycode: pass(keycode);
+}
+
+input#field:keydown {
+    evt-keydown-preventdefault:   false;
+    action-server: typewriter_keydown;
+    typewriter_keydown-keycode: pass(keycode);
+}
+
+div.key:mousedown {
+    action-server:                      typewriter_mousedown;
+    typewriter_mousedown-content:       nodeContent();
+}
+
+div.key:mouseup {
+    action-server:                      typewriter_mouseup;
+    typewriter_mouseup-content:         nodeContent();
+    typewriter_mouseup-fieldValue:      currentFormVar(field);
+}
+
+body:load {
+    action-client: executeCommand;
+    executeCommand-name: focus;
+    executeCommand-selector: "input#field";
+}
+
+input.lesson:click {
+    action-server: setCurrentLesson;
+    setCurrentLesson-title: nodeAttr(value);
+    action-client: executeCommand;
+    executeCommand-name: focus;
+    executeCommand-selector: "input#field";
+}
+

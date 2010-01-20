@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>contentmenu_change_tab</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">contentmenu_change_tab</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/ksstestportal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>contentActionMenus</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//li[@id='contentview-edit']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td></td>
+	<td>8000</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>contentActionMenus</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

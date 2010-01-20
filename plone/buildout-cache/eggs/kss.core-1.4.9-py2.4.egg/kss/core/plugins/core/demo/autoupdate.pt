@@ -1,0 +1,30 @@
+<html tal:define="viewname string:autoupdate">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources">
+      <metal:custom_resources fill-slot="custom_resources"> 
+        <style type="text/css">
+            #update-area {
+                border: 1px solid black;
+                width: 10em;
+                height: 10em;
+            }
+        </style>
+      </metal:custom_resources>
+    </metal:header>
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>Three autoupdate</h2>
+
+<h3>Demo</h3>
+    <div id="update-wrapper">
+    </div>
+    <input type="button" id="start-update" />
+  </body>
+</html>

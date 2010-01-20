@@ -1,0 +1,4 @@
+setuptools
+Products.GenericSetup
+plone.memoize
+plone.openid

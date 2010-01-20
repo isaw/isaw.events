@@ -1,0 +1,148 @@
+Metadata-Version: 1.0
+Name: plone.app.workflow
+Version: 1.2
+Summary: workflow and security settings for Plone
+Home-page: http://svn.plone.org/svn/plone.app.workflow
+Author: Martin Aspeli
+Author-email: plone-developers@lists.sourceforge.net
+License: GPL
+Description: Introduction
+        ============
+        
+        plone.app.workflow contains workflow- and security-related features for Plone,
+        including the sharing view.
+        
+        
+        Changelog
+        =========
+        
+        1.2 - 2009-05-10
+        ----------------
+        
+        - Use our own PloneMessageFactory.
+        [hannosch]
+        
+        - Fixed deprecation warnings for use of Globals.
+        [hannosch]
+        
+        - Specified package dependencies.
+        [hannosch]
+        
+        - Display the userid in addition to the fullname if they are different.
+        Fixes http://dev.plone.org/plone/ticket/8251.
+        [csenger]
+        
+        - Adjusted a test to work with Zope 2.12.
+        [hannosch]
+        
+        - Use safe_unicode() instead of str() to fix #7576. Fixes
+        http://dev.plone.org/plone/ticket/8371.
+        [csenger]
+        
+        1.1.5 - August 18th, 2008
+        -------------------------
+        
+        - Correct UnicodeDecodeError in sharing-view when users or groups with
+        non-ascii characters are searched. All parameters fetched from the
+        request are strings, but _(u'Logged-in users') isn't. A string with
+        non-ascii characters and a unicode-string can't be joined. Fixes
+        http://dev.plone.org/plone/ticket/7576
+        [csenger]
+        
+        1.1.4 - July 24, 2008
+        ---------------------
+        
+        - Keep the icons for inherited and global roles when updating the sharing
+        page after a search. This fixes http://dev.plone.org/plone/ticket/8313 .
+        [wichert]
+        
+        - Sort the principals in the sharing page. Before they could reorder
+        randomly when saving changes.
+        [wichert]
+        
+        - Fix a logic error in sharing page view: role changes would appear to be
+        lost when saving a view, while the were really applied. This fixes
+        http://dev.plone.org/plone/ticket/8295 .
+        [wichert]
+        
+        
+        1.1.3 - July 7th, 2008
+        ----------------------
+        
+        - Modify the inline (kss) search option in the sharing page to only search
+        and not update the roles and search. This behaviour was unintuitive and
+        possible very very slow.
+        [wichert]
+        
+        - Update the sharing page to do nothing if the new set of roles is the
+        same as the current set of roles.
+        [wichert]
+        
+        - Update sharing code to only reindex once instead of twice.
+        [wichert]
+        
+        - Only call reindexObjectSecurity from the sharing tab's update_inherit method
+        if the setting actually changed.  This avoids an unnecessary, potentially
+        expensive catalog reindex in many cases.
+        [davisagli]
+        
+        - Update the search-result merging code based on the code from PlonePAS 3.6.
+        [wichert]
+        
+        - Handle principals which can not be retrieved. This can occur in LDAP
+        environments.
+        [wichert]
+        
+        - Mark the security names as public so they can be imported everywhere
+        and register them with Zope on startup so you can manage them via the
+        ZMI or a GenericSetup profile.
+        [wichert]
+        
+        
+        1.1.0 - April 21, 2008
+        ----------------------
+        
+        - Protect the "sharing" form against CSRF attacks.
+        [witsch]
+        
+        
+        1.0.7 - March 9, 2008
+        ---------------------
+        
+        - Created fine-grained permissions for delegating sharing page roles in
+        order to avoid people with a delegated permission escalating their own
+        privileges. This can now be controlled at a high level by the
+        "Sharing page: Delegate roles" permission, which controls access to the
+        Sharing page machinery, and at an individual roles basis, with
+        permissions like "Sharing page: Delegate Editor role".
+        http://dev.plone.org/plone/ticket/7652
+        
+        - Stopped people from locking themselves out by disabling the ability
+        to edit their own roles.
+        
+        - Added friendly "Changes saved" message.
+        http://dev.plone.org/plone/ticket/6966
+        
+        - user_search_results() now searches in login name as well as fullname.
+        Fixes http://dev.plone.org/plone/ticket/6853
+        [erikrose]
+        
+        - Factored up the duplicated logic from user_search_results() and
+        group_search_results() to form _principal_search_results().
+        [erikrose]
+        
+        
+        0.1
+        ---
+        
+        - Added missing closing head tag to sharing.pt. This closes
+        http://dev.plone.org/plone/ticket/7161.
+        [hannosch]
+        
+        
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

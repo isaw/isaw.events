@@ -1,0 +1,36 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:kss="http://namespaces.zope.org/kss"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+		   i18n_domain="kss"
+		   >
+
+  <!--
+    Set up the demos
+  -->
+
+  <!-- Set up the demo utility, needed for registration -->
+  <configure zcml:condition="have kss_demo_version_1_2">
+      <utility
+            name="core_demo_for_binderids"
+            factory=".zopeconfig.KSSDemos"
+            provides="kss.demo.interfaces.IKSSDemoResource"
+            permission="zope.Public"
+            />
+  </configure>
+
+  <!-- Set up resources needed for the demo -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="binderids.pt"
+      name="binderids.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="binderids.kss"
+    name="binderids.kss"
+    />
+
+</configure>
+

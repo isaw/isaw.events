@@ -1,0 +1,18 @@
+html:keydown {
+    action-server: changeDirection;
+    changeDirection-keycode: pass(keycode);
+}
+
+body:load {
+    action-server: initialize;
+}
+
+div.board:timeout {
+    evt-timeout-delay:  200;
+    evt-timeout-repeat: True;
+    action-server:  moveSnake;
+}
+
+div.lose:click {
+    action-server: initialize;
+}

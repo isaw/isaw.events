@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="plone">
+
+  <genericsetup:registerProfile
+     name="CMFPlacefulWorkflow"
+     title="Workflow Policy Support (CMFPlacefulWorkflow)"
+     directory="profiles/default"
+     description="Add in Plone the capability to change workflow chains for types in every object."
+     provides="Products.GenericSetup.interfaces.EXTENSION"
+     />
+
+</configure>

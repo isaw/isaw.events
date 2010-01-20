@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+      <head>
+          <script type="text/javascript" metal:fill-slot="javascript_head_slot">
+          </script>
+    <metal:css fill-slot="css_slot">
+      <style type="text/css" media="all">
+        input.openidUrl {
+          background: White url(openid-icon.gif) 2px 3px no-repeat;
+          padding-left: 18px;
+        }
+      </style>
+    </metal:css>
+          <metal:block fill-slot="top_slot"
+                       tal:define="dummy python:request.set('disable_border',1)" />
+          <metal:block fill-slot="column_one_slot" />
+          <metal:block fill-slot="column_two_slot" />
+      </head>
+<body>
+
+  <div metal:fill-slot="main"
+    tal:define="auth nocall:here/acl_users/credentials_cookie_auth|here/cookie_authentication|nothing;
+               came_from request/came_from|request/HTTP_REFERER|nothing;
+               came_from python:test(utool.isURLInPortal(came_from), came_from, None);
+               errors options/state/getErrors;
+               ac_identity string:__ac_identity_url;
+               ac_name auth/name_cookie|string:__ac_name;
+               ac_password auth/pw_cookie|string:__ac_password;
+               ac_persist auth/persist_cookie|nothing;
+               identity_url python:request.get(ac_identity, '');
+               login_name python:request.get('login_name', request.get(ac_name, ''));
+               pas_info context/@@pas_info">
+
+<tal:reallyloggedout condition="isAnon">
+  <h1 class="documentFirstHeading"
+      i18n:translate="heading_signed_out">You are now logged out</h1>
+
+    <p class="documentDescription" 
+       i18n:translate="description_loginagain">You can log in again below.</p>
+
+<metal:login use-macro="here/login_form/macros/login" />
+
+</tal:reallyloggedout>
+
+<tal:notloggedoutafterall tal:condition="not: isAnon">
+    <h1 class="documentFirstHeading"
+        i18n:translate="heading_quit_to_log_out">Quit your web browser to log out</h1>
+    
+    <p i18n:translate="description_quit_to_log_out">
+    Because you are logged in via HTTP authentication 
+    (i.e. the Zope Management Interface), the only
+    way to log out is to quit your web browser.
+    </p>
+</tal:notloggedoutafterall>
+
+</div>
+</body>
+</html>

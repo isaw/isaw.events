@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>autopupdate</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">autopupdate</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/demo/autoupdate.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>update-wrapper</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>start-update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>update-area</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>update-area</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>update-area</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>update-area</td>
+	<td>updateText</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>update-area</td>
+	<td>${updateText}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotText</td>
+	<td>update-area</td>
+	<td>${updateText}</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

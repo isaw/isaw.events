@@ -1,0 +1,290 @@
+Metadata-Version: 1.0
+Name: Products.PloneTestCase
+Version: 0.9.9
+Summary: Integration testing framework for Plone.
+Home-page: http://plone.org/products/plonetestcase
+Author: Stefan H. Holek
+Author-email: stefan@epy.co.at
+License: GPL
+Description: =============
+        PloneTestCase
+        =============
+        ---------------------------------------
+        Integration testing framework for Plone
+        ---------------------------------------
+        
+        Introduction
+        ============
+        
+        PloneTestCase is a thin layer on top of the ZopeTestCase package. It has
+        been developed to simplify testing of Plone-based applications and products.
+        
+        The PloneTestCase package provides
+        ----------------------------------
+        
+        - The function ``installProduct`` to install a Zope product into the
+        test environment.
+        
+        - The function ``installPackage`` to install a Python package
+        registered via five:registerPackage into the test environment.
+        Requires Zope 2.10.4 or higher.
+        
+        - The function ``setupPloneSite`` to create a Plone portal in the test db.
+        
+        Note: ``setupPloneSite`` accepts an optional ``products`` argument, which
+        allows you to specify a list of products that will be added to the
+        portal using the quickinstaller tool. Since 0.8.2 you can also pass
+        an ``extension_profiles`` argument to import GS extension profiles.
+        
+        - The class ``PloneTestCase`` of which to derive your test cases.
+        
+        - The class ``FunctionalTestCase`` of which to derive your test cases
+        for functional unit testing.
+        
+        - The classes ``Sandboxed`` and ``Functional`` to mix-in with your own
+        test cases.
+        
+        - The constants ``portal_name``, ``portal_owner``, ``default_policy``,
+        ``default_products``, ``default_base_profile``, ``default_extension_profiles``,
+        ``default_user``, and ``default_password``.
+        
+        - The constant ``PLONE21`` which evaluates to true for Plone
+        versions >= 2.1.
+        
+        - The constant ``PLONE25`` which evaluates to true for Plone
+        versions >= 2.5.
+        
+        - The constant ``PLONE30`` which evaluates to true for Plone
+        versions >= 3.0.
+        
+        - The constant ``PLONE31`` which evaluates to true for Plone
+        versions >= 3.1.
+        
+        - The constant ``PLONE32`` which evaluates to true for Plone
+        versions >= 3.2.
+        
+        - The constant ``PLONE33`` which evaluates to true for Plone
+        versions >= 3.3.
+        
+        - The constant ``PLONE40`` which evaluates to true for Plone
+        versions >= 4.0.
+        
+        - The constant ``PLONE50`` which evaluates to true for Plone
+        versions >= 5.0.
+        
+        - The module ``utils`` which contains all utility functions from the
+        ZopeTestCase package.
+        
+        Example PloneTestCase
+        ---------------------
+        ::
+        
+        from Products.PloneTestCase import PloneTestCase
+        
+        PloneTestCase.installProduct('SomeProduct')
+        PloneTestCase.setupPloneSite(products=('SomeProduct',))
+        
+        class TestSomething(PloneTestCase.PloneTestCase):
+        
+        def afterSetup(self):
+        self.folder.invokeFactory('Document', 'doc')
+        
+        def testEditDocument(self):
+        self.folder.doc.edit(text_format='plain', text='data')
+        self.assertEqual(self.folder.doc.EditableBody(), 'data')
+        
+        Example PloneTestCase setup with GenericSetup
+        ---------------------------------------------
+        ::
+        
+        from Products.PloneTestCase import PloneTestCase
+        
+        PloneTestCase.installProduct('SomeProduct')
+        PloneTestCase.setupPloneSite(extension_profiles=('SomeProduct:default',))
+        
+        Please see the docs of the ZopeTestCase package, especially those
+        of the PortalTestCase class.
+        
+        Look at the example tests in this directory to get an idea of how
+        to use the PloneTestCase package. Also see the tests shipping with
+        Plone.
+        
+        Copy ``testSkeleton.py`` to start your own tests.
+        
+        
+        Changelog
+        =========
+        
+        0.9.9 - 2009-11-14
+        ------------------
+        
+        - Folder created with _createObjectByType was being reported as having
+        portal_type 'ATFolder' in portal_catalog. Reindexing it flips it to the
+        correct 'Folder'.
+        [esteele]
+        
+        - Reset memoize RAMCaches on tear down.
+        Fixes http://dev.plone.org/plone/ticket/9425
+        [stefan]
+        
+        - Install blob-enabled types from `plone.app.blob` during test setup.
+        [witsch]
+        
+        - Install the TinyMCE product during test runs.
+        [hannosch]
+        
+        - Add the sunburst theme to the default extension profiles for Plone 4.
+        [davisagli]
+        
+        - Specify dependencies in a backwards compatible way.
+        [hannosch]
+        
+        - Changed behavior of `default_extension_profiles`. We always add the default
+        profiles now. You can still override this via passing in an explicit empty
+        `default_extension_profiles` argument to the `setupPloneSite` function.
+        [hannosch]
+        
+        - Disentangle the product installation code for PLONE50 and before. The base
+        amount of packages is quite different.
+        [hannosch]
+        
+        - Moved the Plone version determination code into its own module.
+        [hannosch]
+        
+        - Adjusted the PLONE40 constant to be PLONE50 and check for Plone trunk.
+        [hannosch]
+        
+        - In Plone trunk manually install the ATContentTypes default profile.
+        [hannosch]
+        
+        0.9.8 - 2009-04-16
+        ------------------
+        
+        - Protect against missing portal_quickinstaller tool.
+        [hannosch]
+        
+        - Fixed deprecation warnings for use of Globals.
+        [hannosch]
+        
+        - Adjusted _createHomeFolder to create the 'Members' folder if it isn't
+        created by the site creation code.
+        [hannosch]
+        
+        - Adjusted PLONE40 check after the migrations have been moved out of the
+        CMFPlone package.
+        [hannosch]
+        
+        - Added PLONE33 constant.
+        [stefan]
+        
+        0.9.8b4 - 2008-10-26
+        --------------------
+        
+        - Added PLONE32 constant.
+        [stefan]
+        
+        0.9.8b3 - 2008-10-16
+        --------------------
+        
+        - Bugfix: The default member-area was created before the portal
+        was fully configured.
+        [stefan]
+        
+        - Bugfix: Reindex security of member-area after taking ownership.
+        [stefan]
+        
+        0.9.8b2 - 2008-10-09
+        --------------------
+        
+        - Egg was broken due to use of svn export. Who'd have thunk
+        setuptools makes a difference?
+        [stefan]
+        
+        0.9.8b1 - 2008-10-05
+        --------------------
+        
+        - Install all Plone products quietly.
+        - Eggified Products.PloneTestCase.
+        
+        0.9.7
+        -----
+        
+        - Added PLONE31 and PLONE40 constants.
+        - The PloneSite layer can now be set up more than once. Thanks to
+        Andreas Zeidler and Balazs Ree.
+        
+        0.9.6
+        -----
+        
+        - Deal with new skin setup in CMF 2.1 and up.
+        - Provide hasPackage and installPackage if ZopeTestCase supports it.
+        - Changed license to GPL, cleaning up my act.
+        - Use new stateless GenericSetup API in Plone 3.0 and up.
+        
+        0.9.4
+        -----
+        
+        - Minor test fixes to cater for changes in PlonePAS and CMF.
+        
+        0.9.3
+        -----
+        
+        - In 0.9.2 we accidentally lost the ability to override getPortal. Fixed.
+        - Spell 'placefulSetup' like 'placefulSetUp' for consistency with
+        zope.app.testing.
+        
+        0.9.2
+        -----
+        
+        - Improved support for the local component registry. We now register it
+        right after it has been created in Plone >= 3.0, as it is needed during
+        site setup. We also set the portal as a site whenever it is accessed
+        to get CMF skin acquisition to work.
+        
+        0.9.0
+        -----
+        
+        - Prepared for switching ZopeTestCase to Zope3 interfaces.
+        - Load etc/site.zcml lazily instead of using the wrapper.
+        - Import extension profiles one by one to gain better control.
+        - Added a PloneTestCase.addProfile() method that allows to import
+        extension profiles into the site. This is an alternative to
+        passing the 'extension_profiles' argument to setupPloneSite().
+        - Create Plone site lazily using layer.PloneSite.
+        - Renamed utils.py to five.py.
+        
+        0.8.6
+        -----
+        
+        - Starting with Plone 3.0 the portal is a component registry as well. We
+        perform the necessary registration automatically now.
+        - Made sure layer cleanup resets Five.zcml to "not initialized".
+        
+        0.8.4
+        -----
+        
+        - Allow to pass a base profile to the setupPloneSite function.
+        - Added PLONE30 constant.
+        - Made application of StringIO monkey patch conditional, as it is part of
+        CMFPlone/patches starting with Plone 3.0
+        - Added a ZCMLLayer to support recent Zopes and zope.testing.testrunner.
+        Thanks to Whit Morris.
+        
+        0.8.2
+        -----
+        
+        - Added support for passing a list of GenericSetup extension profiles
+        to the setupPloneSite function.
+        
+        0.8.0
+        -----
+        
+        - Added support for Plone 2.5.
+        
+        
+Keywords: plone testing
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

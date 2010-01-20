@@ -1,0 +1,5 @@
+#!/usr/local/www/repos/Events/plone/Python-2.4/bin/python
+
+from idlelib.PyShell import main
+if __name__ == '__main__':
+    main()

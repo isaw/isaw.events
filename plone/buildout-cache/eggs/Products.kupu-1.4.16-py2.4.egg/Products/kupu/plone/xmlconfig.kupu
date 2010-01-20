@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<kupu:feature
+    name="xmlconfig"
+    implementation="plone"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:kupu="http://kupu.oscom.org/namespaces/dist"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="kupu"
+    >
+  <kupu:id>$Id: xmlconfig.kupu 66540 2009-07-23 14:37:24Z dannyb $</kupu:id>
+
+  <kupu:part name="xmlconfig">
+    <div id="kupu-editor-config-escaped" style="display: none;"
+	     tal:attributes="id string:kupu-editor-${fname}-config-escaped"
+         tal:define="field field|nothing;
+	    kupu_base_override kupu_base_override|nothing;
+	    config python:context.kupu_xmlconfig(field=field, kupu_base_override=kupu_base_override);
+	    pss modules/Products/PythonScripts/standard"
+         tal:content="python:pss.url_quote(config)"></div>
+    <div id="kupu-editor-config"  tal:attributes="id string:kupu-editor-${fname}-config" style="display: none;"> </div>
+  </kupu:part>
+
+</kupu:feature>

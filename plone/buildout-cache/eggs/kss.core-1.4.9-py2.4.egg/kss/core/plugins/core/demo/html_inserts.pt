@@ -1,0 +1,68 @@
+<html tal:define="viewname string:html_inserts">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources">
+      <metal:custom_resources fill-slot="custom_resources"> 
+        <style type="text/css">
+          div#wrapper {
+                    border: 1px solid black;
+                }
+          h1 {
+                    border: 1px solid blue;
+                }
+          h1#core {
+                    color: blue;
+                    border: 1px solid blue;
+                }
+          .type1 {
+                    background-color: #FFFF8F;
+                }
+          .type2 {
+                    background-color: #FF8FFF;
+                }
+        </style>
+      </metal:custom_resources>
+    </metal:header>
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+    
+    <h2>HTML insertions (a.k.a. Change tags II.)</h2>
+    <form>
+     Text to insert: <input type="text" id="text-to-insert" name="text-to-insert" />
+    <ul>
+    <li>
+    <button class="type1" id="insertBefore">
+	Insert before the original tag: <b>insertHTMLBefore</b>
+    </button>
+    </li>
+    <li>
+    <button class="type1" id="insertAfter">
+	Insert after the original tag: <b>insertHTMLAfter</b>
+    </button>
+    </li>
+    <li>
+    <button class="type2" id="insertAsFirstChild">
+	Insert as first child: <b>insertHTMLAsFirstChild</b>
+    </button>
+    </li>
+    <li>
+    <button class="type2" id="insertAsLastChild">
+	Insert as last child: <b>insertHTMLAsLastChild</b>
+    </button>
+    </li>
+    <li>
+    <button id="insert">
+	Replace it completely: <b>replaceHTML</b>
+    </button>
+    </li>
+    </ul>
+    </form>
+    <h4>The playground:</h4>
+    <div id="frame">KSS for a life.</div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+
+      # -*- Entry points: -*-
+      [wicked.base_registration]
+      basic_plone_registration = wicked.registration:BasePloneWickedRegistration
+      bracketted_plone_registration = wicked.registration:BasePloneMediaWickedRegistration
+      #[wicked.cache_manager]
+      

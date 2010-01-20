@@ -1,0 +1,12 @@
+setuptools
+zope.component
+zope.contentprovider
+zope.interface
+zope.viewlet
+Products.GenericSetup
+
+[test]
+zope.publisher
+zope.testing
+Plone
+Products.PloneTestCase

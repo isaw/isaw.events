@@ -1,0 +1,5 @@
+input#submit:click {
+    evt-click-preventdefault: true;
+    action-server: save;
+    save-text_save: currentFormVar(text_save);
+}

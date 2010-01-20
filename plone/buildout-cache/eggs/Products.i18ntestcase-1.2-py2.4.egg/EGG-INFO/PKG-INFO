@@ -1,0 +1,14 @@
+Metadata-Version: 1.0
+Name: Products.i18ntestcase
+Version: 1.2
+Summary: Products.i18ntestcase is build on top of the ZopeTestCase package. It has been developed to simplify testing of gettext i18n files for Zope products.
+Home-page: http://svn.plone.org/svn/collective/Products.i18ntestcase/trunk
+Author: Hanno Schlichting
+Author-email: plone-developers@lists.sourceforge.net
+License: GPL
+Description: 
+Keywords: Plone i18n gettext testcase
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: Programming Language :: Python

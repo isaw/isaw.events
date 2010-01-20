@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>selenium_test_portlets</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">selenium_test_portlets</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/ksstestportal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>ksstestportal/kssfolder/documentitem</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>css=h1#parent-fieldname-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#archetypes-fieldname-title input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#archetypes-fieldname-title input[value='KssDocument']</td>
+	<td>KssDocumentRename</td>
+</tr>
+<tr>
+	<td>keyPress</td>
+	<td>css=h1#parent-fieldname-title input</td>
+	<td>\13</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[text()="KssDocumentRename"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=//a[text()="KssDocumentRename"]</td>
+	<td>KssDocumentRename</td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>css=h1#parent-fieldname-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#archetypes-fieldname-title input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#archetypes-fieldname-title input[value='KssDocumentRename']</td>
+	<td>KssDocument</td>
+</tr>
+<tr>
+	<td>keyPress</td>
+	<td>css=h1#parent-fieldname-title input</td>
+	<td>\13</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//a[text()="KssDocument"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>xpath=//a[text()="KssDocument"]</td>
+	<td>KssDocument</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

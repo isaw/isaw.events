@@ -1,0 +1,90 @@
+<html tal:define="viewname string:blur">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>Blur</h2>
+    <p>We test the blur action/command : it is used to remove focus from form
+    widgets. </p>
+    <p>The focus is removed from various widgets : <code>input</code>,
+    <code>select</code>, <code>textarea</code>, with both client and server 
+    actions.</p> 
+    <p>(It would also be nice to use something like <code>document.activeElement</code>
+    to test whether the browser is <strong>actually</strong> gaining and losing focus, 
+    but that's difficult to get working cross-browser...)</p>
+    <div id="target">Blur away from <code>none</code>.</div>
+    <form name="main">
+      <h3>
+        Blur <code>input</code>.
+      </h3>
+      <div class="help">
+        Select the <code>input</code>, then press the 'Space' key to remove focus from it.
+      </div>
+      <fieldset>
+        <div>
+          <input type="text" id="input" class="blurrable" name="input" value="input"/>
+          <input type="text" id="remote-input" class="remote-blurrable" name="input" value="input"/>
+        </div>
+      </fieldset>
+      <h3>
+        Blur <code>textarea</code>.
+      </h3>
+      <div class="help">
+        Select the <code>textarea</code>, then press the 'Space' key to remove focus from it.
+      </div>
+      <fieldset>
+        <div>
+          <textarea id="textarea" class="blurrable" name="textarea">textarea</textarea>
+          <textarea id="remote-textarea" class="remote-blurrable" name="textarea">textarea</textarea>
+        </div>
+      </fieldset>
+      <h3>
+        Blur <code>select</code>.
+      </h3>
+      <div class="help">
+        Select the <code>select</code>, then press the 'Space' key to remove focus from it.
+      </div>
+      <fieldset>
+        <div>
+          <select id="select" class="blurrable" name="select">
+            <option>xxx</option>
+          </select>
+          <select id="remote-select" class="remote-blurrable" name="select">
+            <option>xxx</option>
+          </select>
+        </div>
+      </fieldset>
+      <h3>
+        Blur <code>radio</code>.
+      </h3>
+      <div class="help">
+        Select the <code>radio</code>, then press the 'Space' key to remove focus from it.
+      </div>
+      <fieldset>
+        <div>
+          <input type="radio" id="radio" class="blurrable" name="radio">
+          <input type="radio" id="remote-radio" class="remote-blurrable" name="radio">
+        </div>
+      </fieldset>
+      <h3>
+        Blur <code>checkbox</code>.
+      </h3>
+      <div class="help">
+        Select the <code>checkbox</code>, then press the 'Space' key to remove focus from it.
+      </div>
+      <fieldset>
+        <div>
+          <input type="checkbox" id="checkbox" class="blurrable" name="radio">
+          <input type="checkbox" id="remote-checkbox" class="remote-blurrable" name="radio">
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>

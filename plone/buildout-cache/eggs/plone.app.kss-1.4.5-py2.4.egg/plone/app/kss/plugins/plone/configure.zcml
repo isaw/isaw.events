@@ -1,0 +1,91 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+     xmlns:browser="http://namespaces.zope.org/browser"
+     xmlns:kss="http://namespaces.zope.org/kss"
+     >
+     
+    
+    <!-- plugin registration -->    
+
+     <kss:action
+        name="plone-removeLockProtection"
+        command_factory="selector"
+        jsfile="plugin.js"
+        />
+
+     <kss:action
+        name="plone-initLockingProtection"
+        command_factory="selector"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
+        name="plone-initKupu"
+        command_factory="selector"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
+        name="plone-followLink"
+        command_factory="selector"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
+        name="plone-submitCurrentForm"
+        command_factory="selector"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
+        name="plone-initFormTabs"
+        command_factory="selector"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
+        name="plone-formProtectionCheck"
+        command_factory="selector"
+        jsfile="plugin.js"
+        />
+
+    <kss:eventtype
+        name="plone-formProtectionChecked"
+        jsfile="plugin.js"
+        />
+
+    <kss:eventtype
+        name="plone-formProtectionFailed"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
+        name="plone-initFormProtection"
+        command_factory="selector"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
+        name="plone-initShiftDetection"
+        command_factory="global"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
+        name="plone-initCheckBoxSelection"
+        command_factory="global"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
+        name="plone-createCheckBoxSelection"
+        command_factory="selector"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
+        name="plone-initDragAndDrop"
+        command_factory="global"
+        jsfile="plugin.js"
+        />
+
+</configure>

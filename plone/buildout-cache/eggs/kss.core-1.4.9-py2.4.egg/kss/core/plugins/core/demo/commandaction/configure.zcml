@@ -1,0 +1,138 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+		   i18n_domain="kss"
+		   >
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="actions.pt"
+      name="actions.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="actions.kss"
+    name="actions.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".commandaction.ActionsView"
+      attribute="toggleClass"
+      name="toggleClass"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".commandaction.ActionsView"
+      attribute="addClass"
+      name="addClass"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".commandaction.ActionsView"
+      attribute="removeClass"
+      name="removeClass"
+      permission="zope.View"
+      />
+
+  <!-- focus -->
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="focus.pt"
+      name="ca_focus.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="focus.kss"
+    name="focus.kss"
+  />
+  
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".commandaction.ActionsView"
+      attribute="focus"
+      name="focus"
+      permission="zope.View"
+      />
+
+  <!-- blur -->
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="blur.pt"
+      name="ca_blur.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="blur.kss"
+    name="blur.kss"
+  />
+  
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".commandaction.ActionsView"
+      attribute="blur"
+      name="blur"
+      permission="zope.View"
+      />
+
+  <!-- action-cancel -->
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="cancel.pt"
+      name="ca_cancel.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="cancel.kss"
+    name="cancel.kss"
+  />
+  
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".commandaction.ActionsView"
+      attribute="toCancel"
+      name="cancel"
+      permission="zope.View"
+      />
+  <!-- setKssAttribute -->
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="kssattr.pt"
+      name="ca_kssattr.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="kssattr.kss"
+    name="kssattr.kss"
+  />
+  
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".commandaction.ActionsView"
+      attribute="echo"
+      name="echo"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".commandaction.ActionsView"
+      attribute="setKssAttribute"
+      name="setKssAttribute"
+      permission="zope.View"
+      />
+
+</configure>
+

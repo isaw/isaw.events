@@ -1,0 +1,26 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="nuplone">
+
+  <genericsetup:registerProfile
+      name="nuplone"
+      title="NuPlone"
+      directory="profiles/default"
+      description="An alternative theme for Plone 3"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      />
+
+  <!-- The name of the uninstall profile must be alphabetically after the install profile -->
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Uninstall NuPlone"
+      directory="profiles/uninstall"
+      description="Uninstall informtation for NuPlone Product."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      />
+
+
+</configure>

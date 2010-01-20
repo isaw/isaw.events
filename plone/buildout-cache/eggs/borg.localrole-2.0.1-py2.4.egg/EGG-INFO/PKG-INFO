@@ -1,0 +1,58 @@
+Metadata-Version: 1.0
+Name: borg.localrole
+Version: 2.0.1
+Summary: A PAS plugin which can manage local roles via an adapter lookup on the current context
+Home-page: http://pypi.python.org/pypi/borg.localrole
+Author: Borg Collective
+Author-email: borg@plone.org
+License: LGPL
+Description: 
+        
+        This PAS_ plug-in can be used to assign local roles in a particular context,
+        by adapter. It can be installed via the GenericSetup_ profile in this product.
+        
+        .. _PAS: http://www.zope.org/Products/PluggableAuthService
+        .. _GenericSetup: http://www.zope.org/Products/GenericSetup
+        
+        The plug-in should be installed when this doc-test is run. Please see
+        ``workspace.py`` for more comprehensive tests.
+        
+        >>> 'borg_localroles' in self.portal.acl_users.objectIds()
+        True
+        
+        Changelog for borg.localrole
+        
+        (name of developer listed in brackets)
+        
+        2.0.1 Released July 31st, 2008
+        
+        - Support caching of allowed local roles on the request.
+        [witsch]
+        
+        - Renamed the default adapter to "default" so that people don't
+        accidentally override it with an unnamed adapter. Overriding the default
+        should be possible, but is a marginal use case. If it's overridden but
+        not replicated properly, all sorts of problems can result.
+        [optilude]
+        
+        - Added exportimport.zcml which registers TitleOnlyExportImport for
+        WorkspaceLocalRoleManager; this allows local roles plug-in to be
+        imported and exported as part of a GenericSetup profile.
+        [rafrombrc]
+        
+        2.0.0 Released April 20th, 2008
+        
+        - Baseline for Plone 3.1
+        
+        
+Keywords: Plone PAS local roles
+Platform: Any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

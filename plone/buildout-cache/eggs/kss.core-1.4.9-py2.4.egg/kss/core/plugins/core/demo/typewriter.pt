@@ -1,0 +1,65 @@
+<html tal:define="viewname string:typewriter">
+ 
+  <head>
+
+    <title>Typewriter</title>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+    <link rel="stylesheet" type="text/css"
+          tal:attributes="href
+          string:${context/@@absolute_url}/++resource++${viewname}.css"/>
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>Typewriter</h2>
+
+    <tal:block tal:repeat="lesson view/getLessonTitles">
+        <input type="button" class="lesson"
+                tal:attributes="value lesson;
+                        id python:'lesson_%s' % str(view.getLessonTitles().index(lesson));
+                        class python:view.getLessonTitles()[0]==lesson and 'lesson button active' or 'lesson button';" />
+    </tal:block>
+
+    <br />
+    <br />
+    <form id="form">
+
+        <div id="pattern" tal:content="view/loadInitialPattern"></div>
+
+        <br />
+
+        <input type="text" id="field" name="field" value="" /><br />
+        <br />
+
+        <div style="text-align:center;">
+            <tal:block  tal:repeat="line view/displayedKeys">
+                <div class="keyrow">
+                    <tal:block tal:repeat="keycode line">
+                        <div class="key"
+                                tal:condition="python:keycode!=32"
+                                tal:content="python:chr(keycode)"
+                                tal:attributes="id string:key_${keycode}" />
+                        <div class="key spacekey"
+                                tal:condition="python:keycode==32"
+                                tal:attributes="id string:key_${keycode}">
+                            &nbsp;
+                        </div>
+                    </tal:block>
+                </div>
+                <br />
+            </tal:block>
+            <div class="keyrow">
+                <div class="key" id="key_16">
+                    Shift
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+  </body>
+</html>

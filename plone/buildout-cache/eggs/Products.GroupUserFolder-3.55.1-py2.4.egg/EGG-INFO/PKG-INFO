@@ -1,0 +1,27 @@
+Metadata-Version: 1.0
+Name: Products.GroupUserFolder
+Version: 3.55.1
+Summary: Acl Users Folder with group and plugin support
+Home-page: http://svn.plone.org/svn/collective/Products.GroupUserFolder
+Author: Ingeniweb
+Author-email: support@ingeniweb.com
+License: GPL
+Description: Introduction
+        ============
+        
+        GroupUserFolder is a kind of user folder that provides a special kind of user management.
+        
+        Changelog
+        =========
+        
+        3.55.0 - Unreleased
+        ----------------
+        
+        * Initial release
+        
+        
+Keywords: user groups plugin
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

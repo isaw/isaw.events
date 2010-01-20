@@ -1,0 +1,52 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:kss="http://namespaces.zope.org/kss"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+           >
+           
+     <!-- Define the method for the site creation (setup)      
+
+     There is no need (and no possibility) to control access
+     to this element, because it does access control internally.
+     -->
+     <browser:page
+         for="kss.demo.interfaces.ISimpleContent"
+         class=".site_creation_view.SiteCreationView"
+         name="kss_test_create_site"
+         permission="zope2.View"
+         />
+         
+    <!-- Set up the demo utility -->
+    <configure zcml:condition="have kss_demo_version_1_2">
+      <utility
+        name="plone.app.kss.demo"
+        factory=".zopeconfig.PloneDemos"
+        provides="kss.demo.interfaces.IKSSDemoResource"
+        permission="zope.Public"
+        />
+    </configure>
+
+ 
+  <!-- follow link -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="follow-link.pt"
+      name="follow-link.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="follow-link.kss"
+    name="follow-link.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSPloneDemoView"
+      attribute="followLinkClick"
+      name="followLinkClick"
+      permission="zope.View"
+      />
+
+</configure>

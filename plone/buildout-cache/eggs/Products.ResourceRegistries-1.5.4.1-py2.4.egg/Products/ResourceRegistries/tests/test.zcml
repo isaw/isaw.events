@@ -1,0 +1,30 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+       xmlns:browser="http://namespaces.zope.org/browser"
+       xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+       i18n_domain="ResourceRegistries.tests">
+
+  <browser:resource
+      name="test_rr_1.css"
+      file="test_rr_1.css"
+      />
+
+  <browser:resource
+      name="test_rr_1.kss"
+      file="test_rr_1.kss"
+      />
+
+  <browser:resource
+      name="test_rr_1.js"
+      file="test_rr_1.js"
+      />
+
+  <genericsetup:registerProfile
+      name="test"
+      title="ResourceRegistries"
+      directory="test_profile"
+      description="Test Profile for ResourceRegistries"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      />
+
+</configure>

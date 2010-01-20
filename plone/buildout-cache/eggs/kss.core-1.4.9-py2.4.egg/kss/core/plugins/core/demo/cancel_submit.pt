@@ -1,0 +1,27 @@
+<html tal:define="viewname string:cancel_submit">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+<h3>Cancel Submit Click Demo</h3>
+   <p tal:condition="request/text_save | nothing"><span tal:replace="request/text_save | nothing" /> saved !</p>
+   <p><a href="cancel_submit.html">Empty</a></p>
+   <form action="cancel_submit.html">
+        <div id="text">
+        <input type="text" name="text_save"
+               tal:attributes="value request/text_save | nothing" />
+        <input type="submit" id="submit" value="Save"  />
+        <input type="reset" />
+        </div>
+   </form>
+   <div id="async" />
+   <p><a href="save?text_save=example">Kukit response</a></p>
+  </body>
+</html>

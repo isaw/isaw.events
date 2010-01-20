@@ -1,0 +1,36 @@
+<tal:block xmlns:tal="http://xml.zope.org/namespaces/tal"
+           xmlns:metal="http://xml.zope.org/namespaces/metal"
+           i18n:domain="plone">
+  <tal:defines define="here nocall:options/instance;
+		       context nocall:here;
+                         field options/field;
+                         mode options/mode;
+                         fieldName field/getName;
+                         widget nocall:field/widget;
+                         n python:{};
+                         errors options/state/getErrors | n;
+                         accessor python:field.getAccessor(here);
+                         kssClassesView context/@@kss_field_decorator_view;
+                         getKssClasses nocall:kssClassesView/getKssClasses;
+                         templateId options/templateId">
+    
+    <metal:block use-macro="here/global_defines/macros/defines"/>
+    
+    <metal:containingMacro use-macro="options/containingMacro"><metal:insideSlot fill-slot="inside">
+        <form tal:attributes="class string:field inlineForm enableUnloadProtection enableUnlockProtection;
+                              id string:kss-inlineform-$fieldName;">
+          <metal:editWidget use-macro="options/widgetMacro" />
+          <div class="formControls">
+            <input name="kss-save"
+                   value="Save" type="button"
+                   i18n:attributes="value label_save;"
+                   class="context" />
+            <input name="kss-cancel"
+                   value="Cancel" type="button"
+                   i18n:attributes="value label_cancel;"
+                   class="standalone" />
+          </div>
+        </form>
+    </metal:insideSlot></metal:containingMacro>
+  </tal:defines>
+</tal:block>

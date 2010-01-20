@@ -1,0 +1,117 @@
+Metadata-Version: 1.0
+Name: plone.app.customerize
+Version: 1.1.3
+Summary: Integrate five.customerize into Plone.
+Home-page: http://svn.plone.org/svn/plone/plone.app.customerize/
+Author: Plone Foundation
+Author-email: plone-developers@lists.sourceforge.net
+License: GPL
+Download-URL: http://cheeseshop.python.org/pypi/plone.app.customerize/
+Description: 
+        
+        Overview
+        --------
+        
+        This package integrates five.customerize_ into Plone, which enables site
+        administrators to customize templates used for five/zope3-style views,
+        viewlets and portlets through the web via the ZMI in a way similar to
+        overriding filesystem-based skin elements via the portal skin "customize"
+        procedure.
+        
+        .. _five.customerize: http://svn.zope.org/five.customerize/
+        
+        
+        Changelog for plone.app.customerize
+        
+        (name of developer listed in brackets)
+        
+        1.1.3 Released December 7th, 2009
+        
+        - Backport performance improvement for registrations page from 1.2
+        [MatthewWilkes]
+        
+        - Fixed a test failure caused by changed HTML markup.
+        [hannosch]
+        
+        1.1.2 Released July 10, 2008
+        
+        - Fixed a deprecation warning by using reg.factory instead of reg.value.
+        [davisagli]
+        
+        - Changed encoding of view registration requirements again, in order to
+        properly support portlet renderer templates and fix issue #8275 which
+        broke customerize in most cases.  Now *all* the requirements are used.
+        [davisagli]
+        
+        1.1.1 Released July 7, 2008
+        
+        - Re-enable browsertest introduced in r12928 after David's fix for the
+        long-standing security issue (see #6196 and #8154)
+        [witsch]
+        
+        - Fixed request type lookup to use the second requirement for a view
+        registration rather than the last.  This making it possible to
+        customerize viewlet and portlet templates registered with the same
+        name for multiple z3 browser layers.  See test introduced in r21154.
+        [davisagli]
+        
+        1.1 Released April 20, 2008
+        
+        - Fix problem with missing functions on test-layer.  See r20227.
+        [ssh42]
+        
+        1.0.3 Released March 27, 2008
+        
+        - Extension for browserlayer awareness.  For more details please see
+        http://dev.plone.org/plone/ticket/7960
+        [witsch]
+        
+        1.0.2 Released March 8, 2008
+        
+        - Fix for a seemingly rare case of missing information about the zcml file
+        a registration was made in.  See http://dev.plone.org/plone/ticket/7918
+        [witsch]
+        
+        1.0.1 Released December 6, 2007
+        
+        - Viewlet should be picked not only by name, but also by interface.
+        Fixes http://dev.plone.org/plone/ticket/7408
+        [witsch]
+        
+        1.0 Released August 17, 2007
+        
+        - Support for viewlets and portlets, bug fixes
+        [witsch]
+        
+        1.0rc1 Released July 8, 2007
+        
+        1.0b3 Released May 4, 2007
+        
+        1.0b2 Released April 30, 2007
+        
+        1.0b1 Released March 3, 2007
+        
+        - ZMI views for customizing views, refactoring & cleanups
+        [witsch]
+        
+        - Initial version
+        [witsch]
+        
+        - Initial package structure.
+        [witsch]
+        
+        
+Keywords: customerize plone five views page templates zmi
+Platform: Any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: Framework :: Zope3
+Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management

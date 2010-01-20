@@ -1,0 +1,121 @@
+# Translation of atreferencebrowserwidget.pot to Serbian
+# ----------------------------------------------------------------------
+# The files atreferencebrowserwidget-sr.po and
+# atreferencebrowserwidget-sr-Latn.po are respectivelly the
+# ATReferenceBrowserWidget translations for the Serbian language in
+# Cyrillic and the Serbian language in Latin script. As the Serbian
+# language can be written down equivocally using these two different
+# scripts, both translation files are provided.
+# 
+# The atreferencebrowserwidget-sr-Latn.po is automatically generated
+# from atreferencebrowserwidget-sr.po and should NOT be edited by hand.
+# 
+# Likewise, the atreferencebrowserwidget-sr.po and
+# atreferencebrowserwidget-sr-Latn.po MUST always be distributed one with
+# the other.
+# 
+# If you have any questions regarding this translation, you can write to
+# the first translator, Filip Miletić (f dot miletic at ewi dot tudelft
+# dot nl).
+msgid ""
+msgstr ""
+"Project-Id-Version: ATReferenceBrowserWidget\n"
+"POT-Creation-Date: 2009-07-08 09:15+0000\n"
+"PO-Revision-Date: 2007-05-07 02:47+0200\n"
+"Last-Translator: Filip Miletic <f dot miletic at ewi dot tudelft dot nl>\n"
+"Language-Team: Serbian <gnu@prevod.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3;    plural=n%10==1 && n%100!=11 ? 0 :    n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language-Code: sr-Latn\n"
+"Language-Name: Serbian (Latin)\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: atreferencebrowserwidget\n"
+
+#. Default: "Add..."
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser.pt:178
+msgid "label_add"
+msgstr "Dodaj..."
+
+#. Default: "( Directory: ${directory})"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser.pt:49
+msgid "label_directory"
+msgstr "( Direktorijum: ${directory})"
+
+#. Default: "Go"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:98
+msgid "label_go"
+msgstr "Kreni"
+
+#. Default: "No reference set. Click the add button to select."
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser.pt:137
+#, fuzzy
+msgid "label_no_reference_set"
+msgstr "Pokazivač nije postavljen. Pritisnite dugme „Pregled“ da biste izabrali."
+
+#. Default: "Remove reference"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser.pt:184
+msgid "label_remove_reference"
+msgstr ""
+
+#. Default: "Back"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:77
+msgid "referencebrowser_back"
+msgstr "Nazad"
+
+#. Default: "Browse"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:316
+msgid "referencebrowser_browse"
+msgstr "Pregled"
+
+#. Default: "Clear history"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:103
+msgid "referencebrowser_clearhistory"
+msgstr "Očisti istoriju"
+
+#. Default: "Close window"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:79
+msgid "referencebrowser_close"
+msgstr "Zatvori prozor"
+
+#. Default: "Search results"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:184
+msgid "referencebrowser_heading_search_results"
+msgstr "Rezultati pretrage"
+
+#. Default: "History"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:90
+msgid "referencebrowser_history"
+msgstr "Istorija"
+
+#. Default: "Insert"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:311
+msgid "referencebrowser_insert_reference"
+msgstr "Ubaci"
+
+#. Default: "No items found."
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:235
+msgid "referencebrowser_no_items_found"
+msgstr "Stavke nisu nađene."
+
+#. Default: "Search index"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:127
+msgid "referencebrowser_search_index_label"
+msgstr "Indeks za pretragu"
+
+#. Default: "Search terms"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:152
+msgid "referencebrowser_search_term"
+msgstr "Reči za pretragu"
+
+#. Default: "Added reference to:"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:174
+msgid "referencebrowser_text_added_reference"
+msgstr "Dodat ukazivač na:"
+
+#. Default: "Home"
+#: ATReferenceBrowserWidget/skins/ATReferenceBrowserWidget/referencebrowser_popup.pt:202
+msgid "tabs_home"
+msgstr "Dom"
+

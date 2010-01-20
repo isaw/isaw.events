@@ -1,0 +1,30 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+     xmlns:browser="http://namespaces.zope.org/browser"
+     xmlns:kss="http://namespaces.zope.org/kss"
+     >
+     
+    
+    <!-- reload plugin for content menus -->
+
+    <kss:action
+        name="bindActionMenus"
+        jsfile="reload/bindmenus.js"
+        />
+
+    <kss:action
+        name="bindExternalLinks"
+        jsfile="reload/bindextlinks.js"
+        />
+
+    <kss:action
+        name="initializeCollapsible"
+        jsfile="reload/initializeCollapsible.js"
+        />
+
+    <kss:action
+        name="createTableOfContents"
+        command_factory="global"
+        jsfile="reload/createTableOfContents.js"
+        />
+
+</configure>

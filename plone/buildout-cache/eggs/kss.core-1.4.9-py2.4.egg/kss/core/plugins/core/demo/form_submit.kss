@@ -1,0 +1,5 @@
+input#submit:click {
+    evt-click-preventdefault: true;
+    action-server: formSave;
+    formSave-kssSubmitForm: currentForm();
+}

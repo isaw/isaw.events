@@ -1,0 +1,44 @@
+div.key {
+    border: 1px solid #FF4916;
+    display: table-cell;
+    padding: 10px;
+    width: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+div.key.active {
+    background-color: red;
+    color: white;
+}
+
+div.key.spacekey {
+    width: 150px;
+}
+
+input#field {
+    border: 1px solid #FF4916;
+    width: 100%;
+    font-size: x-large;
+}
+
+div.keyrow {
+    display: inline;
+}
+
+div#pattern {
+    border: 1px solid #FF4916;
+    font-size: x-large;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #FF4916;
+}
+
+input.lesson.active {
+    background-color: #FF4916;
+    color: white;
+    cursor: pointer;
+}
+

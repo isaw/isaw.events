@@ -1,0 +1,139 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>two_select_revisited</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">two_select_revisited</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/demo/two_select_revisited.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>first-master</td>
+	<td>animals&#13; machines</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>first-slave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>first-master</td>
+	<td>label=animals</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>first-slave</td>
+	<td>dog cat cow</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>first-slave</td>
+	<td>dog cat cow</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>first-master</td>
+	<td>label=machines</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>first-slave</td>
+	<td>computer car airplane</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>first-slave</td>
+	<td>computer car airplane</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>second-master</td>
+	<td>animals&#13; machines</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>second-slave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>second-master</td>
+	<td>label=animals</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>second-slave</td>
+	<td>dog cat cow</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>second-slave</td>
+	<td>dog cat cow</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>second-master</td>
+	<td>label=machines</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>second-slave</td>
+	<td>computer car airplane</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>second-slave</td>
+	<td>computer car airplane</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>third-master</td>
+	<td>animals&#13; machines</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>third-slave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>third-master</td>
+	<td>label=animals</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>third-slave</td>
+	<td>dog cat cow</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>third-slave</td>
+	<td>dog cat cow</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>third-master</td>
+	<td>label=machines</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>third-slave</td>
+	<td>computer car airplane</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>third-slave</td>
+	<td>computer car airplane</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html tal:define="viewname string:follow-link">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+<h3>Follow link demo</h3>
+   <p><a class="active-link" href="..">Click on link</a></p>
+   <div id="async" />
+  </body>
+</html>

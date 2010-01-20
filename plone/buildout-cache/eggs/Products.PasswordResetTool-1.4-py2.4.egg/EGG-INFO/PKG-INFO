@@ -1,0 +1,258 @@
+Metadata-Version: 1.0
+Name: Products.PasswordResetTool
+Version: 1.4
+Summary: password reset tool for Plone
+Home-page: http://pypi.python.org/pypi/Products.PasswordResetTool
+Author: J. Cameron Cooper
+Author-email: prt@jcameroncooper.com
+License: GPL
+Description: Introduction
+        ============
+        
+        The Password Reset Tool hooks into the standard mechanisms for password
+        mailing provided by the CMF in the Registration Tool and certain skins
+        and replaces this with a facility for resetting passwords with email
+        authentication.
+        
+        This is useful not only to keep passwords out of cleartext email and is
+        absolutely necessary if you choose to encrypt your passwords (and you
+        should.)
+        
+        The Password Reset Sequence from the User's Point of View
+        
+        The user will observe the following steps.
+        
+        - User forgets a password and
+        
+        - clicks "Forgot your password?", which
+        
+        - goes to a form that asks for a username. User fills this in and
+        clicks a button to proceed, which
+        
+        - goes to a form explaining that an email has been sent.
+        
+        - User receieves an email with a URL containing a random,
+        unguessable key and opens it in a web browser.
+        
+        - This is a form that asks for username and password, which goes to
+        
+        - a form reporting success (or failure, if expired or illegitimate.)
+        
+        Management Notes
+        ================
+        
+        Configuration of the tool is done through the 'Overview' page in the
+        ZMI. The options are explained there.
+        
+        Reset requests are stored in a persistent dictionary in the tool.
+        Removing the tool or uninstalling the product will destroy all reset
+        requests.
+        
+        A facility for clearing expired requests is not yet provided. It will be
+        in the next release. This should be used occasionally to clear out the
+        storage. A cron script using 'wget' or 'curl' (or the Windows
+        equivalent) to automate the procedure is suggested.
+        
+        Notes
+        =====
+        
+        You can turn username entry off, if you so desire, as this will
+        streamline the process. You SHOULD NOT DO THIS if you are concerned
+        about account security. Not requiring re-entry of the user name allows
+        trivial email-sniffing attacks and makes brute-forcing of the reset
+        request keys possible (if unlikely).  Only private portals should even
+        consider this.
+        
+        The URL for the confirmation visit now uses traversal-style URL
+        parameters to encode the key. The old get-parameter paths will still
+        work, so don't worry about password reset request performed before an
+        upgrade
+        
+        The traversal_subpath urls (like passwordreset/123lkj43508) are now the
+        default. If you like the old style, you'll have to modify the skins
+        yourself.
+        
+        This tool replaces the built-in password mailing feature. This means
+        that the first half of a "forgotten password transaction" depends on
+        skin names set in CMF code.
+        
+        However, it can be made independent, if you so desire. Simply provide an
+        equivalent to
+        
+        * 'mail_password_form':
+        Asks for your username, and provides instructions as to what's to come.
+        
+        * 'mail_password':
+        Receives the request from mail_password_form, calls 'requestReset' on
+        the tool, and sends a message with the return URL however you care to
+        construct it (usually in 'pwreset_constructURL', which depends on what
+        the equivalent to 'passwordreset' is named.) Returns the equivalent of
+        'mail_password_response'.
+        
+        * 'mail_password_template':
+        Provides the text of the email.
+        
+        * 'mail_password_response':
+        Informs that the mail has been sent.
+        
+        Naturally, the methods and templates on the other side will need to be migrated
+        over or have equivalents made as well. If outside the CMF, certain source
+        changes will also be needed, such as overriding 'getValidUser'.
+        
+        This tool has been made with customization in mind. There are
+        several customization points in the code that should allow you to change
+        certain policies simply by subclassing the tool and overriding one or two
+        methods.
+        
+        
+        Changelog
+        =========
+        
+        1.4 - 2009-12-23
+        ----------------
+        
+        - In the mail tests, properly register a mock secure mail host, like
+        the MockMailHostTestCase in CMFPlone does now, including a
+        mocked secureSend method.  Fixes test failure.
+        [maurits]
+        
+        
+        1.3 - 2009-10-04
+        ----------------
+        
+        - Fixed browser.txt BBB. Plone 3.3 tests have i18n enabled, older 3.x
+        versions have not. We must therefore try to find the link with and
+        without i18n.
+        [stefan]
+        
+        1.2 - 2009-05-16
+        ----------------
+        
+        - Cleanup package metadata and add it to the egg description.
+        [wichert]
+        
+        - Internationalized dates in mail_password_template
+        [vincentfretin]
+        
+        - Removed duplicate DOCTYPE definition from mail_password_form
+        [limi]
+        
+        - Adjusted browser tests to no longer rely on the login portlet.
+        [hannosch]
+        
+        - Catch RunTimeError when changing a password fails. Fixes #5742.
+        [maurits]
+        
+        - Added i18n domain for the userid label in the password reset form.
+        [markvl]
+        
+        - Purged old Zope 2 Interface interfaces for Zope 2.12 compatibility.
+        [elro]
+        
+        
+        1.1 - 2008-03-26
+        ----------------
+        
+        - Fixed browser tests.
+        [hannosch]
+        
+        - Set correct i18n:domain on subject, fixes #7217.
+        [martior]
+        
+        - Move trunk into the egg.
+        [wichert]
+        
+        - Removed i18n folder. Translations are part of the PloneTranslations
+        product for some time now.
+        [hannosch]
+        
+        
+        1.0
+        ---
+        
+        - Providing 'fullname' now for email notification. This does not really
+        close http://dev.plone.org/plone/ticket/6680, but makes it possible to
+        use the information the user provided in the mail notification (and its
+        translations).
+        [gogo]
+        
+        
+        1.0rc2
+        ------
+        
+        - Fixed four occurrences of the term login name which wasn't used anywhere so
+        far. We only use user id and user name.
+        [hannosch]
+        
+        
+        1.0rc1
+        ------
+        
+        - Updated tests to work with Zope 2.10 / Plone 3.0.
+        [hannosch]
+        
+        - Converted mail_password_template from a dtml page to a Page Template, as
+        dtml pages cannot be translated anymore.
+        [hannosch]
+        
+        - If available use the email_charset property instead of default_charset to
+        encode mails.
+        [hannosch]
+        
+        - Added the portal name to the subject in the registered_notify_template.pt,
+        so it's easier to distinguish those mails for various websites. This
+        closes http://dev.plone.org/plone/ticket/5242.
+        [hannosch]
+        
+        - Replaced some last occurrences of the term member with user.
+        [hannosch]
+        
+        
+        0.4.2
+        -----
+        
+        - Fixed some minor whitespace issue in registered_notify_template.pt.
+        [hannosch]
+        
+        - allow password reset token to be passed in, in cases where we might not
+        have the permission to request a reset from within the template
+        [rafrombrc]
+        
+        
+        0.4.1
+        -----
+        
+        - protect requestRest method of the tool so it can not be called anonymously
+        through the web interface
+        
+        
+        0.4
+        ----
+        
+        - Removed unused import in install code
+        - use virtual host forwarded IP if present
+        - i18n markup (translations in PloneTranslations)
+        - fixed DTML markup to not fail on missing translations
+        - fixed root link in pwreset_expired template
+        - deprectation warnings removed
+        - tabindex not assumed present to be more CMF-friendly
+        - add stats to ZMI page
+        - implement expired record clearing on every request
+        - work around traversal bug with python: expressions instead of path expressions for attributes
+        
+        
+        0.3
+        ---
+        
+        - Updated to use CMFFormController
+        - Support for using to set initial account passwords
+        - Verify token before prompting user for new password
+        - Generated URLs don't use query strings
+        - Fixes to work with CMFMember
+        
+        
+Keywords: password reset plone
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: Programming Language :: Python

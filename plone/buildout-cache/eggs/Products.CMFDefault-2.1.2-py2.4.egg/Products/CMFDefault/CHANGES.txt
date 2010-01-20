@@ -1,0 +1,168 @@
+Products.CMFDefault Changelog
+=============================
+
+2.1.2 (2008-09-13)
+------------------
+
+- SyndicationTool: Removed obsolete documentation link from the
+  Overview ZMI tab.
+  (https://bugs.launchpad.net/zope-cmf/+bug/185090)
+
+
+2.1.2-beta (2008-08-26)
+-----------------------
+
+- completed devolution from monolithic CMF package into its component
+  products that are distributed as eggs from PyPI.
+
+- File, Image:  Make the ZMI edit tab work.
+
+- DiscussionItem: Fixed indexing of 'in_reply_to'.
+
+
+2.1.1 (2008-01-06)
+------------------
+
+- PropertiesTool: Fix a faulty manage_changeProperties
+  invocation which broke the 'Reconfigure Portal' screen
+  (https://bugs.launchpad.net/zope-cmf/+bug/174246)
+
+
+2.1.1-beta(2007-12/29)
+----------------------
+
+- Testing: Derive test layers from ZopeLite layer if available.
+
+- CMFDefault profiles: Fixed some dependencies in import_steps.xml.
+
+- utils: The email validation would reject addresses where
+  the domain part started with a single letter element.
+  (http://www.zope.org/Collectors/CMF/495)
+
+- skins: Prevented the getMainGlobals script to fail if not
+  content-type header is set.
+
+
+2.1.0 (2007-08-08)
+------------------
+
+- Fixed all componentregistry.xml files to use plain object paths and strip
+  and slashes. GenericSetup does only support registering objects which are
+  in the site root.
+
+- utils: Allow email addresses with all-numeric domain names.
+  The RFCs do not support them but they do exist.
+  (http://dev.plone.org/plone/ticket/6773)
+
+
+2.1.0-beta2 (2007-07-12)
+------------------------
+
+- moved the Zope dependency to version 2.10.4
+
+- Remove antique usage of marker attributes in favor of interfaces,
+  leaving BBB behind for places potentially affecting third-party code.
+  (http://www.zope.org/Collectors/CMF/440)
+
+- Add POST-only protections to security critical methods.
+  http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0240)
+
+- Use a utility, registered for
+  'Products.CMFDefault.interfaces.IHTMLScrubber', to perform scrubbing
+  of HTML;  fall back to the old, hard-wired behavior.
+  (http://www.zope.org/Collectors/CMF/452)
+
+- Favorite: Fixed UID handling broken in 2.1.0-beta.
+
+- Removed CMFUid dependency inadvertently added in 2.1.0-beta.
+
+- GS integration: Adjusted factory.py to new GenericSetup version.
+
+
+2.1.0-beta (2007-03-09)
+-----------------------
+
+- moved the Zope dependency to verson 2.10.2
+
+- Tool lookup and registration is now done "the Zope 3 way" as utilities, see
+  http://svn.zope.org/CMF/branches/2.1/docs/ToolsAreUtilities.stx?view=auto
+
+- Document: Added two new methods for safety belt handling.
+
+- MembershipTool: when using an object without a __nonzero__ but with a 
+  __len__ (ala CMFBTreeFolder) as a member folder, the createMemberArea 
+  method would believe there was no members folder if the folder was
+  empty, and so would fail (change "not membersfolder" to
+  "membersfolder is not None") .
+
+- File and Image: Restored ZMI Cache tab which was lost in CMF 1.6.
+
+
+2.1.0-alpha2 (2006-11-23)
+-------------------------
+
+- moved the Zope dependency to version 2.10.1
+
+- Fixed test breakage induced by use of Z3 pagetemplates in Zope 2.10+.
+
+- browser views: Added some zope.formlib based forms.
+
+- testing: Added test layers for setting up ZCML.
+
+- Added zope.formlib support.
+  This includes some CMF specific base classes and an 'EmailLine' field.
+
+- utils: Added 'checkEmailAddress' function.
+
+- Portal: Added 'email_charset' property.
+
+- utils: Added 'makeEmail' function.
+
+- Image and File: Overridden index_html methods
+  add Cache Policy Manager-awareness and thus bring these implementations
+  in line with CMFCore.FSFile and CMFCore.FSImage
+  (http://www.zope.org/Collectors/CMF/454)
+
+- RegistrationTool: Fixed too restrictive email checking.
+  The new 'checkEmailAddress' function is now used.
+
+- skins: Fixed encoding issues in welcome and reminder emails.
+  'password_email' and 'registered_email' now encode their return value
+  correctly, using 'email_charset' and the new 'makeEmail' function.
+
+
+2.1.0-alpha (2006-10-09)
+------------------------
+
+- skins: Changed encoding of translated portal_status_messages.
+  Now getBrowserCharset is used to play nice with Five forms. Customized
+  setRedirect and getMainGlobals scripts have to be updated.
+
+- Profiles: All profiles are now registered by ZCML.
+
+- ZClasses: Removed unmaintained support for ZClasses.
+  Marked the 'initializeBases*' methods as deprecated.
+
+- Content: Added IFactory utilities for all content classes.
+  They are now used by default instead of the old constructor methods.
+
+- Content: All content classes are now registered by ZCML.
+  ContentInit is still used to register oldstyle constructors.
+
+- setup handlers: Removed support for CMF 1.5 CMFSetup profiles.
+
+- utils: Added getBrowserCharset function.
+  Returns the charset preferred by the browser. Strings encoded with this
+  charset are decoded correctly by Five.browser.decode.processInputs.
+
+- Favorite: Added 'handleFavoriteAddedEvent' subscriber.
+  This replaces the 'manage_afterAdd' hook and some code in 'addFavorite'.
+
+
+Earlier releases
+----------------
+
+For a complete list of changes before version 2.1.0-alpha, see the HISTORY.txt
+file on the CMF-2.1 branch:
+http://svn.zope.org/CMF/branches/2.1/HISTORY.txt?view=auto
+

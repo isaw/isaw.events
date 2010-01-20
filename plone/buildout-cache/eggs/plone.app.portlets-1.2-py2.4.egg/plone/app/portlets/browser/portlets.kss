@@ -1,0 +1,20 @@
+.portletAssignments .managedPortletActions .up:click {
+    evt-click-preventdefault: true;
+    action-server: inlineMovePortletUp;
+    inlineMovePortletUp-portlethash: kssAttr('portlethash', true);
+    inlineMovePortletUp-viewname: kssAttr('viewname', true);
+} 
+
+.portletAssignments .managedPortletActions .down:click {
+    evt-click-preventdefault: true;
+    action-server: inlineMovePortletDown;
+    inlineMovePortletDown-portlethash: kssAttr('portlethash', true);
+    inlineMovePortletDown-viewname: kssAttr('viewname', true);
+} 
+
+.portletAssignments .managedPortletActions .delete:click {
+    evt-click-preventdefault: true;
+    action-server: inlineDeletePortlet;
+    inlineDeletePortlet-portlethash: kssAttr('portlethash', true);
+    inlineDeletePortlet-viewname: kssAttr('viewname', true);
+} 

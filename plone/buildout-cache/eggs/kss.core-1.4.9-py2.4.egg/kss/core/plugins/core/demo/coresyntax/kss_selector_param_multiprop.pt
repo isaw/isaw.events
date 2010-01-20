@@ -1,0 +1,56 @@
+<html tal:define="viewname string:kss_selector_param_multiprop">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>Kss selector parameter with multiple properties demo</h2>
+    <form name="edit">
+    <p>There are two buttons. If you click on the first button, it changes the style of the
+    second button. Look at the link on the kss file to understand.
+	</p>
+
+    <p>We use multiple properties, which means that instead the kssSelector line, the
+    selector is in the same line as the action-client. (See kss file.)
+	</p>
+
+    <h3>
+    	<code>action-client: setAttribute htmlid(button_2);</code>
+    </h3>
+    <div class="help">
+        Click the button here.
+    </div>
+
+    <div>
+      <input type="submit" id="button_1" class="clickable"
+	     value="Click me"  />
+      <input type="submit" id="button_2" class="clickable"
+	     value="Watch me"  />
+	</div>
+
+
+    <h3>
+    	<code>action-client: setAttribute css('#button_4');</code>
+    </h3>
+    <div class="help">
+        Click the button here.
+    </div>
+
+    <div>
+      <input type="submit" id="button_3" class="clickable"
+	     value="Click me"  />
+      <input type="submit" id="button_4" class="clickable"
+	     value="Watch me"  />
+	</div>
+
+
+    </form>
+
+  </body>
+</html>

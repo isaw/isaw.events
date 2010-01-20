@@ -1,0 +1,9 @@
+setuptools
+zope.component
+zope.interface
+zope.app.publication
+Products.CMFCore
+Products.GenericSetup>=1.4
+
+[test]
+Products.PloneTestCase

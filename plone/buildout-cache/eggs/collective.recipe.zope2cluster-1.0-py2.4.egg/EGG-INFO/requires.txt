@@ -1,0 +1,7 @@
+setuptools
+zc.buildout
+plone.recipe.zope2instance
+
+[tests]
+zope.testing
+zc.buildout

@@ -1,0 +1,16 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+ 
+  <!-- Configuration of all the plugins distributed
+       with plone.app.kss .
+       Individual lines can be commented out.
+   -->
+
+  <!-- plone base plugins -->
+  <include package=".plone" />
+
+  <!-- Legacy plugins -->
+  <include package=".legacy" />
+
+</configure>

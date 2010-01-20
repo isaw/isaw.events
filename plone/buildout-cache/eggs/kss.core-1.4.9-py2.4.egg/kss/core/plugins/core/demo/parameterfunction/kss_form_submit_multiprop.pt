@@ -1,0 +1,87 @@
+<html tal:define="viewname string:kss_form_submit_multiprop">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>Forms</h2>
+    <p>We test the parameter functions related to forms : those functions
+    extract values from fields to use them in the kinetic stylesheet.</p> 
+
+    <p>We use multiple properties, which means that instead the kssSubmitForm line, the
+    form data provider is in the same line as the action-server. (See kss file.)
+	</p>
+
+    <p>The inner HTML of the <code>div</code> below will be replaced with the
+    value of the form element.</p> 
+
+    <!--p metal:use-macro="context/@@body_macros/logger">logger</p-->
+    <h3>Log</h3>
+    <p id="log-reset"><a>Reset log</a></p>
+    <div id="target">Target</div>
+    <hr/>
+
+    <h3>
+      <code>action-server: submitFullFormIntoRequest form(full2);</code>
+      with complex field names, named form
+    </h3>
+    <div class="help">
+        Click the button.
+    </div>
+    <a class="button click cursorPointer" id="fullform-named">Click me !</a>
+    <form name="full2">
+      <h3>
+        <code>action-server: submitFullFormIntoRequest currentForm();</code>
+        with complex field names
+      </h3>
+      <div class="help">
+          Click the button.
+      </div>
+      <a class="button click cursorPointer" id="fullform-current" href="#">Click me !</a>
+      <fieldset>
+        value1:
+        <input class="click cursorPointer" 
+               type="text" name="value1" value="value1" />
+        value2:
+        <input class="click cursorPointer" 
+               type="text" name="value2" value="value2"/>
+        <br>
+        listval:
+        <input class="click cursorPointer" 
+               type="text" name="listval:list" value="listval1"/>
+        <input class="click cursorPointer" 
+               type="text" name="listval:list" value="listval2"/>
+        <br>
+        listval with multiselect:
+        <select name="multiple-select:list" multiple="multiple">
+          <option selected="selected">Value 1</option>
+          <option>Value 2</option>
+          <option selected="selected">Value 3</option>
+        </select>
+        recordval:
+        <input class="click cursorPointer" 
+               type="text" name="recordval.a:record" value="recordval_a"/>
+        <input class="click cursorPointer" 
+               type="text" name="recordval.b:record" value="recordval_b"/>
+        <br>
+        recordsval:
+        <input class="click cursorPointer" 
+               type="text" name="recordsval.a:records" value="recordval_a_1"/>
+        <input class="click cursorPointer" 
+               type="text" name="recordsval.b:records" value="recordval_b_1"/>
+        <input class="click cursorPointer" 
+               type="text" name="recordsval.a:records" value="recordval_a_2"/>
+        <input class="click cursorPointer" 
+               type="text" name="recordsval.b:records" value="recordval_b_2"/>
+      </fieldset>
+    </form>
+
+
+  </body>
+</html>

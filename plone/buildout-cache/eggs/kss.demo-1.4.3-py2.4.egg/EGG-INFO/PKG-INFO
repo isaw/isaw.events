@@ -1,0 +1,14 @@
+Metadata-Version: 1.0
+Name: kss.demo
+Version: 1.4.3
+Summary: KSS (Kinetic Style Sheets) demo
+Home-page: http://kssproject.org
+Author: KSS Project
+Author-email: kss-devel@codespeak.net
+License: GPL
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Framework :: Zope2
+Classifier: Framework :: Zope3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

@@ -1,0 +1,84 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kss_prevent_bubbling</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">kss_prevent_bubbling</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/demo/kss_evt_preventbubbling.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>logger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>parent-node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>logger</td>
+	<td>containing DIV.</td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>log-reset</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>logger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>bubbling-node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>logger</td>
+	<td>bubbling P. containing DIV.</td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>log-reset</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>logger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>not-bubbling-node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>logger</td>
+	<td>not bubbling P.</td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>log-reset</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>logger</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

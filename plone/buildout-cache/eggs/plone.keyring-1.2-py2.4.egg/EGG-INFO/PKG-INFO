@@ -1,0 +1,87 @@
+Metadata-Version: 1.0
+Name: plone.keyring
+Version: 1.2
+Summary: Manage secrets
+Home-page: http://svn.plone.org/svn/plone/plone.keyring
+Author: Wichert Akkerman
+Author-email: plone-developers@lists.sourceforge.net
+License: GPL
+Description: Introduction
+        ============
+        
+        *plone.keyring* contains a Zope3 utility that facilitates handling of
+        secrets in an application. Secrets are very important in modern applications,
+        which is why a shared tool to manage them is useful.
+        
+        plone.keyring contains two basic components:
+        
+        * a *keyring*: a data structures which contains one or more secrets.
+        
+        * a *key manager*: a utility which contains the available keyrings and
+        provides some convenience methods to manage them
+        
+        
+        Keyrings
+        ========
+        
+        The keyring is the workhorse: it contains a set of secrets for a specific
+        purpose. A ring has room for a fixed number of secrets which is set at
+        creation time. The most recently added secret is considered to be the
+        `current` secret and the one that should be used. Older secrets in the ring
+        can be used to keep data generated with older secrets valid for a period of
+        time.
+        
+        Key manager
+        ===========
+        
+        The key manager is a container for the available keyrings. It always
+        contains a default system keyring which is used when no other ring is
+        explicitly requested.
+        
+        Installation
+        ============
+        
+        You'll need to register a KeyManager as a persistent utility. On Zope2 with GenericSetup, this can be done by loading the included profile.
+        
+        Changelog
+        =========
+        
+        1.2 - May 8, 2008
+        -----------------
+        
+        * Fix registration of the GenericSetup profile.
+        [witsch]
+        
+        1.1 - May 2, 2008
+        -----------------
+        
+        * Add an optional GenericSetup profile to register the KeyManager as utility.
+        Required for plone.keyring on Plone 3.0.
+        [mj]
+        
+        
+        1.0 - April 21, 2008
+        --------------------
+        
+        * No changes
+        [wichert]
+        
+        
+        1.0b1 - March 7, 2008
+        ---------------------
+        
+        * Tweak the tests to better test the API.
+        [witsch]
+        
+        
+        1.0a1 - January 22, 2008
+        ------------------------
+        
+        * Initial release
+        [wichert]
+        
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

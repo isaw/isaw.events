@@ -1,0 +1,40 @@
+
+INSTALLATION NOTES
+==================
+
+*KSS* stands for *Kinetic Style Sheets*.
+
+This is KSS for Zope, containing server side support
+for Zope 2 and Zope 3.
+
+1- Prerequisites
+----------------
+
+To install kss you will need:
+
+- a working Zope (2.8 or higher, or Zope 3 supported)
+
+- kss.core itself (which version, is dependent on the version
+  of Zope you use. Look for version numbers and release notes...)
+ 
+2 - Products setup
+------------------
+
+- Put kss.core in $INSTANCE/lib/python (it should be under kss/core/,
+  with an empty __init__.py in the kss namespace module root)
+
+- Copy the slugs kss.core-configure.zcml and kss.core-meta.zcml
+  into the directory $INSTANCE/etc/package-includes.
+
+  * This is _not needed_ if you use KSS for Plone.
+
+  * If you use Zope2.8, the etc/package-includes directories
+    are not created by default, you have to create them yourself.
+
+3 - How to use kss
+------------------
+
+Copy the product kss.demo that's inside demos in your instance,
+into the directory $INSTANCE/lib/python, and look at its own README.txt
+(it should be under kss/demo)
+

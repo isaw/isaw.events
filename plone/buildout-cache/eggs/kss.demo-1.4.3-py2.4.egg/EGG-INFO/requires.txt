@@ -1,0 +1,3 @@
+setuptools
+kss.core==1.4.3
+elementtree

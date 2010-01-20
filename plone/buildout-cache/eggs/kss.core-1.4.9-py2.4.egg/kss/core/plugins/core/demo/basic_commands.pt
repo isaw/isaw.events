@@ -1,0 +1,117 @@
+<html tal:define="viewname string:basic_commands">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>Change tag content</h2>
+    <h4>Top div</h4>
+    <div id="demo" style="border: 1px solid black;padding: 15px">
+    KSS 
+    </div>
+    <ul>
+    <li>
+    <button id="change">
+	Change top div content
+    </button>
+    <a tal:attributes="href string:${context/@@absolute_url}/getDivContent">
+       getDivContent RESPONSE
+    </a>
+    </li>
+    <li>
+    <button id="clear">
+	Clear top div content
+    </button>
+    <a tal:attributes="href string:${context/@@absolute_url}/clearDivContent">
+       clearDivContent RESPONSE
+    </a>
+    </li>
+    <li>
+    <button id="copyFrom">
+	Copy top div content to bottom
+    </button>
+    <a tal:attributes="href string:${context/@@absolute_url}/copyFromDivContent">
+      copyFromDivContent RESPONSE
+    </a>
+    </li>
+    <li>
+    <button id="copyTo">
+	Copy bottom div content to top
+    </button>
+    <a tal:attributes="href string:${context/@@absolute_url}/copyToDivContent">
+      copyToDivContent RESPONSE
+    </a>
+    </li>
+    <li>
+    <button id="moveTo">
+	Move bottom div content to top
+    </button>
+    <a tal:attributes="href string:${context/@@absolute_url}/moveToDivContent">
+      moveToDivContent RESPONSE
+    </a>
+    </li>
+    </ul>
+    <h4>Bottom div</h4>
+    <div id="copy" style="border: 1px solid black;padding: 15px">
+    copy here
+    </div>
+    <h3>Javascript Styling</h3>
+    <p>This page defines a <code>link</code> in the header which <code>rel</code> attribute points
+       to a <code>.kss</code> resource file on the server :
+
+          <a tal:attributes="href string:${context/@@absolute_url}/++resource++basic_commands.kss">
+           see the kss file here</a>.</p>
+    <p>
+        This <code>.kss</code> file declares CSS selectors associated with events and server URLs called when the event occur.
+    </p>
+    <p>A javascript engine processes the XML content : it inserts javascript
+       events in the DOM.</p>
+    <p>
+       For instance, the click event of button with the id <code>change</code> will call asynchronously the <code>getDivContent</code> URL.
+
+    </p>
+   <h3>Server Asynchronous Call</h3>
+   <p>
+     The events associated with Javascript just call the server asynchronously.
+   </p>
+   <p>
+     The response is a XML file.
+     The XML contains CSS selectors associated with commands.
+   </p>
+   <p>
+     The Javascript engine selects the DOM nodes to which it applies each command.
+   </p>
+   <p>
+     For instance, let's look at the <a tal:attributes="href string:${context/@@absolute_url}/moveToDivContent"><code>moveToDivContent</code> response</a>.
+   </p>
+   <pre>
+   <?xml version="1.0" encoding="utf-8" ?>
+&lt;kukit xmlns="http://www.kukit.org/commands/1.1"&gt;
+&lt;commands&gt;
+&lt;command selector="div#copy" name="copyChildNodesTo"
+         selectorType=""&gt;
+    &lt;param name="html_id"&gt;demo&lt;/param&gt;
+&lt;/command&gt;
+&lt;command selector="div#copy" name="clearChildNodes"
+         selectorType=""&gt;
+&lt;/command&gt;
+&lt;/commands&gt;
+&lt;/kukit&gt;
+   </pre>
+   <p>
+     The XML specifies two commands to apply to the <code>div#copy</code> node :
+   </p>
+   <p>
+     <code>copyChildNodesTo</code> copies the children of the DOM node to the node with id <code>demo</code>.
+   </p>
+   <p>
+     <code>clearChildNodes</code> removes the children of the DOM node.
+   </p>
+  </body>
+</html>

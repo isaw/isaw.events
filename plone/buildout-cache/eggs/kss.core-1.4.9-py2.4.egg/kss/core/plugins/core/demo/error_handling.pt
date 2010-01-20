@@ -1,0 +1,81 @@
+<html tal:define="viewname string:error_handling">
+  <head>
+    <metal:header use-macro="context/@@header_macros/header_resources">
+      <metal:custom_resources fill-slot="custom_resources">
+        <style type="text/css">
+          #spinner-wrapper {
+                    border: 1px solid black;
+                    height: 30px;
+                }
+          #spinner-status {
+                    color: blue;
+                    display: none;
+                }
+          #update-status {
+                    border: 1px solid black;
+                }
+        </style>
+      </metal:custom_resources>
+    </metal:header>
+  </head>
+
+  <body>
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+<h3>Error handling demo</h3>
+    <div id="spinner-wrapper">
+        <div id="spinner-status">Loading...</div>
+    </div>
+    <p id="update-status"></p>
+    <form name="edit">
+    <p>We try four cases here. "No error" and "Empty action" are both valid responses,
+    except that the second one gives a response with no commands and so it issues a warning into
+    the kss log. "Error" gives a failed responses due to an exception in the server method
+    on the server.</p>
+    <p>The buttons in the first row have no error handlers.</p>
+    <div>
+      <input type="submit" id="no_error_handler_no_error"
+          class="clickable nothandled kssattr-act-noerror"
+          value="No error"  />
+      <input type="submit" id="no_error_handler_empty_response"
+          class="clickable nothandled kssattr-act-empty"
+          value="Empty response"  />
+      <input type="submit" id="no_error_handler_error" 
+          class="clickable nothandled kssattr-act-error"
+          value="Error"  />
+      <input type="submit" id="no_error_handler_explicit_error" 
+          class="clickable nothandled kssattr-act-explicit"
+          value="Explicit error"  />
+    </div>
+    <p>The buttons in the second row have individual error handlers.</p>
+    </form>
+    <div>
+      <input type="submit" id="with_error_handler_no_error" class="clickable handled kssattr-act-noerror"
+          value="No error"  />
+      <input type="submit" id="with_error_handler_empty_response" class="clickable handled kssattr-act-empty"
+          value="Empty response"  />
+      <input type="submit" id="with_error_handler_error" class="clickable handled kssattr-act-error"
+          value="Error"  />
+      <input type="submit" id="with_error_handler_explicit_error" class="clickable handled kssattr-act-explicit"
+          value="Explicit error"  />
+    </div>
+    <p>
+    Timed out are also handled like errors.
+    The timeout period is by default to 8000 ms now.</p>
+    <p>The timeout is set to 100 ms on the button hereunder. Click calls an
+    action-server that explicitely waits for 2000ms. In other words, the
+    timeout is triggered.</p>
+    <p>
+    <div>
+      <input type="submit" id="with_timeout"
+          class="clickable timeout kssattr-act-timeout"
+          value="Timeout"  />
+    </div>
+    <p>
+    In addition, the request queue manager queues up the outgoing responses and maximizes
+    their number (currently in 4): click like crazy on the buttons and you will see that
+    your server will not get hogged. More will be told about this topic in the upcoming
+    documentation.</p>
+    <p metal:use-macro="context/@@body_macros/logger">logger</p>
+  </body>
+</html>

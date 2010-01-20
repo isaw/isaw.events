@@ -1,0 +1,49 @@
+<html tal:define="viewname string:preventdefault">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources">
+      <metal:custom_resources fill-slot="custom_resources"> 
+        <style type="text/css">
+          .wrapper{
+              border: 1px solid black;
+              }
+        </style>
+      </metal:custom_resources>
+    </metal:header>
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+<h3>Preventdefault Demo</h3>
+   <p>
+   This is for testing the work of preventdefault to test a specific
+   workaround against a Safari bug. Specifically, none of the above
+   controls should cause a page reload.
+   </p>
+   <form action="reloaded.html">
+        <p><a id="follow" href="reloaded.html">Do not follow</a></p>
+        <input type="password" class="text" id="text3" name="text3" value="Submits on enter" />
+        <input type="text" id="text2" name="text2" value="Submits on enter" />
+        <input type="text" class="text" id="text" name="text" value="Do not submit on enter" />
+        
+        <input type="submit" id="submit" value="Do not submit"  />
+        <p>The same with allowbubbling combined:</p> 
+        <div class="wrapper" id = "follow-wrapper">
+            <p><a href="reloaded.html">Do not follow</a></p>
+        </div>
+        <div class="wrapper" id = "text2-wrapper">
+            <input type="text" name="text_w2" value="Submits on enter" />
+        </div>
+        <div class="wrapper" id = "text-wrapper">
+            <input type="text" name="text_w" value="Do not submit on enter" />
+        </div>
+        <div class="wrapper" id = "submit-wrapper">
+            <input type="submit" id="submit_w" value="Do not submit"  />
+        </div>
+   </form>
+  </body>
+</html>

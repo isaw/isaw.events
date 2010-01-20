@@ -1,0 +1,4 @@
+setuptools
+five.customerize
+plone.browserlayer
+plone.portlets

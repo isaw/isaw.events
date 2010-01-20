@@ -1,0 +1,4 @@
+
+      [zope2.initialize]
+      Products.DCWorkflow = Products.DCWorkflow:initialize
+      

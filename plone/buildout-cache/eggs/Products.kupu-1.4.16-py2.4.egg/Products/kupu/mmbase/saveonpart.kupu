@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<kupu:feature
+    name="saveonpart"
+    implementation="mmbase"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:kupu="http://kupu.oscom.org/namespaces/dist"
+    >
+  <kupu:id>$Id: saveonpart.kupu 53067 2008-03-28 19:28:09Z mihxil $</kupu:id>
+
+  <kupu:part name="jsincludes">
+    <!-- saveonpart function is in mmbase.js -->
+  </kupu:part>
+
+</kupu:feature>

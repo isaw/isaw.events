@@ -1,0 +1,3 @@
+i18n -r107937 https://svn.plone.org/svn/collective/PloneTranslations/branches/3.x/i18n
+locales -r107937 https://svn.plone.org/svn/collective/PloneTranslations/branches/3.x/locales
+utils -r107937 https://svn.plone.org/svn/collective/PloneTranslations/branches/3.x/utils

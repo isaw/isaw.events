@@ -1,0 +1,17 @@
+setuptools
+zope.interface
+zope.schema
+zope.i18n
+zope.i18nmessageid
+Products.Archetypes
+Products.GenericSetup
+Products.CMFCore
+Products.MimetypesRegistry
+Products.PortalTransforms
+
+[test]
+i18ndude
+Plone
+Products.ATContentTypes
+Products.i18ntestcase
+Products.PloneTestCase

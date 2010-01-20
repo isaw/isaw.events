@@ -1,0 +1,5 @@
+select.master-select:change {
+    action-server: updateSlaveSelector;
+    updateSlaveSelector-masterid:      nodeAttr("id");
+    updateSlaveSelector-value:      currentFormVar();
+}

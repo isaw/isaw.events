@@ -1,0 +1,65 @@
+<html tal:define="viewname string:selectors">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources">
+      <metal:custom_resources fill-slot="custom_resources"> 
+        <style type="text/css">
+          div.nested {
+            border: 1px solid green;
+            padding: 0.4em;
+          }
+        </style>
+      </metal:custom_resources>
+    </metal:header>
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+    
+    <h2>Selectors</h2>
+    <p>We test the selectors which are used in KSS. The selectors allow you to
+      specify what node to take action on etc.</p> 
+    <h3>
+      <code>parentnode()</code> with node in path
+    </h3>
+    <div class="help">
+        Click the text link.
+    </div>
+    <div id="target">Target
+      <a class="button click cursorPointer" href="#" id="parentnodeok">Click me!</a>
+    </div>
+    <div class="help">
+        Clicking the text link below should not update the target.
+    </div>
+    <div>
+      <a  class="button click cursorPointer" href="#" id="parentnodenotok">Click me!</a>
+    </div>
+
+    <div class="nested" id="nesteddivs0">
+      <div class="nested" id="nesteddivs1">
+        <div class="nested" id="nesteddivs2">
+          <a href="#" id="parentnodechain" class="button click cursorPointer" >Click me!</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="help">
+      paretnode can also be used to select siblings or other related nodes
+    </div>
+
+    <div id="parent-root" class="nested">
+      <div class="nested">
+	<div class="nested">
+	  <a href="#" id="parentnodesurrounding" 
+	     class="button click cursorPointer">Click me!</a>
+	</div>
+      </div>
+      <div class="nested related">
+	Related node
+      </div>
+    </div>
+  </body>
+</html>

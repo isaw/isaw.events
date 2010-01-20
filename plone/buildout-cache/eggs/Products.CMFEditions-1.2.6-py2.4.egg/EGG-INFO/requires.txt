@@ -1,0 +1,10 @@
+setuptools
+Products.Archetypes
+Products.CMFCore >=2.1
+Products.CMFDynamicViewFTI
+Plone
+Products.CMFUid
+Products.GenericSetup >=1.4.0
+Products.PloneTestCase
+Products.ZopeVersionControl
+zope.interface

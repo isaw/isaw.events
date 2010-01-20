@@ -1,0 +1,70 @@
+<html tal:define="viewname string:draganddrop">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources">
+      <metal:custom_resources fill-slot="custom_resources"> 
+        <style type="text/css">
+          .draggable, .droppable {
+              padding: 1em;
+              width: 10%;
+          }
+          
+          .droppable {
+              background-color: gray;
+          }
+          table.wrapper td.wide div {
+              float: left;
+          }
+          table.wrapper td div,
+          .droppable {
+              width: 80px;
+              border: 1px solid purple;
+              margin-bottom: .5em;
+          }
+          table.wrapper td.wide {
+              width: 400px;
+          }
+
+          table.wrapper td.wide div {
+              margin-right: .5em;
+          }
+          table.wrapper td {
+              vertical-align: top;
+          }
+        </style>
+      </metal:custom_resources>
+    </metal:header>
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+    <h2>Drag and drop</h2>
+    <table class="wrapper" border="0">
+        <tr>
+            <th>Free</th>
+            <th>Vertical</th>
+            <th>Horizontal</th>
+        </tr>
+        <tr>
+            <td>
+                <div class="draggable">Drag me</div>
+                <div class="droppable"><span>Drop me here</span></div>
+                <div class="droppable"><span>or here</span></div>
+            </td>
+            <td>
+                <div class="draggable vertical">Drag me</div>
+                <div class="droppable"><span>Drop me here</span></div>
+                <div class="droppable"><span>or here</span></div>
+            </td>
+            <td class="wide">
+                <div class="draggable horizontal">Drag me</div>
+                <div class="droppable"><span>Drop me here</span></div>
+                <div class="droppable"><span>or here</span></div>
+            </td>
+        </tr>
+    </table>
+  </body>
+</html>

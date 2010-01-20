@@ -1,0 +1,33 @@
+<html tal:define="viewname string:cancel">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>action-cancel</h2>
+   
+    <div id="standard">
+      <h3>Standard case</h3>
+      <ul>
+        <li class="with">with</li>
+        <li class="without">without</li>
+      </ul>
+    </div>
+
+    <div id="alias">
+      <h3>Alias case</h3>
+      <ul>
+        <li class="with">with</li>
+        <li class="without">without</li>
+      </ul>
+    </div>
+
+    <p metal:use-macro="context/@@body_macros/logger">logger</p>
+  </body>
+</html>

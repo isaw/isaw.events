@@ -1,0 +1,84 @@
+<html tal:define="viewname string:kss_client_action_alias">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>Kss client action aliasing demo</h2>
+    <form name="edit">
+    <p>There are three buttons. If you click on the first button, it changes the 
+    text (and style) of the
+    second and third button. Since we have the same action twice, they would merge if we
+    had not used aliases.
+    Look at the link on the kss file to understand.
+	</p>
+
+    <h3>
+    	<pre><code>action-client: setAttribute htmlid(button_2);
+setAttribute-name: value;
+setAttribute-value: 'RESET ME';
+
+action-client: setAttribute htmlid(button_3) alias(setAttributeRight);
+setAttributeRight-name: value;
+setAttributeRight-value: 'RESET ME TOO';</code></pre>
+    </h3>
+    <div class="help">
+        Click the button here.
+    </div>
+
+    <div>
+      <input type="submit" id="button_1" class="clickable"
+	     value="Click me"  />
+      <input type="submit" id="button_2" class="clickable"
+	     value="Watch me"  />
+      <input type="submit" id="button_3" class="clickable"
+	     value="Watch me"  />
+	</div>
+
+    <h3>
+      Check if aliased rules can merge. Click on the kss link above
+      to understand more. 
+    </h3>
+    <div class="help">
+        Click the button here.
+    </div>
+
+    <div>
+      <input type="submit" id="button_4" class="clickable"
+	     value="Click me"  />
+      <input type="submit" id="button_5" class="clickable"
+	     value="Watch me"  />
+      <input type="submit" id="button_6" class="clickable"
+	     value="Watch me"  />
+	</div>
+
+
+    <h3>
+      Check if aliased rules can merge. This will act on the second
+      and third button, and we need to check that the third
+      button in the row above (button_6) did not change.
+    </h3>
+    <div class="help">
+        Click the button here.
+    </div>
+
+    <div>
+      <input type="submit" id="button_7" class="clickable"
+	     value="Click me"  />
+      <input type="submit" id="button_8" class="clickable"
+	     value="Watch me"  />
+      <input type="submit" id="button_9" class="clickable"
+	     value="Watch me"  />
+	</div>
+
+
+    </form>
+
+  </body>
+</html>

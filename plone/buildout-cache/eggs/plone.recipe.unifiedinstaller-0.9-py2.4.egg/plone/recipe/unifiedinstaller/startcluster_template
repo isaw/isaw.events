@@ -1,0 +1,8 @@
+#!%(shell_cmd)s
+#
+# ZEO cluster startup script
+#
+# This script is now a plonectl wrapper
+
+
+%(bin_dir)s/plonectl start

@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>selenium_test_folder_contents</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">selenium_test_folder_contents</td></tr>
+</thead><tbody>
+<!--[test for changeset #13977] alt attribute of plone icon was broken clicking two times on folder_contents in the root of the portal-->
+<tr>
+	<td>open</td>
+	<td>/ksstestportal</td>
+	<td></td>
+</tr>
+<!--click for the first time on folder_contents-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Contents</td>
+	<td></td>
+</tr>
+<!--wait for element is present (plone icon)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=h1 img</td>
+	<td></td>
+</tr>
+<!--clicking for the second time on folder_contents-->
+<tr>
+	<td>click</td>
+	<td>link=Contents</td>
+	<td></td>
+</tr>
+<!--we need to wait a few of seconds because we are clicking two times on the same link (no waitForElementPresent)-->
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--the final assertion: alt attribute of the plone icon should be equals to 'Portal'-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>//img[@alt='Portal']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

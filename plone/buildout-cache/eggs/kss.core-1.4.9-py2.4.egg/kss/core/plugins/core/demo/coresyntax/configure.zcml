@@ -1,0 +1,113 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+		   i18n_domain="kss"
+		   >
+
+  <!-- Set up the demo utility -->
+  <configure zcml:condition="have kss_demo_version_1_2">
+      <utility
+        name="coresyntax"
+        factory=".zopeconfig.KSSCoreSyntaxDemos"
+        provides="kss.demo.interfaces.IKSSDemoResource"
+        permission="zope.Public"
+        />
+  </configure>
+
+  <!-- selector parameter -->
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="kss_selector_param.pt"
+      name="kss_selector_param.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="kss_selector_param.kss"
+    name="kss_selector_param.kss"
+  />
+
+  <!-- selector parameter with multi property-->
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="kss_selector_param_multiprop.pt"
+      name="kss_selector_param_multiprop.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="kss_selector_param_multiprop.kss"
+    name="kss_selector_param_multiprop.kss"
+  />
+
+
+  <!-- url parameter -->
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="kss_url_param.pt"
+      name="kss_url_param.html"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      name="urlMethod1"
+      attribute="urlMethod1"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      name="urlMethod2"
+      attribute="urlMethod2"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      name="urlMethod3"
+      attribute="urlMethod3"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="kss_url_param.kss"
+    name="kss_url_param.kss"
+  />
+
+  <!-- url parameter with multi property -->
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="kss_url_param_multiprop.pt"
+      name="kss_url_param_multiprop.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="kss_url_param_multiprop.kss"
+    name="kss_url_param_multiprop.kss"
+  />
+
+
+  <!-- client action aliases -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="kss_client_action_alias.pt"
+      name="kss_client_action_alias.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="kss_client_action_alias.kss"
+    name="kss_client_action_alias.kss"
+  />
+
+</configure>
+

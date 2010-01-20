@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="ploneopenid-various" version="200703161"
+               handler="plone.app.openid.setuphandlers.importVarious"
+               title="Setup OpenID authentication in Plone">
+    Add OpenID authentication support to Plone. This adds a new OpenID login
+    portlet and modifies the login form to add OpenID support.
+  </import-step>
+</import-steps>

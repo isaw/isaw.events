@@ -1,0 +1,30 @@
+ 
+button#insertBefore:click {
+    evt-click-preventdefault: true;
+    action-server: htmlInsertBefore;
+    htmlInsertBefore-text : currentFormVar(text-to-insert);
+}
+
+button#insertAfter:click {
+    evt-click-preventdefault: true;
+    action-server: htmlInsertAfter;
+    htmlInsertAfter-text : currentFormVar(text-to-insert);
+}
+
+button#insertAsFirstChild:click {
+    evt-click-preventdefault: true;
+    action-server: htmlInsertAsFirstChild;
+    htmlInsertAsFirstChild-text : currentFormVar(text-to-insert);
+}
+
+button#insertAsLastChild:click {
+    evt-click-preventdefault: true;
+    htmlInsertAsLastChild-text : currentFormVar(text-to-insert);
+    action-server: htmlInsertAsLastChild;
+}
+
+button#insert:click {
+    evt-click-preventdefault: true;
+    action-server: htmlReplace;
+}
+

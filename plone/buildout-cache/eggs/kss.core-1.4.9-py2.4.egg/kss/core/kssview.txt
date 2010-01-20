@@ -1,0 +1,67 @@
+====================
+KSS views and events
+====================
+
+When we make a change using Ajax calls we would like to update the
+browser page. This can be done by sending browser commands. Some part
+of the page may need to be update based on modifications.
+
+We don't want to handle all these modifications in our own code. An
+example of such a modification change would be changing the
+title. This should also update the navigation portlet.
+
+To make this work KSS views do something special. We will explain
+this by creating an example. The following will setup our enviroment
+and show that normal operation works.
+
+  >>> from kss.core import KSSView
+  >>> from zope import component
+  >>> from zope.lifecycleevent import ObjectModifiedEvent
+  >>> from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+  >>> from zope.publisher.browser import TestRequest
+  >>> from zope.publisher.http import HTTPResponse
+  >>> from zope import event
+
+  >>> from zope.app.folder import folder
+  >>> myfolder = folder.rootFolder()
+  >>> request = TestRequest()
+  >>> request.RESPONSE = HTTPResponse()
+
+Now we will write our custom.
+
+  >>> class SampleView(KSSView):
+  ...     def setTitle(self, title):
+  ...         self.context.title = title
+  ...         event.notify(ObjectModifiedEvent(self.context))
+  ...         return self.render()
+
+  >>> view = SampleView(myfolder, request)
+
+Simulate traversal by making the view the current site:
+
+  >>> from zope.app.component.hooks import setSite
+  >>> setSite(view)
+
+Let's set a title:
+
+  >>> view.setTitle("some title")
+  []
+
+Now that we have shown that this will not generate any KSS commands
+we will register a handler. This handler will catch the object event
+and add some KSS commands.
+
+  >>> @component.adapter(None, SampleView, IObjectModifiedEvent)
+  ... def stuff_happend(object, view, event):
+  ...     view.getCommandSet('core').replaceInnerHTML(
+  ...         'div.class', object.title)
+  >>> component.provideHandler(stuff_happend)
+
+When we call the renderer now it should have some more data in it.
+(html parameters are marshalled as CDATA, so we check for that too)
+
+  >>> view = SampleView(myfolder, request)
+  >>> setSite(view)
+
+  >>> view.setTitle(u"some title")[0]['params']['html']
+  u'<![CDATA[some title]]>'

@@ -1,0 +1,85 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:kss="http://namespaces.zope.org/kss"
+    >
+
+    <kss:commandset
+        name="zope"
+        for="kss.core.interfaces.IKSSView"
+        class=".zopecommands.ZopeCommands"
+        provides=".interfaces.IZopeCommands"
+        />
+        
+    <kss:commandset
+        name="plone"
+        for="kss.core.interfaces.IKSSView"
+        class=".plonecommands.PloneCommands"
+        provides=".interfaces.IPloneCommands"
+        />
+
+    <kss:commandset
+        name="plone-legacy"
+        for="kss.core.interfaces.IKSSView"
+        class=".legacycommands.PloneLegacyCommands"
+        provides=".interfaces.IPloneLegacyCommands"
+        />
+
+    <!-- DEPRECATED commands - will be gone in Plone 4.0.
+    
+        This functionality exists in the 'zope' and 'plone'
+        command sets
+        
+      -->
+
+    <kss:commandset
+        name="refreshportlet"
+        for="kss.core.interfaces.IKSSView"
+        class=".refreshportlet.RefreshPortletCommand"
+        provides=".interfaces.IRefreshPortletCommand"
+        />
+
+    <kss:commandset
+        name="refreshviewlet"
+        for="kss.core.interfaces.IKSSView"
+        class=".refreshViewlet.KSSRefreshViewlet"
+        provides=".interfaces.IKSSRefreshViewlet"
+        />
+
+    <kss:commandset 
+        name="plone-portlets"
+        for="kss.core.interfaces.IKSSView"
+        class=".portlets.KSSPortletCommands"
+        provides=".interfaces.IKSSPlonePortletCommands"
+        />
+
+    <kss:commandset
+        name="portalmessage"
+        for="kss.core.interfaces.IKSSView"
+        class=".issueportalmessage.IssuePortalMessageCommand"
+        provides=".interfaces.IIssuePortalMessageCommand"
+        />
+
+    <kss:commandset
+        name="replacecontentmenu"
+        for="kss.core.interfaces.IKSSView"
+        class=".replacecontentmenu.ReplaceContentMenuCommand"
+        provides=".interfaces.IReplaceContentMenuCommand"
+        />
+
+    <kss:commandset
+        name="contentmenu"
+        for="kss.core.interfaces.IKSSView"
+        class=".refreshContentMenu.KSSRefreshContentMenu"
+        provides=".interfaces.IKSSRefreshContentMenu"
+        />
+
+    <kss:commandset
+        name="refreshprovider"
+        for="kss.core.interfaces.IKSSView"
+        class=".refreshprovider.RefreshProviderCommand"
+        provides=".interfaces.IRefreshProviderCommand"
+        />
+
+
+</configure>

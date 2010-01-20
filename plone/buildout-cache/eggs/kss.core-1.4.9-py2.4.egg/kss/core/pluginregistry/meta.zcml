@@ -1,0 +1,44 @@
+<configure
+     xmlns="http://namespaces.zope.org/meta">
+
+   <!-- XXX concatresource is now included locally. -->
+   <include package="._concatresource" file="meta.zcml"/>
+
+   <!-- XXX deprecation of the old azax: namespace -->
+   <include package=".deprecated" file="meta.zcml"/>
+
+   <directives namespace="http://namespaces.zope.org/kss">
+   
+     <directive
+       name="eventtype"
+       schema=".directives.IRegisterEventTypeDirective"
+       handler=".configure.registerEventType"
+       />
+   
+     <directive
+       name="action"
+       schema=".directives.IRegisterActionDirective"
+       handler=".configure.registerAction"
+       />
+
+    <directive
+       name="selectortype"
+       schema=".directives.IRegisterSelectorTypeDirective"
+       handler=".configure.registerSelectorType"
+       />
+
+    <directive
+       name="commandset"
+       schema=".directives.IRegisterCommandSetDirective"
+       handler=".configure.registerCommandSet"
+       />
+
+    <directive
+       name="paramprovider"
+       schema=".directives.IRegisterParamProviderDirective"
+       handler=".configure.registerParamProvider"
+       />
+      
+   </directives>
+
+</configure>

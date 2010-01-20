@@ -1,0 +1,10 @@
+#
+# results of svn propget svn:externals
+# http://codespeak.net/svn/kukit/azax/trunk/plugins
+#
+# You can update your working dir by: 
+#     svn propset svn:externals -F EXTERNALS.TXT .
+#
+
+# concatresource is now included like as batteries
+_concatresource https://codespeak.net/svn/kukit/kss.concatresource/branch/1.4/kss/concatresource

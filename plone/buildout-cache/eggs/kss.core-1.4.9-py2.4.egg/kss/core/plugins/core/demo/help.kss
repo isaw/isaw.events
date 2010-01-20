@@ -1,0 +1,9 @@
+
+a#displayHelp:click {
+    action-server: displayHelp;
+    displayHelp-viewname: kssAttr(viewname);
+}
+
+a#hideHelp:click {
+    action-server: hideHelp;
+}

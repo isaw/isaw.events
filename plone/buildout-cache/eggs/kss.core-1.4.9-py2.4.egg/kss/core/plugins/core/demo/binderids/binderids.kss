@@ -1,0 +1,38 @@
+
+/* Set up kss rules needed for your demo. 
+ *  Use the following rule as an example only.
+ */
+
+.buttons:click(manual) {
+    action-client: insertHTMLAsLastChild;
+    insertHTMLAsLastChild-kssSelector: #logger;
+    insertHTMLAsLastChild-html:  "manual";
+}
+
+#button1:click(manual2) {
+    action-client: insertHTMLAsLastChild;
+    insertHTMLAsLastChild-kssSelector: #logger2;
+    insertHTMLAsLastChild-html:  "manual2";
+}
+
+.buttons.bindable_by_parm:click(kssAttr(binderid)) {
+    action-client: insertHTMLAsLastChild;
+    insertHTMLAsLastChild-kssSelector: #logger2;
+    insertHTMLAsLastChild-html:  kssAttr(binderid);
+}
+
+
+
+
+/* Log control
+*/
+
+#log-reset a:click, #log-reset:click {
+    action-client: clearChildNodes;
+    clearChildNodes-kssSelector: #logger;
+}
+
+#log-reset2 a:click, #log-reset2:click {
+    action-client: clearChildNodes;
+    clearChildNodes-kssSelector: #logger2;
+}

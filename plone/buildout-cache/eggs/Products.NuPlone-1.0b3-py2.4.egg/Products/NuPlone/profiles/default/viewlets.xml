@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object>
+  <hidden manager="plone.portaltop" skinname="NuPlone">
+      <viewlet name="plone.personal_bar"/>
+      <viewlet name="plone.app.i18n.locales.languageselector" />
+  </hidden>
+  <order manager="plone.portalheader" skinname="NuPlone" based-on="Plone Default">
+      <viewlet name="plone.personal_bar" insert-after="plone.site_actions" />
+  </order>
+</object>

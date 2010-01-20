@@ -1,0 +1,108 @@
+Metadata-Version: 1.0
+Name: plone.app.locales
+Version: 3.3.8
+Summary: Translation files for Plone
+Home-page: http://pypi.python.org/pypi/plone.app.locales
+Author: Plone Foundation
+Author-email: plone-developers@lists.sourceforge.net
+License: GPL
+Description: Introduction
+        ============
+        
+        This package contains the translation files for Plone Core and the
+        LinguaPlone add-on product.
+        
+        Changelog
+        =========
+        
+        3.3.8 (2010-01-04)
+        ------------------
+        
+        - Updated translations.
+        [Plone translators]
+        
+        
+        3.3.7 (2009-11-30)
+        ------------------
+        
+        - Reverted English translation of time_format, date_format_short,
+        date_format_long introduced in 3.3.6. Those strings have to be
+        empty for Plone 3.x, which means that the date format is picked
+        up from site properties.
+        [vincentfretin]
+        
+        
+        3.3.6 (2009-11-22)
+        ------------------
+        
+        - Added 8 new messages to translate some exceptions. See
+        http://dev.plone.org/plone/ticket/9744
+        [vincentfretin]
+        
+        
+        3.3.5 (2009-10-31)
+        ------------------
+        
+        - Added 18 new messages to translate portlet titles and
+        descriptions. See http://dev.plone.org/plone/ticket/9631
+        [vincentfretin]
+        
+        
+        3.3.4 (2009-09-05)
+        ------------------
+        
+        - This release contains .mo files for the locales directory
+        - Czech: translation update
+        - French: replaced "Corps du texte" by "Corps de texte"
+        - German: unfuzzy label_click_here_to_retrieve translation
+        - Italian: fixed the history_action translation,
+        it used ${author} instead of ${actor}
+        
+        
+        3.3.3 (2009-07-28)
+        ------------------
+        
+        - Updated translations.
+        [Plone translators]
+        
+        
+        3.3.2 (2009-06-20)
+        ------------------
+        
+        - Updated translations.
+        [Plone translators]
+        
+        
+        3.3.1 (2009-05-17)
+        ------------------
+        
+        - Updated translations.
+        [Plone translators]
+        
+        
+        3.3.0 (2009-04-05)
+        ------------------
+        
+        - Lots of new translations.
+        [Plone translators]
+        
+        
+        3.2.0 (2009-03-02)
+        ------------------
+        
+        - Added new time_format id to the po files to support the new time_only fix.
+        Closes http://dev.plone.org/plone/ticket/8607.
+        [jnelson, calvinhp]
+        
+        
+        3.1.4 (2008-10-13)
+        ------------------
+        
+        - Restructured the PloneTranslations product into this package.
+        The 3.1.4 release contains the same translation files as the
+        PloneTranslations 3.1.4 release.
+        [hannosch]
+        
+Keywords: plone i18n locale translation
+Platform: UNKNOWN
+Classifier: Framework :: Plone

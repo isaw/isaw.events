@@ -1,0 +1,56 @@
+<html tal:define="viewname string:actions">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources">
+      <metal:custom_resources fill-slot="custom_resources"> 
+        <style type="text/css">
+          .selected {
+            background-color: darkblue;
+            color: white !important;
+            border-color: yellow !important;
+          }
+        </style>
+      </metal:custom_resources>
+    </metal:header>
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>Core plugins</h2>
+    <p>The core plugins are tested here.</p> 
+    <h3>
+      <code>toggleClass</code>
+    </h3>
+    <div class="help">
+        Toggling the class means adding or removing it. Click the button to toggle class on (it will highlight the button). Click it again to toggle class off (it will remove highlighting).
+    </div>
+    <div class="container">
+      <a  class="button click cursorPointer" title="Client-side" href="#" id="toggleclass-button">Click me!</a>
+      <a  class="button click cursorPointer" title="Server-side" href="#" id="server-toggleclass-button">Click me!</a>
+    </div>
+    <h3>
+      <code>addClass</code>
+    </h3>
+    <div class="help">
+        Click the button to add class on (it will highlight the button). 
+    </div>
+    <div class="container">
+      <a  class="button click cursorPointer" title="Client-side" href="#" id="addclass-button">Click me!</a>
+      <a  class="button click cursorPointer" title="Server-side" href="#" id="server-addclass-button">Click me!</a>
+    </div>
+    <h3>
+      <code>removeClass</code>
+    </h3>
+    <div class="help">
+        Click the button to remove class from it (it will remove highlighting).
+    </div>
+    <div class="container">
+      <a  class="button click cursorPointer selected" title="Client-side" href="#" id="removeclass-button">Click me!</a>
+      <a  class="button click cursorPointer selected" title="Server-side" href="#" id="server-removeclass-button">Click me!</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+Metadata-Version: 1.0
+Name: plone.app.form
+Version: 1.1.7
+Summary: zope.formlib integration for Plone
+Home-page: http://pypi.python.org/pypi/plone.app.form
+Author: Plone Foundation
+Author-email: plone-developers@lists.sourceforge.net
+License: GPL
+Description: This package enables zope.formlib forms to work in Zope 2 code, styled to
+        look like Plone forms. Note that developers should use zope.formlib directly,
+        not Products.Five.formlib.
+        
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python

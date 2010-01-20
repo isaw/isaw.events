@@ -1,0 +1,12 @@
+
+
+
+
+#alpha1:testbinderclass-alphaone,
+#beta1:testbinderclass-betaone,
+#beta2:testbinderclass-betatwo {
+    action-client: insertHTMLAsLastChild;
+    insertHTMLAsLastChild-kssSelector: #logger;
+    insertHTMLAsLastChild-html: pass(counter);
+}
+

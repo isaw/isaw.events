@@ -1,0 +1,18 @@
+================
+Backlink Manager
+================
+
+alot of setup here...gotta interact with alot of nasty old zope
+
+    >>> from zope.app.tests.placelesssetup import setUp, tearDown
+    >>> import Products.Five
+    >>> from Products.Five import zcml
+
+    >>> from wicked.testing import getToolByName
+    >>> from wicked.factories import BacklinkManager
+    >>> from wicked.atcontent.ironicwiki import IronicWiki
+    >>> doc = IronicWiki('ironic')
+
+
+
+

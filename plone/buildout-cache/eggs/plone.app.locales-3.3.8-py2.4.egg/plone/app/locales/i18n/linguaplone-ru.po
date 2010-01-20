@@ -1,0 +1,238 @@
+# Translation of linguaplone.pot to Russian
+# Mikhail Kashkin <mailbox@xen.ru>, 2005
+# !!! If you found errors in this file please send me direct email, I'm not often read newsgroups.
+msgid ""
+msgstr ""
+"Project-Id-Version: LinguaPlone\n"
+"POT-Creation-Date: 2009-07-08 09:15+0000\n"
+"PO-Revision-Date: 2006-06-07 23:57+0300\n"
+"Last-Translator: Mikhail Kashkin <mailbox@xen.ru>\n"
+"Language-Team: <mailbox@xen.ru>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: ru\n"
+"Language-Name: Русский\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: linguaplone\n"
+"X-Generator: KBabel 0.9.6\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+
+#. Default: "The languages in which the site should be translatable."
+#: LinguaPlone/browser/controlpanel.py:31
+msgid "description_available_languages"
+msgstr ""
+
+#. Default: "Select the language you want to change the content to."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:26
+msgid "description_change_language"
+msgstr "Отметьте язык с которым вы хотите связать объект."
+
+#. Default: "The content you were viewing does not exist in the language you just selected. The site language has been switched to ${language} and you can keep browsing the site in this language."
+#: LinguaPlone/skins/LinguaPlone/not_available_lang.pt:35
+msgid "description_changed_translation_unavailable"
+msgstr "Содержание выбранного вами объекта ещё не переведено на выбранный вами язык. Язык был изменён на ${language} и вы можете использовать его для дальнейшей навигации по порталу."
+
+#. Default: "Create ${language} translation of this item."
+#: LinguaPlone/skins/LinguaPlone/not_available_lang.pt:86
+msgid "description_create_language_translation"
+msgstr "Создать ${language} перевод для данного объекта."
+
+#. Default: "Go to the canonical language."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:95
+msgid "description_go_canonical_language"
+msgstr ""
+
+#. Default: "Link another existing content as a translation for the current one in the selected language."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:117
+msgid "description_link_translations"
+msgstr ""
+
+#. Default: "Here you can change the content language and link or unlink translations."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:17
+#, fuzzy
+msgid "description_manage_translations"
+msgstr "Здесь можно изменить язык объекта или удалить существующие переводы."
+
+#. Default: "There are no untranslated languages to link to."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:110
+msgid "description_no_linkable_translations"
+msgstr ""
+
+#. Default: "There are no translations to remove."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:353
+msgid "description_no_removable_translations"
+msgstr "Переводов для удаления нет."
+
+#. Default: "For safety some actions can only be done on the canonical language. This is not it."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:91
+msgid "description_not_canonical_safety"
+msgstr ""
+
+#. Default: "If you want to read the content of this document, you have to switch to one of the following languages:"
+#: LinguaPlone/skins/LinguaPlone/not_available_lang.pt:55
+msgid "description_read_translated_versions"
+msgstr "Для просмотра содержания данного документа вам следует переключиться на один из следующих языков:"
+
+#. Default: "Select translations to remove."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:348
+msgid "description_remove_translations"
+msgstr "Отметьте переводы для удаления."
+
+#. Default: "The default language used for the content and the UI of this site."
+#: LinguaPlone/browser/controlpanel.py:22
+msgid "description_site_language"
+msgstr ""
+
+#. Default: "This content does not exist in your current language, ${language}, but you can keep browsing the site in this language."
+#: LinguaPlone/skins/LinguaPlone/not_available_lang.pt:45
+msgid "description_translation_unavailable"
+msgstr "Данный объект не существует на вашем языке, ${language}, но вы можете подолжать передвижение по порталу. "
+
+#. Default: "Add content translation"
+#: LinguaPlone/skins/LinguaPlone/not_available_lang.pt:75
+msgid "header_add_content_translation"
+msgstr "Добавить перевод объекта"
+
+#. Default: "Change content language"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:22
+msgid "header_change_language"
+msgstr "Изменить язык объекта/содержания"
+
+#. Default: "Link translations"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:106
+msgid "header_link_translations"
+msgstr ""
+
+#. Default: "Manage translations"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:13
+msgid "header_manage_translations"
+msgstr "Управление Переводами"
+
+#. Default: "Not the canonical language"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:86
+msgid "header_not_canonical"
+msgstr ""
+
+#. Default: "Remove translations"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:344
+msgid "header_remove_translations"
+msgstr "Удалить переводы"
+
+#. Default: "Translation Unavailable"
+#: LinguaPlone/skins/LinguaPlone/not_available_lang.pt:27
+msgid "header_translation_unavailable"
+msgstr "Перевод Отсутствует"
+
+#. Default: "Available languages"
+#: LinguaPlone/browser/controlpanel.py:29
+msgid "heading_available_languages"
+msgstr ""
+
+#. Default: "Default site language"
+#: LinguaPlone/browser/controlpanel.py:20
+msgid "heading_site_language"
+msgstr ""
+
+#. Default: "Select the content to link as a translation."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:170
+msgid "help_link_content"
+msgstr ""
+
+#. Default: "Select the language that the translation will be linked as."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:141
+msgid "help_link_language"
+msgstr ""
+
+#. Default: "Add Translation"
+#: LinguaPlone/skins/LinguaPlone/not_available_lang.pt:103
+msgid "label_add_translation"
+msgstr "Добавить Перевод"
+
+#. Default: "Browse..."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:260
+msgid "label_browse"
+msgstr ""
+
+#. Default: "Change Language"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:72
+msgid "label_change_language"
+msgstr "Изменить Язык"
+
+#. Default: "Content"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:167
+msgid "label_link_content"
+msgstr ""
+
+#. Default: "Language"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:138
+msgid "label_link_language"
+msgstr ""
+
+#. Default: "Link Translation"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:329
+msgid "label_link_translation"
+msgstr ""
+
+#. Default: "Manage translations..."
+#: LinguaPlone/browser/menu.py:64
+msgid "label_manage_translations"
+msgstr "Управлене Переводами..."
+
+#. Default: "Neutral"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:51
+msgid "label_neutral"
+msgstr "Нейтральный"
+
+#. Default: "No reference set. Click the browse button to select."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:232
+msgid "label_no_reference_set"
+msgstr ""
+
+#. Default: "No translation content selected. Click the browse button to select."
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:296
+msgid "label_no_translation_selected"
+msgstr ""
+
+#. Default: "Translate into..."
+#: LinguaPlone/browser/menu.py:83
+msgid "label_translate_menu"
+msgstr ""
+
+#. Default: "Available languages"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:38
+msgid "legend_available_languages"
+msgstr "Доступные языки"
+
+#. Default: "Existing translations"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:368
+msgid "legend_existing_translations"
+msgstr "Существующие переводы"
+
+#. Default: "Link translations"
+#: LinguaPlone/skins/LinguaPlone/manage_translations_form.pt:132
+msgid "legend_link_translations"
+msgstr ""
+
+#. Default: "Translation created."
+#: LinguaPlone/browser/translate.py:61
+msgid "message_translation_created"
+msgstr ""
+
+#. Default: "Translation already exists"
+#: LinguaPlone/browser/translate.py:56
+msgid "message_translation_exists"
+msgstr ""
+
+#. Default: "Translate into ${lang_name}"
+#: LinguaPlone/browser/menu.py:48
+msgid "title_translate_into"
+msgstr ""
+
+#. Default: "Manage translations for your content."
+#: LinguaPlone/browser/menu.py:84
+msgid "title_translate_menu"
+msgstr ""
+

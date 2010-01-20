@@ -1,0 +1,99 @@
+<html tal:define="viewname string:focus">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+    <h2>Focus</h2>
+    <p>We test the focus action/command : it is used to set focus to form
+    widgets. </p>
+    <p>The focus is set to various widgets : <code>input</code>,
+    <code>select</code>, <code>textarea</code>...</p> 
+    <div id="target">Focus on <code>none</code>.</div>
+    <form name="main">
+      <h3>
+        Focus to <code>input type="text"<code>.
+      </h3>
+      <div class="help">
+        Click the buttons to set focus to the input.
+      </div>
+      <fieldset>
+        <div>
+          <a class="button click cursorPointer" title="Client-side" id="focus-to-text">Click me !</a>
+          <a class="button click cursorPointer" title="Server-side" id="server-focus-to-text">Click me !</a>
+          <input class="focus" id="text"
+                 type="text" name="text" value="text" />
+        </div>
+      </fieldset>  
+      <h3>
+        Focus to <code>textarea<code>.
+      </h3>
+      <div class="help">
+        Click the buttons to set focus to the textarea.
+      </div>
+      <fieldset>
+        <div>
+          <a class="button click cursorPointer" title="Client-side" id="focus-to-textarea">Click me !</a>
+          <a class="button click cursorPointer" title="Server-side" id="server-focus-to-textarea">Click me !</a>
+          <textarea id="textarea" class="focus" name="textarea">textarea</textarea>
+        </div>
+      </fieldset>
+      <h3>
+        Focus to <code>select<code>.
+      </h3>
+      <div class="help">
+        Click the buttons to set focus to the select.
+      </div>
+      <fieldset>
+        <div>
+          <a class="button click cursorPointer" title="Client-side" id="focus-to-select">Click me !</a>
+          <a class="button click cursorPointer" title="Server-side" id="server-focus-to-select">Click me !</a>
+          <select id="select" class="focus" name="select">
+            <option selected="selected">select</option>
+            <option>second option</option>
+          </select>
+        </div>
+      </fieldset>
+      <h3>
+        Focus to <code>input type="radio"<code>.
+      </h3>
+      <div class="help">
+        Click the buttons to set focus to the radio.
+      </div>
+      <fieldset>
+        <div>
+          <a class="button click cursorPointer" title="Client-side" id="focus-to-radio">Click me !</a>
+          <a class="button click cursorPointer" title="Server-side" id="server-focus-to-radio">Click me !</a>
+          <input class="focus" id="radio-1" 
+                 type="radio" name="radio" value="radio"
+                 checked="checked" />
+          <input class="focus" id="radio-2"
+                 type="radio" name="radio" value="radio-2" />
+        </div>
+      </fieldset>  
+      <h3>
+        Focus to <code>input type="checkbox"<code>.
+      </h3>
+      <div class="help">
+        Click the buttons to set focus to the checkbox.
+      </div>
+      <fieldset>
+        <div>
+          <a class="button click cursorPointer" title="Client-side" id="focus-to-checkbox">Click me !</a>
+          <a class="button click cursorPointer" title="Server-side" id="server-focus-to-checkbox">Click me !</a>
+          <input class="focus" id="checkbox-1" 
+                 type="checkbox" name="checkbox" value="checkbox"
+                 checked="checked" />
+          <input class="focus" id="checkbox-2"
+                 type="checkbox" name="checkbox" value="checkbox-2" />
+        </div>
+      </fieldset>  
+    </form>
+  </body>
+</html>

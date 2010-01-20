@@ -1,0 +1,16 @@
+setuptools
+kss.core
+plone.memoize
+plone.app.kss
+zope.component
+zope.i18nmessageid
+zope.interface
+zope.schema
+Plone
+Products.CMFCore
+Products.DCWorkflow
+Products.statusmessages
+
+[test]
+Products.CMFCalendar
+Products.PloneTestCase

@@ -1,0 +1,3 @@
+#!/tmp/plone/Python-2.4/bin/python
+from Cheetah.CheetahWrapper import CheetahWrapper
+CheetahWrapper().main()

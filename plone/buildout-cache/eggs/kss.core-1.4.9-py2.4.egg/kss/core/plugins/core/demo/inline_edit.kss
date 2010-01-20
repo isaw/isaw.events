@@ -1,0 +1,20 @@
+div#text:click {
+    action-server: getInputField;
+    getInputField-value:      currentFormVar(value);
+}
+
+div#text:keydown {
+evt-keydown-allowbubbling: true;
+evt-keydown-keycodes: 13;
+action-client:log;
+action-server: saveText;
+saveText-value:currentFormVar(value);
+
+}
+
+input#save:click {
+    action-server: saveText;
+    saveText-value:      currentFormVar(value);
+}
+
+

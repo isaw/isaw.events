@@ -1,0 +1,5 @@
+
+I yet have to add tests that work transparently with zope3 and five.
+
+Till then, include the configure.zmcl in this directory from the root.
+

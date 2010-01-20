@@ -1,0 +1,15 @@
+.blurrable:blur, .remote-blurrable:blur  {
+    action-client: replaceInnerHTML;
+    replaceInnerHTML-kssSelector: css("#target code");
+    replaceInnerHTML-html: nodeAttr(id);
+} 
+.blurrable:keypress {
+    evt-keypress-preventdefault: true;
+    evt-keypress-keycodes: 32;
+    action-client: blur;
+} 
+.remote-blurrable:keypress {
+    evt-keypress-preventdefault: true;
+    evt-keypress-keycodes: 32;
+    action-server: blur;
+} 

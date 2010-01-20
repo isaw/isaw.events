@@ -1,0 +1,32 @@
+div.portlet:startdrag(portlets) {
+    default-action: ghost;  #keep, discard
+    action-server: lockContainer;
+}
+
+div.portlet:dragsuccess(portlets) {
+    action-server: putInTarget;
+    putInTarget-source: nodeAttr(id);
+    putInTarget-target: nodeAttr(id, kssContext=dragTarget());
+    putInTarget-target-kssContext: dragTarget();
+}
+
+div.portlet:dragfailure(portlets) {
+    action-server: unlockContainer;
+}
+
+#toolbar div.portlet:startdrag(portlets) {
+    default-action: keep;
+}
+
+#toolbar div.onlyInDashboard:startdrag(portlets) {
+    default-action: keep;
+    default-allowedTargets: css(#dashboard); 
+}
+
+#dashboard:drop(portlets), #column-two:drop(portlets), #column-one:drop(portlets) {
+    default-action: order;  #fill, discard
+}
+
+#waste-bin:drop(portlets) {
+    default-action: discard;
+}

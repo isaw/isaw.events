@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="portal_css" meta_type="Stylesheets Registry">
+ <stylesheet id="RTL.css" insert-before="ploneCustom.css" />
+ <stylesheet title="" cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression="" id="nuplone.css" media="screen"
+    rel="stylesheet" rendering="import" insert-before="RTL.css"/>
+</object>

@@ -1,0 +1,29 @@
+#parentnodeok:click {
+    action-client: executeCommand;
+    executeCommand-name: replaceInnerHTML;
+    executeCommand-selector: '#target';
+    executeCommand-selectorType: parentnode;
+    executeCommand-html: "ok";
+} 
+
+#parentnodenotok:click {
+    action-client: executeCommand;
+    executeCommand-name: replaceInnerHTML;
+    executeCommand-selector: '#target';
+    executeCommand-selectorType: parentnode;
+    executeCommand-html: "verry bad";
+} 
+
+#parentnodechain:click {
+    action-client: executeCommand;
+    executeCommand-name: insertHTMLAsLastChild;
+    executeCommand-selector: '.nested';
+    executeCommand-selectorType: parentnode;
+    executeCommand-html: '<div class="inserted">selected</div>';
+} 
+
+#parentnodesurrounding:click {
+    action-client: insertHTMLAsLastChild;
+    insertHTMLAsLastChild-kssSelector: parentnode('#parent-root % div.related');
+    insertHTMLAsLastChild-html: '<div class="inserted">selected</div>';
+} 

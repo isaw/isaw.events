@@ -1,0 +1,12 @@
+#!/usr/local/www/repos/Events/plone/Python-2.4/bin/python
+
+import sys
+sys.path[0:0] = [
+  '/usr/local/www/repos/Events/plone/Zope-2.10.11-final-py2.4/lib/python',
+  '/usr/local/www/repos/Events/plone/Zope-2.10.11-final-py2.4/utilities/ZODBTools',
+  ]
+
+import repozo
+
+if __name__ == '__main__':
+    repozo.main()

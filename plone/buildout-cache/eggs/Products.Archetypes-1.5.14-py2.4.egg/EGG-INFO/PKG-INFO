@@ -1,0 +1,73 @@
+Metadata-Version: 1.0
+Name: Products.Archetypes
+Version: 1.5.14
+Summary: Archetypes is a developers framework for rapidly developing and deploying rich, full featured content types within the context of Zope/CMF and Plone.
+Home-page: http://plone.org/
+Author: Benjamin Saller and others
+Author-email: plone-developers@lists.sourceforge.net
+License: BSD
+Description: Introduction
+        ============
+        
+        Archetypes is a developers framework for rapidly developing and deploying
+        rich, full featured content types within the context of Zope/CMF and Plone.
+        
+        Archetypes is based around the idea of an `Active Schema`. Rather than
+        provide a simple description of a new data type, Archetype schemas do the
+        actual work and heavy lifting involved in using the new type. Archetype
+        Schemas serve as easy extension points for other developers as project
+        specific components can be created and bound or you can choose among the
+        rich existing set of features.
+        
+        Features
+        --------
+        
+        * Simple schemas with working default policy.
+        
+        * Power and flexibility with lowered incidental complexity.
+        
+        * Full automatic form generation
+        
+        * Unique Ids for objects
+        
+        * Object References/Relationships
+        
+        * Per Type cataloging in one or more catalogs
+        
+        Requirements
+        ------------
+        
+        * CMF 2.1.0+
+        
+        * Zope 2.10.0+
+        
+        * statusmessages 3.0+
+        
+        Recommended
+        -----------
+        
+        * docutils > 0.3.3 (shipped with Zope)
+        
+        * Python Imgaging Library 1.1.6+
+        
+        Unit testing
+        ------------
+        
+        * Install the `CMFTestCase`_ product.
+        
+        * Go into the root of your instance and run
+        INSTANCE_HOME/bin/zopectl test --s Products.Archetypes
+        
+        Documentation
+        -------------
+        
+        Major resource for documentation is located at `plone.org`_.
+        
+        .. _CMFTestCase: http://plone.org/products/cmftestcase
+        .. _plone.org: http://plone.org/products/archetypes/documentation
+        
+Keywords: Archetypes Plone CMF Zope
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: Programming Language :: Python

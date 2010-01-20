@@ -1,0 +1,5 @@
+
+These packages are distributed with the kukit core, however they can
+be individually toggled from the configure.zcml, or also configured
+as standalone python packages.
+

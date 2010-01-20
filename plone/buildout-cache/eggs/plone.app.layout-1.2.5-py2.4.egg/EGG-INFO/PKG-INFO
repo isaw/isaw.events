@@ -1,0 +1,354 @@
+Metadata-Version: 1.0
+Name: plone.app.layout
+Version: 1.2.5
+Summary: Layout mechanisms for Plone
+Home-page: http://svn.plone.org/svn/plone/plone.app.layout
+Author: Martin Aspeli
+Author-email: optilude@gmx.net
+License: GPL
+Description: Introduction
+        ============
+        
+        This package contains various visual components for Plone, such as viewlets
+        and general views.
+        
+        
+        Changelog
+        =========
+        
+        1.2.5 - 2009-08-01
+        ------------------
+        
+        - In the history viewlet, moved again the arrows inside a span. This is
+        needed to allow CSS style.
+        [vincentfretin]
+        
+        1.2.4 - 2009-07-04
+        ------------------
+        
+        - In the history viewlet, internationalized the Compare link and replaced
+        icons by plain text. The revert link is now a POST button. This closes
+        http://dev.plone.org/plone/ticket/9064
+        [limi, vincentfretin]
+        
+        1.2.3 - 2009-06-12
+        ------------------
+        
+        - Fix issue when dealing with empty version histories in history viewlet.
+        [alecm]
+        
+        1.2.2 - 2009-06-11
+        ------------------
+        
+        - Make ContentHistoryViewlet use new metadata only history method to
+        speed up listing.
+        [alecm]
+        
+        - Make ContentHistoryViewlet check if context isVersionable.
+        [elro]
+        
+        1.2.1 - 2009-05-20
+        ------------------
+        
+        - Changed the search and author header links to respect the navigation root.
+        [hannosch]
+        
+        1.2 - May 16, 2009
+        ------------------
+        
+        - Filter not-interesting history entries in content history viewlet. This
+        prevents an empty history viewlet from being shown.
+        [wichert]
+        
+        - Add a new content history viewlet which combines the full workflow history
+        and content versions. Render this instead of the workflow history viewlet.
+        [wichert]
+        
+        - Fixed querystring in CSS validation link in viewlets/colophon.pt
+        There was an ampersand where the leading "?" should have been.
+        http://dev.plone.org/plone/ticket/9054
+        [siebo]
+        
+        - Fixed "region-content" id twice in dashboard.pt, replaced one by "content".
+        Fixes http://dev.plone.org/plone/ticket/8932
+        [vincentfretin]
+        
+        - Author link tag should follow same rules as byline viewlet.
+        [elro]
+        
+        1.2rc1 - March 20, 2009
+        -----------------------
+        
+        - Fixed i18n in content_history template.
+        There were two nested msgids and dynamic content.
+        [vincentfretin]
+        
+        - Removed stray span tags in the comment byline.
+        [limi]
+        
+        1.2b1 - 2009-03-07
+        ------------------
+        
+        - Added navigation_root_url to the common viewlets base class. Adjusted the
+        various viewlets templates to use the new attribute. Changed the dashboard
+        view to be available on an INavigationRoot.
+        This implements http://plone.org/products/plone/roadmap/234
+        [calvinhp]
+        
+        - Default to using the content history viewlet instead of the workflow history
+        viewlet.
+        [wichert]
+        
+        - Add options to show differences between consecutive versions, and revert to
+        and preview older revisions to the content history viewlet.
+        [wichert]
+        
+        - Use the new history view from CMFEditions instead of the crufty old form.
+        [wichert]
+        
+        
+        1.1.8 - 2009-03-07
+        ------------------
+        
+        - Adjust the caching of sitemap.xml.gz. We only cache for anonymous users. That
+        fixes a bug where a cached sitemap.xml.gz is delivered with information that
+        only an user with more privilegs is allowed to see. We also make sure that
+        the cached file was build with a current catalog by adding the catalog
+        counter to the cache key. Based on a patch by stxnext.  Fixes
+        http://dev.plone.org/plone/ticket/8402
+        [stxnext, csenger]
+        
+        - Added time_only for use with toLocalizedTime so that event_view now localizes
+        the start/end times if the start/end dates are the same. Closes
+        http://dev.plone.org/plone/ticket/8607
+        [jnelson, calvinhp]
+        
+        - Fixed Plone 3.1 backward compatibility of above.
+        [stefan]
+        
+        
+        1.1.7 - December 15, 2008
+        -------------------------
+        
+        - Modified user profile item on the dashboard to use an image tag
+        instead of a background image. This makes it more consistent with
+        the other list items and easier to style for RTL scripts.
+        [emanlove]
+        
+        
+        1.1.6 Released November 21st, 2008
+        ----------------------------------
+        
+        - Avoid a test failure caused by test interdependencies.
+        [hannosch]
+        
+        - Fixed tests for the language method of the portal state view.
+        [hannosch]
+        
+        - Fixed keywords.pt to properly encode ampersands in its links. This closes
+        http://dev.plone.org/plone/ticket/8509
+        [younga3, dunlapm]
+        
+        - Fixed site_icon so that we would have flipped icon in case of RTL.
+        This closes http://dev.plone.org/plone/ticket/4576
+        [spliter]
+        
+        - Fixed generation of links to author.cpt for user IDs that are a URL
+        (OpenID users, e.g.).  This closes http://dev.plone.org/plone/ticket/8040
+        [davisagli]
+        
+        - Add some tests on private contents for sitemap.xml.gz generation.  This
+        closes http://dev.plone.org/plone/ticket/8402
+        [encolpe]
+        
+        1.1.5 Released August 18th, 2008
+        --------------------------------
+        
+        - Fixed an invalid message id for the dashboard. This closes
+        http://dev.plone.org/plone/ticket/7758.
+        [hannosch]
+        
+        - Fixed comments.pt to pass the title of the comment you are replying to into
+        the discussion_reply_form. This closes
+        http://dev.plone.org/plone/ticket/8323
+        [calvinhp]
+        
+        - Refactor default_page: move all logic out of the view to separate methods
+        so they can be called without a request (which is not used at all).
+        Deprecate parameters which were not in the interface and were never used.
+        [wichert]
+        
+        - Added note that Javascript is required for presentation mode. This closes
+        http://dev.plone.org/plone/ticket/7575 and
+        http://dev.plone.org/plone/ticket/7573
+        [limi]
+        
+        - Fixed plone_context_state's view_url method to work with contexts that don't
+        have a portal_type.  This closes http://dev.plone.org/plone/ticket/8028.
+        [davisagli]
+        
+        - Changed IContentIcon to expose users to the title of the FTI instead of the
+        portal_type. This closes http://dev.plone.org/plone/ticket/8246.
+        [hannosch]
+        
+        - Adjusted deprecation warnings to point to Plone 4.0 instead of Plone 3.5
+        since we changed the version numbering again.
+        [hannosch]
+        
+        1.1.3 Released July 7th, 2008
+        ------------------------------
+        
+        - Made PersonalBarViewlet tolerate users who don't have a Plone user object, as
+        when using OpenID or apachepas. This fixes
+        http://dev.plone.org/plone/ticket/7296.
+        [erikrose]
+        
+        - Use 'index' attribute rather than 'render' for setting viewlet templates, so
+        that they can be overridden using the 'template' ZCML attribute.
+        [davisagli]
+        
+        1.1.0 Released April 20th, 2008
+        -------------------------------
+        
+        - Applied patch from http://dev.plone.org/plone/ticket/7942 to ensure that the
+        'currentParent' marker is not True for items that have a path that is a
+        substring of the true path.
+        [optilude]
+        
+        - Displaying 'Anonymous User' also when the comment creator is an empty
+        string. This fixes http://dev.plone.org/plone/ticket/7712.
+        [rsantos]
+        
+        - Allow the use of the icon attribute on action directly instead of using the
+        actionicons tool.
+        [hannosch]
+        
+        - Fix invalid leading space in all 'Up to Site Setup' links.
+        [wichert]
+        
+        - Fixed permission in workflow history viewlet. This closes
+        http://dev.plone.org/plone/ticket/5507.
+        [hannosch]
+        
+        - Made handling of self.context in portal.py consistent.
+        [hannosch]
+        
+        - Rename the portal_url instance variable to site_url in the ViewletBase
+        class. This prevents getToolByName(..., 'portal_url') from returning
+        the URL string instead of the portal_url tool, which can causes unexpected
+        and subtle breakage. portal_url is still available but produces a deprecation
+        warning. It will be removed in Plone 4.
+        [wichert]
+        
+        - Added viewlet for RSS link.
+        [fschulze]
+        
+        - Added dependency on plone.app.viewletmanager.
+        [fschulze]
+        
+        - Make viewlet managers in head section order- and filterable.
+        [fschulze]
+        
+        1.0.6
+        -----
+        
+        - Added i18n markup to nextprevious.pt.
+        This closes http://dev.plone.org/plone/ticket/7537.
+        [hannosch]
+        
+        - Catch KeyError for presentation or tableContents when document
+        has an out-of-date schema.  Can happen when migrating from Plone
+        2.5 to 3.0. Fall back to False for those attributes then.
+        [maurits]
+        
+        
+        1.0.5 Released January 3rd, 2008
+        --------------------------------
+        
+        - Do not create an empty <ul> in the personal actions bar if there are
+        no items in it. This fixes an XHTML syntax error.
+        [wichert]
+        
+        
+        1.0.4 Released December 6th, 2007
+        ---------------------------------
+        
+        - Added i18n domain to comment.pt.
+        [martior]
+        
+        - Allow non ascii characters in webstats_js code.
+        Fixes http://dev.plone.org/plone/ticket/7359
+        [naro]
+        
+        - Fixed workflow history viewlet to handle entries with
+        usernames that don't exist any more (deleted users) and
+        also anonymous users.
+        This fixes http://dev.plone.org/plone/ticket/7250.
+        [rsantos]
+        
+        
+        1.0.3 Released November 9, 2007
+        --------------------------------
+        
+        - Made getIcon urls relative to portal root.
+        [tesdal]
+        
+        
+        1.0.2 Released October 8th, 2007
+        --------------------------------
+        
+        - Fixed getIcon code for use with ++resource++ and to use a safer method
+        of getting the correct url.
+        [optilude]
+        
+        - Upgraded the sitemap template to conform with the 0.9 specs from
+        http://www.sitemaps.org and fixed the caching to use the filename.
+        [deo]
+        
+        
+        1.0.1
+        -----
+        
+        - Lower logging level of 'no associated workflow' to avoid a log entry
+        on each view.
+        [ldr]
+        
+        - Fixed default language in globals.
+        [wichert]
+        
+        - Fixed link to actor in history viewlet.
+        [naro]
+        
+        - Avoid locking on non lockable types in byline viewlet.
+        [jfroche]
+        
+        - Added website statistics inclusion viewlet to configure.zcml so it
+        actually works.
+        [fschulze]
+        
+        - Made code in defaultpage.py a bit more tolerant of missing tools.
+        [hannosch]
+        
+        
+        1.0 Released August 17th, 2007
+        ------------------------------
+        
+        - Fixed the translation of the 'Show this page in presentation mode...'
+        message.
+        [hannosch]
+        
+        - Made the search box a bit wider, so the entire default text is shown
+        in languages with a rather long term.
+        [hannosch]
+        
+        - Show the authors full name in presentation view. This fixes
+        http://dev.plone.org/plone/ticket/6810
+        [wichert]
+        
+        
+Keywords: plone layout viewlet
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python

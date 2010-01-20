@@ -1,0 +1,32 @@
+<html tal:define="viewname string:effects">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources_with_prototype">
+      <metal:custom_resources fill-slot="custom_resources"> 
+        <style type="text/css">
+          .effects {
+              border: 0;
+              height: 3em;
+              background-color: red;
+              margin: 1em;
+          }
+        </style>
+      </metal:custom_resources>
+    </metal:header>
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+    
+    <h2>Effects</h2>
+
+    <h3>Demo</h3>
+    <div id="fade" class="effects">Click here to make me fade</div>
+    <div id="puff" class="effects">Click here to make me puff</div>
+    <div id="blindup" class="effects">Click here to make me blindup</div>
+    <input type="submit" id="resetEffects" value="Reset" />
+  </body>
+</html>

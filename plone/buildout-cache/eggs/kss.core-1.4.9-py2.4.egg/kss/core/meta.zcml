@@ -1,0 +1,8 @@
+<configure
+     xmlns="http://namespaces.zope.org/meta">
+
+   <!--include package=".configfeature" file="meta.zcml"/-->
+
+   <include package=".pluginregistry" file="meta.zcml"/>
+
+</configure>

@@ -1,0 +1,23 @@
+Metadata-Version: 1.0
+Name: five.customerize
+Version: 0.3
+Summary: TTW customization of template-based Zope 3 views
+Home-page: http://svn.zope.org/five.customerize
+Author: Zope Corporation and Contributors
+Author-email: z3-five@codespeak.net
+License: ZPL 2.1
+Download-URL: http://cheeseshop.python.org/pypi/five.customerize/
+Description: 
+Keywords: zope3 views templates customization ttw
+Platform: Any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Zope2
+Classifier: Framework :: Zope3
+Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management

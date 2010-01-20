@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           >
+
+
+    <!-- Register the kss view that makes it possible to
+         instantiate a view
+    -->
+
+    <browser:page
+        for="*"
+        class=".test_part_reloading.SampleView"
+        attribute="change_title"
+        name="change_title"
+        permission="zope.Public"
+        />
+
+</configure>

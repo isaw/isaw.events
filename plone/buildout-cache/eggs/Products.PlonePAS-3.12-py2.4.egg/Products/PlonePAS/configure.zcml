@@ -1,0 +1,17 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:five="http://namespaces.zope.org/five">
+
+  <include package=".browser" />
+
+  <include file="profiles.zcml"/>
+
+  <include file="exportimport.zcml" />
+
+  <five:deprecatedManageAddDelete
+      class=".plugins.cookie_handler.ExtendedCookieAuthHelper" />
+
+  <five:deprecatedManageAddDelete
+      class=".plugins.role.GroupAwareRoleManager" />
+
+
+</configure>

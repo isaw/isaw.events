@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           >
+
+  <browser:concatresource
+           name="test.js"
+           files="test1.js
+                  test2.js"
+  />
+  
+  <browser:concatresource
+           name="test_fullcompress.js"
+           files="test1.js
+                  test2.js"
+		   compress_level="full"
+  />
+  
+ </configure>

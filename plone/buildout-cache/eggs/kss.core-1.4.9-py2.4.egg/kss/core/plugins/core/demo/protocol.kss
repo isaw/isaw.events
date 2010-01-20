@@ -1,0 +1,59 @@
+#small-dataset:click {
+    evt-click-preventdefault: true;
+    action-server: protocolSmallDataset;
+}
+
+#large-dataset:click {
+    evt-click-preventdefault: true;
+    action-server: protocolLargeDataset;
+}
+
+#small-attribute:click {
+    evt-click-preventdefault: true;
+    action-server: protocolSmallAttribute;
+}
+
+#large-attribute:click {
+    evt-click-preventdefault: true;
+    action-server: protocolLargeAttribute;
+}
+
+#amp:click {
+    evt-click-preventdefault: true;
+    action-server: protocolAMP;
+}
+
+#lt:click {
+    evt-click-preventdefault: true;
+    action-server: protocolLT;
+}
+
+#gt:click {
+    evt-click-preventdefault: true;
+    action-server: protocolGT;
+}
+
+#endcdata:click {
+    evt-click-preventdefault: true;
+    action-server: protocolENDCDATA;
+}
+
+#attr-amp:click {
+    evt-click-preventdefault: true;
+    action-server: protocolAttributeAMP;
+}
+
+#attr-lt:click {
+    evt-click-preventdefault: true;
+    action-server: protocolAttributeLT;
+}
+
+#attr-gt:click {
+    evt-click-preventdefault: true;
+    action-server: protocolAttributeGT;
+}
+
+#attr-endcdata:click {
+    evt-click-preventdefault: true;
+    action-server: protocolAttributeENDCDATA;
+}

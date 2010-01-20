@@ -1,0 +1,99 @@
+body {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 11pt;
+}
+
+h3 {
+  font-size: 110%;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+}
+
+#global-links {
+  display: table;
+  font-size: 80%;
+}
+
+#global-links ul {
+  display: table-row;
+}
+
+#global-links ul li {
+  display: table-cell;
+}
+
+#global-links a {
+  display: block;
+  padding: 0.25em;
+  margin: 0.25em;
+  border: 1px solid #FF8888;
+  color: #CC0000;
+  text-decoration: none;
+}
+
+#global-links a:hover {
+  border-color: #FF0000;
+  background-color: #FFCCCC;
+}
+
+#target {
+  padding: 1em;
+  margin: 0.5em 0;
+  border: 1px solid #CCCCCC;
+  background-color: #EEEEEE;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.click {
+  color: #880000;
+}
+
+radio.click {
+  background-color: #880000;
+}
+
+a.button,
+input[type="submit"] {
+  width: auto;
+  padding: 0.2em;
+  border: 1px solid #FF8888;
+  color: #CC0000;
+  text-decoration: none;
+}
+
+fieldset {
+  margin: 0.5em 0;
+}
+
+fieldset div {
+  margin: 0.3em 0;
+}
+
+.help {
+  font-size: 80%;
+  color: #AAAAAA;
+}
+
+.help pre {
+  color: black;
+  border: 1px solid #CCCCCC;
+  background-color: #EEEEEE;
+  padding: 0.5em;
+  margin: 0.25em;
+}
+
+.container {
+  padding : 1em;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+

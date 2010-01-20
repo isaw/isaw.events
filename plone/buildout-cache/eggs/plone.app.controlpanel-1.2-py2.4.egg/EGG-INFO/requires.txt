@@ -1,0 +1,7 @@
+setuptools
+plone.app.form
+plone.app.workflow
+plone.fieldsets
+plone.memoize
+plone.protect
+plone.locking

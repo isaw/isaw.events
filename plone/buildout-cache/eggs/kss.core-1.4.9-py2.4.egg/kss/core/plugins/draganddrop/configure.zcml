@@ -1,0 +1,63 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+     xmlns:browser="http://namespaces.zope.org/browser"
+     xmlns:kss="http://namespaces.zope.org/kss"
+     xmlns:zcml="http://namespaces.zope.org/zcml"
+     >
+     
+    <!-- Third party library dependencies -->
+
+    <browser:resource
+        file="3rd_party/dragdrop.js"
+        name="dragdrop.js"
+        />
+
+    <!-- example plugin registration
+     
+    <kss:eventtype
+        name="myCustomEventType"
+        jsfile="browser/my_plugins.js"
+        />
+  
+    <kss:action
+        name="myCustomAction"
+        jsfile="browser/my_plugins.js"
+        command_factory="selector/global"
+        params_mandatory="param1 param2 ... paramN"
+        params_optional=""
+        />
+  
+    <kss:selectortype
+        name="myCustomSelectorType"
+        jsfile="browser/my_plugins.js"
+        />
+
+    -->
+
+    <!-- Event types -->
+    
+    <kss:eventtype
+        name="dad.drop"
+        jsfile="browser/kss_dragdrop.js"
+        />
+  
+    <kss:eventtype
+        name="dad.drag"
+        />
+  
+    <kss:eventtype
+        name="dad.start"
+        />
+  
+    <kss:eventtype
+        name="dad.end"
+        />
+  
+    <kss:eventtype
+        name="dad.hover"
+        />
+  
+    <!-- Client actions & commands -->
+    
+    <!-- Command sets -->
+
+</configure>

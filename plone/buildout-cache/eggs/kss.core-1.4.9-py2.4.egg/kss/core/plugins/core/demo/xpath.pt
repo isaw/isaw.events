@@ -1,0 +1,46 @@
+<html tal:define="viewname string:basic_commands">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources_with_ajaxslt" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+<h3>xpath Demo</h3>
+<p>Some preliminary xpath demo. Godefroid's test area.
+</p>
+<br>
+<p>ab</p>
+<input onclick="test();" type="submit" />
+<script>function test() {
+        var
+        res=xpathDomEval("//P[@id='xpath']/following-sibling::*[position()=1]", document);
+        if (res.nodeSetValue() == null) {alert('null');}
+        else {
+        Log.write(''+res.stringValue());
+        Log.show();
+        Log.write(''+res.nodeSetValue().length);
+        Log.show();
+        }
+        /*res=xpathDomEval("following-sibling::P", res.nodeSetValue()[0]);
+        if (res.nodeSetValue() == null) {alert('null');}
+        else {
+        Log.write(''+res.stringValue());
+        Log.show();
+        Log.write(''+res.nodeSetValue().length);
+        Log.show();
+        }*/
+        }
+</script>
+<p><a id="remove_xpath">Remove Node with XPath</a><p>
+<p id="xpath">XPath</p>
+<p>next 1</p>
+<p>next 2</p>
+<p>next 3</p>
+
+  </body>
+</html>

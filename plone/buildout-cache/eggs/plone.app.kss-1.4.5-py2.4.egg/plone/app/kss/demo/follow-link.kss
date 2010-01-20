@@ -1,0 +1,5 @@
+.active-link:click {
+    evt-click-preventdefault: true;
+    action-server: followLinkClick;
+    followLinkClick-href: nodeAttr(href);
+}

@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>two_selects</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">two_selects</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/demo/two_selects.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>first</td>
+	<td>animals&#13; machines</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>second</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>first</td>
+	<td>label=animals</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>second</td>
+	<td>dog cat cow</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>second</td>
+	<td>dog cat cow</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>first</td>
+	<td>label=machines</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>second</td>
+	<td>computer car airplane</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>second</td>
+	<td>computer car airplane</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

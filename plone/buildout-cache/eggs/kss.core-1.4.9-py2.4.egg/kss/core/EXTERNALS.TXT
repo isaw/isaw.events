@@ -1,0 +1,9 @@
+# You can check externals by issuing:
+#
+#     svn propget svn:externals .
+#
+# You can update your working dir by issuing: 
+#
+#     svn propset svn:externals -F EXTERNALS.TXT .
+#
+kukit http://codespeak.net/svn/kukit/kukit.js/branch/1.4/

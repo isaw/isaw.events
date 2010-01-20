@@ -1,0 +1,29 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+           >
+ 
+    <!-- Registration of a command view, for use in the tests.
+         This will provide the test-friendly rendering of commands.
+    -->
+
+    <adapter
+        for="kss.core.interfaces.IKSSCommands
+             .base.IDebugRequest"
+        provides="kss.core.interfaces.IKSSCommandView"
+        factory=".commandinspector.CommandInspectorView"
+    />
+
+    <!-- Register the kss view that makes it possible to
+         instantiate a view
+    -->
+    <browser:page
+      for="*"
+      class=".base.TestView"
+      attribute="testMethod"
+      name="testMethod"
+      permission="zope.Public"
+      />
+
+</configure>

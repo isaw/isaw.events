@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cancel_submit</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">cancel_submit</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/demo/cancel_submit.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>text_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>text_save</td>
+	<td>abc</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>async</td>
+	<td>Async saved abc</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>async</td>
+	<td>Async saved abc</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

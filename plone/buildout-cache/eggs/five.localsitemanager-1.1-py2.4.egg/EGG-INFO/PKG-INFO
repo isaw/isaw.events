@@ -1,0 +1,178 @@
+Metadata-Version: 1.0
+Name: five.localsitemanager
+Version: 1.1
+Summary: Local site manager implementation for Zope 2
+Home-page: http://svn.zope.org/five.localsitemanager
+Author: Rocky Burt and Contributors
+Author-email: zope-cmf@zope.org
+License: ZPL 2.1
+Description: Introduction
+        ============
+        
+        Overview
+        --------
+        
+        five.localsitemanager attempts to provide a local site manager implementation
+        that is as close to Zope 3's implementation as possible. Some reservations
+        that do not conflict with Zope 3 have been made to ease the path with CMF.
+        
+        Developer Resources
+        -------------------
+        
+        - Subversion browser:
+        
+        http://svn.zope.org/five.localsitemanager
+        
+        Installation
+        ============
+        
+        Prerequisites
+        -------------
+        
+        * Zope 2.10.x or newer
+        
+        * setuptools_
+        
+        
+        Installation
+        ------------
+        
+        Place the ``five`` top-level package into your instance's
+        ``lib/python`` directory.  You can also install it as an egg using
+        easy_install_, for example into your instance by turning it into a
+        workingenv_.
+        
+        
+        Configuration
+        -------------
+        
+        Place a ``five.localsitemanager-configure.zcml`` file into your instance's
+        ``etc/package-includes`` directory with the following contents::
+        
+        <include package="five.localsitemanager" />
+        
+        Also setup a ``five.localsitemanager-overrides.zcml`` file into your instance's
+        ``etc/package-includes`` directory with the following contents::
+        
+        <include package="five.localsitemanager" file="overrides.zcml" />
+        
+        Running the Tests
+        -----------------
+        
+        Use the following command to run this package's tests:
+        
+        $ bin/zopectl test -s five.localsitemanager
+        
+        .. _workingenv: http://cheeseshop.python.org/pypi/workingenv.py
+        .. _easy_install: http://peak.telecommunity.com/DevCenter/EasyInstall
+        .. _setuptools: http://peak.telecommunity.com/DevCenter/setuptools
+        
+        
+        Changelog
+        =========
+        
+        1.1 - 2009-06-19
+        ----------------
+        
+        * Don't prefer using __parent__ over using aq_parent() to find the parent when
+        looking for a registry. This causes nasty acquisition infinite recursion
+        because doing getattr(obj, '__parent__') when obj supports implicit
+        acquisition gives you back the parent acquisition-wrapped in the child.
+        It's not a problem until some parent *doesn't* have a __parent__ pointer,
+        at which point we end up trying to use aq_parent() and get into a loop.
+        [optilude]
+        
+        * Made zope.component 3.5 support official and adjusted tests.
+        
+        1.0 - 2008-11-18
+        ----------------
+        
+        * Utilities registered with an absolute path were returned with the
+        RequestContainer in the aq_chain. As the result of the first utility
+        look-up is stored in the adapter look-up cache, subsequent utility
+        look-ups return the utlitiy with the RequestContainer of the first
+        look-up.
+        
+        Solution: For utilities registered with an absolute path the
+        RequestContainer is now also removed at look-up.
+        [icemac]
+        
+        
+        1.0c1 - 2008-08-27
+        ------------------
+        
+        * Added buildout for project, so testing can be done using ``bin/test``.
+        [icemac]
+        
+        * Added ability to register utilities with an absolute path. These
+        utilities are returned wrapped into their original context. This
+        change is backward compatible to existing registries.
+        
+        But registering utilities having an acquisition context will behave
+        different because these utilities will be returned in their original
+        context. To restore the previous behavior, register utilities
+        unwrapped (aq_base).
+        
+        For storing path information the component must implement
+        getPhysicalPath and have an absolute path.
+        
+        When a component registered as utility is moved and registered again
+        the path stored in registry gets updated.
+        [icemac]
+        
+        
+        0.4 - 2008-07-23
+        ----------------
+        
+        * Rewrite PersistentComponents.registeredUtilities to not use
+        internal methods. This makes it compatible with both zope.component <3.5.0dev
+        and >3.5.0dev.
+        [wichert]
+        
+        
+        0.3 - 2007-12-24
+        ----------------
+        
+        * Fixed potential aq problem when assigning various values to the utilities
+        registry of the component registry.
+        [hannosch]
+        
+        
+        0.2 - 2007-06-30
+        ----------------
+        
+        * Refactored and fixed aq wrapping: Nested site managers now return utilities
+        wrapped in the right context. RequestContainers are removed and wrapped
+        utilities are cached. This requires a special LookupClass called
+        'FiveVerifyingAdapterLookup' in all 'utilities' registries used below a
+        five.localsitemanager site.
+        [yuppie, hannosch]
+        
+        
+        0.1.2 - 2007-06-23
+        ------------------
+        
+        * Corrected the zip-safe flag to be False.
+        
+        
+        0.1.1 - 2007-03-05
+        ------------------
+        
+        * Fixed aq wrapping when looking up a utility that is actually the component
+        registry's parent (the ISite).
+        
+        
+        0.1 (2007-02-27)
+        ----------------
+        
+        * Initial version
+        
+Keywords: zope zope2 zope3 five sitemanager
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Zope2
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

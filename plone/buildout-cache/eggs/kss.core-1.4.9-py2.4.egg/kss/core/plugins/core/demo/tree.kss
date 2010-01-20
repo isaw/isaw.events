@@ -1,0 +1,11 @@
+.state-expanded:click {
+    action-server: collapseSubTree;
+    collapseSubTree-value: kssAttr("node");
+    collapseSubTree-xvalue: kssAttr("xnode");
+}
+
+.state-collapsed:click {
+    action-server: expandSubTree;
+    expandSubTree-value: kssAttr("node");
+    expandSubTree-xvalue: kssAttr("xnode");
+}

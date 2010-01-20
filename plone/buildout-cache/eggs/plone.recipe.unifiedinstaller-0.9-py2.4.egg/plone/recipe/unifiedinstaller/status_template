@@ -1,0 +1,6 @@
+#!%(shell_cmd)s
+# Cluster Status Discovery
+# This script is now a plonectl wrapper
+
+
+%(bin_dir)s/plonectl status

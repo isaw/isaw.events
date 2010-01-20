@@ -1,0 +1,23 @@
+
+
+.click:click {
+    evt-click-preventdefault: true;
+}
+
+
+#button_1:click {
+    action-server: urlMethod1;
+}
+
+#button_2:click {
+    action-server: urlMethodAlias url(urlMethod2);
+}
+
+#button_3:click {
+    action-server: urlMethodAnotherAlias url("@@urlMethod3");
+}
+
+#button_4:click {
+    action-server: urlMethodAnotherAlias url(kssAttr(methodname, true));
+}
+

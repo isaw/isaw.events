@@ -1,0 +1,101 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:kss="http://namespaces.zope.org/kss"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+		   i18n_domain="kss"
+		   >
+
+  <!-- Dynamic table -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+    class=".addressbook.KSSDynamicTableDemo"
+      template="addressbook.pt"
+      name="addressbook.html"
+      permission="zope.View"
+      />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".addressbook.KSSDynamicTableDemo"
+    attribute="cleanPersons"
+    name="cleanPersons"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".addressbook.KSSDynamicTableDemo"
+    attribute="getPersons"
+    name="getPersons"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".addressbook.KSSDynamicTableDemo"
+    attribute="moveDown"
+    name="moveDown"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".addressbook.KSSDynamicTableDemo"
+    attribute="toTop"
+    name="toTop"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".addressbook.KSSDynamicTableDemo"
+    attribute="toBottom"
+    name="toBottom"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".addressbook.KSSDynamicTableDemo"
+    attribute="moveUp"
+    name="moveUp"
+    permission="zope.View"
+    />
+
+  <browser:page
+
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".addressbook.KSSDynamicTableDemo"
+    attribute="removePerson"
+    name="removePerson"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".addressbook.KSSDynamicTableDemo"
+    attribute="addPerson"
+    name="addPerson"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".addressbook.KSSDynamicTableDemo"
+    attribute="renderPersonAsTr"
+    name="renderPersonAsTr"
+    permission="zope.View"
+    />
+
+  <browser:resource
+    file="addressbook.kss"
+    name="addressbook.kss"
+  />
+
+  <browser:resource
+    file="addressbook.css"
+    name="addressbook.css"
+    />
+
+</configure>
+

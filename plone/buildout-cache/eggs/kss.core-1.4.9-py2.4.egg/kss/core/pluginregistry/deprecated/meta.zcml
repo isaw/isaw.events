@@ -1,0 +1,38 @@
+<configure
+     xmlns="http://namespaces.zope.org/meta">
+
+   <directives namespace="http://namespaces.zope.org/azax">
+   
+     <directive
+       name="registerCommand"
+       schema=".directives.IRegisterCommandDirective"
+       handler=".configure.registerCommand"
+       />
+       
+     <directive
+       name="registerEventType"
+       schema=".directives.IRegisterEventTypeDirective"
+       handler=".configure.registerEventType"
+       />
+   
+     <directive
+       name="registerAction"
+       schema=".directives.IRegisterActionDirective"
+       handler=".configure.registerAction"
+       />
+
+    <directive
+       name="registerSelectorType"
+       schema=".directives.IRegisterSelectorTypeDirective"
+       handler=".configure.registerSelectorType"
+       />
+
+    <directive
+       name="registerCommandSet"
+       schema=".directives.IRegisterCommandSetDirective"
+       handler=".configure.registerCommandSet"
+       />
+      
+   </directives>
+
+</configure>

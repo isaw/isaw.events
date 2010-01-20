@@ -1,0 +1,20 @@
+Metadata-Version: 1.0
+Name: plone.contentrules
+Version: 1.1.0
+Summary: Plone ContentRules Engine
+Home-page: http://svn.plone.org/svn/plone/plone.contentrules
+Author: Markus Fuhrer, Martin Aspeli
+Author-email: plone-developers@lists.sourceforge.net
+License: LGPL
+Description: plone.contentrules provides a "pure Zope 3" implementation of a a rules
+        engine which allows arbitary conditions and actions to be combined into rules,
+        and rules to be executed dependent on events. You can think of this as
+        somewhat similar to user-assembled mail filtering rules or something like
+        Apple's Automator. It is used by plone.app.contentrules to provide such
+        functionality for Plone.
+        
+Platform: UNKNOWN
+Classifier: Framework :: Zope2
+Classifier: Framework :: Zope3
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python

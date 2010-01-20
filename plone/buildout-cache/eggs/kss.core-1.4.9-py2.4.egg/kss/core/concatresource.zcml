@@ -1,0 +1,104 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+ 
+  <!-- Add 
+ 
+  caching="memory"
+	
+  to cache concatenation of kukit.js -->
+
+  <!--
+
+  Available values for compress_level in javascript:
+
+    - none:        the raw sources
+    - devel:       like none but the ;;;-s themselves are removed
+    - stripped:    the production version unpacked, readable
+    - safe-devel:  safe packing, devel version
+    - safe:        safe packing of the production version
+    - full-devel:  full packing, devel version
+    - full:        full packing of the production version
+
+  -->
+
+  <!-- Production version -->
+  <browser:concatresource
+    files="
+        kukit/kukit/kukit.js
+        kukit/kukit/utils.js
+        kukit/kukit/errors.js
+        kukit/kukit/oper.js
+        kukit/kukit/tokenizer.js
+        kukit/kukit/providerreg.js
+        kukit/kukit/resourcedata.js
+        kukit/kukit/kssparser.js
+        kukit/kukit/eventreg.js
+        kukit/kukit/actionreg.js
+        kukit/kukit/dom.js
+        kukit/kukit/commandreg.js
+        kukit/kukit/serveraction.js
+        kukit/kukit/requestmanager.js
+        kukit/kukit/commandprocessor.js
+        kukit/kukit/selectorreg.js
+        kukit/kukit/forms.js
+        kukit/kukit/plugin.js"
+    name="kukit.js"
+    compress_level="safe"
+    caching="memory"
+    lmt_check_period="300"
+  />
+
+  <!-- Development version -->
+  <browser:concatresource
+    files="
+        kukit/kukit/kukit.js
+        kukit/kukit/utils.js
+        kukit/kukit/errors.js
+        kukit/kukit/oper.js
+        kukit/kukit/tokenizer.js
+        kukit/kukit/providerreg.js
+        kukit/kukit/resourcedata.js
+        kukit/kukit/kssparser.js
+        kukit/kukit/eventreg.js
+        kukit/kukit/actionreg.js
+        kukit/kukit/dom.js
+        kukit/kukit/commandreg.js
+        kukit/kukit/serveraction.js
+        kukit/kukit/requestmanager.js
+        kukit/kukit/commandprocessor.js
+        kukit/kukit/selectorreg.js
+        kukit/kukit/forms.js
+        kukit/kukit/plugin.js"
+    name="kukit-devel.js"
+    compress_level="devel"
+    caching="memory"
+    lmt_check_period="0"
+  />
+ 
+  <!-- Old source version used by RR -->
+
+  <browser:concatresource
+    files="kukit/kukit/utils.js
+        kukit/kukit/errors.js
+        kukit/kukit/oper.js
+        kukit/kukit/kukit.js
+        kukit/kukit/tokenizer.js
+        kukit/kukit/providerreg.js
+        kukit/kukit/resourcedata.js
+        kukit/kukit/kssparser.js
+        kukit/kukit/eventreg.js
+        kukit/kukit/actionreg.js
+        kukit/kukit/dom.js
+        kukit/kukit/commandreg.js
+        kukit/kukit/serveraction.js
+        kukit/kukit/requestmanager.js
+        kukit/kukit/commandprocessor.js
+        kukit/kukit/selectorreg.js
+        kukit/kukit/forms.js
+        kukit/kukit/plugin.js"
+    name="kukit-src.js"
+    compress_level="devel"
+  />
+  
+</configure>

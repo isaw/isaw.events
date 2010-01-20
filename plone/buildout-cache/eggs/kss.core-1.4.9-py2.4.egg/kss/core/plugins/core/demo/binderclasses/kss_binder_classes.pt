@@ -1,0 +1,44 @@
+<html tal:define="viewname string:kss_binder_classes">
+  <head>
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  </head>
+  <body>
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+    <!-- START of demo content -->
+
+    <h2>Binder classes handling</h2>
+
+    <p>The followings are checked in this demo:</p>
+    <ul>
+      <li>inheritence must work with event binder classes.</li>
+      <li>If the constructors of the binder class set up variables on this.XX, these will 
+      be properties of the _instance_, not that of the class.</li>
+      <li>If two events are bound on the same binder class, they are considered the same 
+      class in the registry. That is, if the events are bound on the same instance 
+      id (or the singleton), they will see a shared state.</li>
+    </ul>
+
+    <hr/>
+
+    <input type="submit" id="alpha1" class="buttons"
+      value="alpha1">
+
+    <input type="submit" id="beta1" class="buttons"
+      value="beta1">
+
+    <input type="submit" id="beta2" class="buttons"
+      value="beta2">
+  
+    <br />
+
+    <p metal:use-macro="context/@@body_macros/logger">logger</p>
+
+    <p>When you click button alpha1, logging of count should start
+    from 50. When you click beta1 or beta2, counting starts from 100.
+    Alpha and beta are independent, but beta1 and beta2 share the same
+    clicking state.
+    </p>
+
+    <!-- END of demo content -->
+  </body>
+</html>

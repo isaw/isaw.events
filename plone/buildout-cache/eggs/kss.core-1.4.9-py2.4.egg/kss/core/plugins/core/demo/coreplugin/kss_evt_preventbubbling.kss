@@ -1,0 +1,27 @@
+#parent-node:click {
+    evt-click-allowbubbling: true;
+    evt-click-preventdefault: true;
+    action-client: insertHTMLAsLastChild;
+    insertHTMLAsLastChild-kssSelector: #logger;
+    insertHTMLAsLastChild-html: "containing DIV. ";
+}
+
+#bubbling-node:click {
+    evt-click-preventdefault: true;
+    action-client: insertHTMLAsLastChild;
+    insertHTMLAsLastChild-kssSelector: #logger;
+    insertHTMLAsLastChild-html: "bubbling P. ";
+}
+
+#not-bubbling-node:click {
+    evt-click-preventdefault: true;
+    evt-click-preventbubbling: true;
+    action-client: insertHTMLAsLastChild;
+    insertHTMLAsLastChild-kssSelector: #logger;
+    insertHTMLAsLastChild-html: "not bubbling P. ";
+}
+
+#log-reset a:click, #log-reset:click {
+    action-client: clearChildNodes;
+    clearChildNodes-kssSelector: #logger;
+}

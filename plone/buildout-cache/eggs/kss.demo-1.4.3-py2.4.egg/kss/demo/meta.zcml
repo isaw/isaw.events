@@ -1,0 +1,11 @@
+<configure
+     xmlns="http://namespaces.zope.org/meta">
+
+   <!-- provide a feature that can be used for plugins
+        to check if we are on this version:
+   -->
+   <provides feature="kss_demo_version_1_2" />
+
+   <include package=".configfeature" file="meta.zcml"/>
+
+</configure>

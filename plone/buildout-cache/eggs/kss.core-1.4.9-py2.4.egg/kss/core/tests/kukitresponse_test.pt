@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<kukit xmlns="http://www.kukit.org/commands/1.1"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal">
+  <commands>
+	  <command selector="div#demo" name="setHtmlAsChild">
+		  <param name="html"><![CDATA[<h1 xmlns="http://www.w3.org/1999/xhtml">it worked</h1>]]></param>
+	  </command>
+	  <command selector="div#demo" name="setHtmlAsChild">
+		  <param name="html"><![CDATA[<h1 xmlns="http://www.w3.org/1999/xhtml">it worked&nbsp;again (test)</h1>]]></param>
+	  </command>
+  </commands>
+</kukit>

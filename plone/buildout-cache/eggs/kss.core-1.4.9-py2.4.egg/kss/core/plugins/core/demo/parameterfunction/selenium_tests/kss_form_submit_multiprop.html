@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>kss_form_submit_multiprop</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">kss_form_submit_multiprop</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/demo/kss_form_submit_multiprop.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>fullform-named</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>[('listval', ['listval1', 'listval2']), ('multiple-select', ['Value 1', 'Value 3']), ('recordsval', [{'a': 'recordval_a_1', 'b': 'recordval_b_1'}, {'a': 'recordval_a_2', 'b': 'recordval_b_2'}]), ('recordval', {'a': 'recordval_a', 'b': 'recordval_b'}), ('value1', 'value1'), ('value2', 'value2')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Reset log</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Target</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>fullform-current</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>[('listval', ['listval1', 'listval2']), ('multiple-select', ['Value 1', 'Value 3']), ('recordsval', [{'a': 'recordval_a_1', 'b': 'recordval_b_1'}, {'a': 'recordval_a_2', 'b': 'recordval_b_2'}]), ('recordval', {'a': 'recordval_a', 'b': 'recordval_b'}), ('value1', 'value1'), ('value2', 'value2')]</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,62 @@
+.focus:focus {
+    action-client: executeCommand;
+    executeCommand-name: replaceInnerHTML;
+    executeCommand-selector: "#target code";
+    executeCommand-html: nodeAttr(id);
+} 
+
+#focus-to-text:click {
+    action-client: executeCommand;
+    executeCommand-name: focus;
+    executeCommand-selector: "#text";
+} 
+
+#focus-to-textarea:click {
+    action-client: executeCommand;
+    executeCommand-name: focus;
+    executeCommand-selector: "#textarea";
+} 
+
+#focus-to-select:click {
+    action-client: executeCommand;
+    executeCommand-name: focus;
+    executeCommand-selector: "#select";
+} 
+
+#focus-to-radio:click {
+    action-client: executeCommand;
+    executeCommand-name: focus;
+    executeCommand-selector: "#radio-1";
+} 
+
+#focus-to-checkbox:click {
+    action-client: executeCommand;
+    executeCommand-name: focus;
+    executeCommand-selector: "#checkbox-1";
+} 
+
+#server-focus-to-text:click {
+    action-server: focus;
+    focus-id: "text";
+} 
+
+#server-focus-to-textarea:click {
+    action-server: focus;
+    focus-id: "textarea";
+} 
+
+#server-focus-to-select:click {
+    action-server: focus;
+    focus-id: "select";
+} 
+
+#server-focus-to-radio:click {
+    action-server: focus;
+    focus-id: "radio-1";
+} 
+
+#server-focus-to-checkbox:click {
+    action-server: focus;
+    focus-id: "checkbox-1";
+} 
+

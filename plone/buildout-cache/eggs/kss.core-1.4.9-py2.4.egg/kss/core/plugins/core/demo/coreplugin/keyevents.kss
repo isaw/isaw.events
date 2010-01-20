@@ -1,0 +1,90 @@
+
+
+/* first row */
+
+input#text01:keypress {
+    action-server: keyEvent;
+    keyEvent-keycode: pass(keycode);
+}
+
+input#text02:keypress {
+    evt-keypress-preventdefault: true;
+    action-server: keyEvent;
+    keyEvent-keycode: pass(keycode);
+}
+
+input#text03:keypress {
+    evt-keypress-keycodes: "97";
+    action-server: keyEvent;
+    keyEvent-keycode: pass(keycode);
+}
+
+input#text04:keypress {
+    evt-keypress-keycodes: "97,13";
+    action-server: keyEvent;
+    keyEvent-keycode: pass(keycode);
+}
+
+
+/* second row */
+
+input#text11:keydown {
+    action-server: keyEvent;
+    keyEvent-keycode: pass(keycode);
+}
+
+input#text12:keydown {
+    evt-keydown-preventdefault: true;
+    action-server: keyEvent;
+    keyEvent-keycode: pass(keycode);
+}
+
+input#text13:keydown {
+    evt-keydown-keycodes: "97";
+    action-server: keyEvent;
+    keyEvent-keycode: pass(keycode);
+}
+
+input#text14:keydown {
+    evt-keydown-preventdefault: true;
+    evt-keydown-keycodes: "97,13";
+    action-server: keyEvent;
+    keyEvent-keycode: pass(keycode);
+}
+
+
+/* third row */
+
+input#text21:keyup {
+    action-server: keyEvent;
+    keyEvent-keycode: pass(keycode);
+}
+
+input#text22:keyup {
+    evt-keyup-preventdefault: true;
+    action-server: keyEvent;
+    keyEvent-keycode: pass(keycode);
+}
+
+input#text23:keyup {
+    evt-keyup-preventdefault: true;
+    evt-keyup-keycodes: "97";
+    action-server: keyEvent;
+    keyEvent-keycode: pass(keycode);
+}
+
+input#text24:keyup {
+    evt-keyup-preventdefault: true;
+    evt-keyup-keycodes: "97,13";
+    action-server: keyEvent;
+    keyEvent-keycode: pass(keycode);
+}
+
+/* clear button */
+#clear:click {
+    evt-click-preventdefault: true;
+    action-client: replaceInnerHTML;
+    replaceInnerHTML-kssSelector: htmlid(target);
+    replaceInnerHTML-html: "";
+}
+

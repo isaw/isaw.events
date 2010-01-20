@@ -1,0 +1,24 @@
+<html tal:define="viewname string:inline_edit">
+ 
+  <head>
+  
+    <metal:header use-macro="context/@@header_macros/header_resources" />
+  
+  </head>
+
+  <body>
+    
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+
+
+<h3>Instant edit Demo</h3>
+	<div>
+   <form name="edit">
+        <div id="text">
+        click me!
+        <input type="hidden" name="value" value="click me!"  />
+        </div>
+    </form>
+	</div>
+  </body>
+</html>

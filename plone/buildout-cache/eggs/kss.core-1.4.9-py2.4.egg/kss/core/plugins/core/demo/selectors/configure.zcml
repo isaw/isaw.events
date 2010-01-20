@@ -1,0 +1,20 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+		   i18n_domain="kss"
+		   >
+
+  <!-- forms -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="selectors.pt"
+      name="selectors.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="selectors.kss"
+    name="selectors.kss"
+  />
+
+</configure>
+

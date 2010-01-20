@@ -1,0 +1,50 @@
+div.board {
+    float: left;
+    border: 1px solid #FF4916;
+}
+
+div.boardRed {
+    background-color: red;
+}
+
+div.snake {
+    position: relative;
+    background-color:   red;
+    width: 10px;
+    height: 10px;
+}
+
+div.food {
+    position: relative;
+    background-color: green;
+    width: 10px;
+    height: 10px;
+    display: None;
+}
+
+div.score {
+    float:left;
+    width: 50px;
+    margin-left: 20px;
+}
+
+div.scoreField {
+    font-size: large;
+    text-align: center;
+    border: 1px solid red;
+}
+
+div.gameover {
+    font-weight: bold;
+}
+
+div.lose {
+    position: relative;
+    background-color: white;
+    width: 100px;
+    top: 50px;
+    left: 50px;
+    padding: 5px;
+    color: red;
+    text-align: center;
+}

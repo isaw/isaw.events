@@ -1,0 +1,243 @@
+Metadata-Version: 1.0
+Name: Products.CMFTestCase
+Version: 0.9.9
+Summary: Integration testing framework for CMF.
+Home-page: http://plone.org/products/cmftestcase
+Author: Stefan H. Holek
+Author-email: stefan@epy.co.at
+License: ZPL
+Description: ===========
+        CMFTestCase
+        ===========
+        -------------------------------------
+        Integration testing framework for CMF
+        -------------------------------------
+        
+        Introduction
+        ============
+        
+        CMFTestCase is a thin layer on top of the ZopeTestCase package. It has
+        been developed to simplify testing of CMF-based applications and products.
+        
+        The CMFTestCase package provides
+        --------------------------------
+        
+        - The function ``installProduct`` to install a Zope product into the
+        test environment.
+        
+        - The function ``installPackage`` to install a Python package
+        registered via five:registerPackage into the test environment.
+        Requires Zope 2.10.4 or higher.
+        
+        - The function ``setupCMFSite`` to create a CMF portal in the test db.
+        
+        Note: ``setupCMFSite`` accepts an optional ``products`` argument, which
+        allows you to specify a list of products that will be added to the
+        portal. Product installation is performed via the canonical
+        ``Extensions.Install.install`` function. Since 0.8.2 you can also pass
+        an ``extension_profiles`` argument to import GS extension profiles.
+        
+        - The class ``CMFTestCase`` of which to derive your test cases.
+        
+        - The class ``FunctionalTestCase`` of which to derive your test cases
+        for functional unit testing.
+        
+        - The classes ``Sandboxed`` and ``Functional`` to mix-in with your own
+        test cases.
+        
+        - The constants ``portal_name``, ``portal_owner``, ``default_products``,
+        ``default_base_profile``, ``default_extension_profiles``,
+        ``default_user``, and ``default_password``.
+        
+        - The constant ``CMF15`` which evaluates to true for CMF versions
+        >= 1.5.
+        
+        - The constant ``CMF16`` which evaluates to true for CMF versions
+        >= 1.6.
+        
+        - The constant ``CMF20`` which evaluates to true for CMF versions
+        >= 2.0.
+        
+        - The constant ``CMF21`` which evaluates to true for CMF versions
+        >= 2.1.
+        
+        - The constant ``CMF22`` which evaluates to true for CMF versions
+        >= 2.2.
+        
+        - The module ``utils`` which contains all utility functions from the
+        ZopeTestCase package.
+        
+        Example CMFTestCase
+        -------------------
+        ::
+        
+        from Products.CMFTestCase import CMFTestCase
+        
+        CMFTestCase.installProduct('SomeProduct')
+        CMFTestCase.setupCMFSite(products=('SomeProduct',))
+        
+        class TestSomething(CMFTestCase.CMFTestCase):
+        
+        def afterSetup(self):
+        self.folder.invokeFactory('Document', 'doc')
+        
+        def testEditDocument(self):
+        self.folder.doc.edit(text_format='plain', text='data')
+        self.assertEqual(self.folder.doc.EditableBody(), 'data')
+        
+        Example CMFTestCase setup with GenericSetup
+        -------------------------------------------
+        ::
+        
+        from Products.CMFTestCase import CMFTestCase
+        
+        CMFTestCase.installProduct('SomeProduct')
+        CMFTestCase.setupCMFSite(extension_profiles=('SomeProduct:default',))
+        
+        Please see the docs of the ZopeTestCase package, especially those
+        of the PortalTestCase class.
+        
+        Look at the example tests in this directory to get an idea of how
+        to use the CMFTestCase package.
+        
+        Copy ``testSkeleton.py`` to start your own tests.
+        
+        
+        Changelog
+        =========
+        
+        0.9.9 - 2009-11-14
+        ------------------
+        
+        - Call reindexObjectSecurity on the member folder conditionally, as CMF 2.2's
+        PortalFolder no longer has this method.
+        [davisagli]
+        
+        - Specify all dependencies in a backwards compatible way.
+        [hannosch]
+        
+        0.9.8 - 2009-04-19
+        ------------------
+        
+        - Fixed deprecation warnings for use of Globals.
+        [hannosch]
+        
+        - Added CMF22 constant.
+        [stefan]
+        
+        0.9.8b4 - 2008-10-26
+        --------------------
+        
+        - Fix homepage URL in setup.py.
+        [stefan]
+        
+        0.9.8b3 - 2008-10-16
+        --------------------
+        
+        - Bugfix: Reindex security of member-area after taking ownership.
+        [stefan]
+        
+        0.9.8b2 - 2008-10-08
+        --------------------
+        
+        - Egg was broken due to use of svn export. Who'd have thunk
+        setuptools makes a difference?
+        [stefan]
+        
+        0.9.8b1 - 2008-10-05
+        --------------------
+        
+        - Install all CMF products quietly.
+        - Eggified Products.CMFTestCase.
+        
+        0.9.7
+        -----
+        
+        - The CMFSite layer can now be set up more than once.
+        
+        0.9.6
+        -----
+        
+        - Deal with new skin setup in CMF 2.1 and up.
+        - Provide hasPackage and installPackage if ZopeTestCase supports it.
+        - Use new stateless GenericSetup API in CMF 2.1 and up.
+        
+        0.9.4
+        -----
+        
+        - Minor test fixes to cater for changes in CMF.
+        
+        0.9.2
+        -----
+        
+        - Added support for local component registries. We now call setSite() on the
+        portal before importing profiles and before each test.
+        
+        0.9.0
+        -----
+        
+        - Added CMF21 constant.
+        - Prepared for switching ZopeTestCase to Zope3 interfaces.
+        - Load etc/site.zcml lazily instead of using the wrapper.
+        - Import extension profiles one by one to gain better control.
+        - Added a CMFTestCase.addProfile() method that allows to import
+        extension profiles into the site. This is an alternative to
+        passing the 'extension_profiles' argument to setupCMFSite().
+        - Create the CMF site lazily using layer.CMFSite.
+        - Renamed utils.py to five.py.
+        
+        0.8.6
+        -----
+        
+        - Made sure layer cleanup resets Five.zcml to "not initialized".
+        
+        0.8.4
+        -----
+        
+        - Allow to pass a base profile to the setupCMFSite function.
+        - Added a ZCMLLayer to support recent Zopes and zope.testing.testrunner.
+        Thanks to Whit Morris.
+        
+        0.8.2
+        -----
+        
+        - Added support for passing a list of GenericSetup extension profiles
+        to the setupCMFSite function.
+        
+        0.8.0
+        -----
+        
+        - Updated to new portal creation process of CMF 1.6.
+        
+        0.7.0
+        -----
+        
+        - Updated to CMF 1.5.
+        - Added an API module, ctc.py.
+        - Added an addProduct() method to CMFTestCase that allows to add a product
+        to the portal. This is as alternative to passing a 'products' argument
+        to setupCMFSite().
+        - CMFTestCase now uses the version independend 'transaction' module provided
+        by ZopeTestCase >= 0.9.8.
+        
+        0.6.0 (not released)
+        --------------------
+        
+        - setupCMFSite() now accepts a 'products' argument which allows to specify
+        a list of products that will be added to the portal by executing their
+        respective Extensions.Install.install() methods.
+        - Removed setupCMFSkins() and the ability to setup a CMF site w/o skins.
+        - Made the ZopeTestCase.utils module available as CMFTestCase.utils.
+        - Added FunctionalTestCase base class for "functional" CMF tests.
+        - Test classes now assert their interfaces.
+        
+        0.5.0
+        -----
+        
+        - Package for testing CMF-based products and applications.
+        
+        
+Keywords: cmf testing
+Platform: UNKNOWN
+Classifier: Framework :: Zope2
+Classifier: Programming Language :: Python

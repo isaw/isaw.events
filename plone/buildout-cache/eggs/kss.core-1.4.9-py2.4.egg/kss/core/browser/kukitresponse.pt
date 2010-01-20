@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<kukit xmlns:tal="http://xml.zope.org/namespaces/tal"
+       xmlns:metal="http://xml.zope.org/namespaces/metal">
+<!-- xmlns="http://www.kukit.org/commands/1.1" removed from kukit tag as it
+     breaks IE6 XP SP3 -->
+<commands>
+<command tal:repeat="command context"
+     selector="div#demo" name="setHtmlAsChild" 
+     selectorType=""
+     tal:attributes="selector python: command.getSelector();
+                     name python: command.getName();
+                     selectorType python: command.getSelectorType()">
+    <param tal:repeat="param python: command.params" name="html"
+            tal:attributes="name python: param.name"
+            tal:content="structure python: param.content">
+        <![CDATA[<h1 xmlns="http://www.w3.org/1999/xhtml">it worked</h1>]]>
+    </param>
+</command>
+</commands>
+</kukit>

@@ -1,0 +1,54 @@
+.draggable:dad-drag {
+}
+
+.horizontal:dad-start {
+	evt-dad-start-constraint: horizontal;
+}
+        
+.horizontal:dad-end {
+	evt-dad-end-constraint: horizontal;
+}
+        
+.horizontal:dad-drag {
+	evt-dad-drag-constraint: horizontal;
+}
+        
+.vertical:dad-start {
+	evt-dad-start-constraint: vertical;
+}
+        
+.vertical:dad-end {
+	evt-dad-end-constraint: vertical;
+}
+        
+.vertical:dad-drag {
+	evt-dad-drag-constraint: vertical;
+}
+        
+}
+
+.draggable:dad-start {
+    action-client: logDebug;
+    action-client: setStyle;
+    setStyle-name: color;
+    setStyle-value: red;
+}
+
+.draggable:dad-end {
+    action-client: logDebug;
+    action-client: setStyle;
+    setStyle-name: color;
+    setStyle-value: black;
+}
+
+
+.droppable:dad-drop {
+    action-client: replaceInnerHTML;
+    replaceInnerHTML-html: "<span>dropped</span>";
+}
+
+.droppable:dad-hover {
+    action-client: replaceInnerHTML;
+    replaceInnerHTML-html: "<span>hovered</span>";
+} 
+

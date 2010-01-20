@@ -1,0 +1,587 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:kss="http://namespaces.zope.org/kss"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+		   i18n_domain="kss"
+		   >
+
+  <!--
+    Set up each individual demo package
+  -->
+
+  <include package=".parameterfunction" />
+  <include package=".commandaction" />
+  <include package=".selectors" />
+  <include package=".coresyntax" />
+  <include package=".coreplugin" />
+  <include package=".binderids" />
+  <include package=".binderclasses" />
+  
+  <!--
+    Set up the demos in the root of this package
+  -->
+
+  <!-- Set up the demo utility -->
+  <configure zcml:condition="have kss_demo_version_1_2">
+      <utility
+        name="core"
+        factory=".zopeconfig.KSSCoreDemos"
+        provides="kss.demo.interfaces.IKSSDemoResource"
+        permission="zope.Public"
+        />
+  </configure>
+  
+  <browser:page
+      for="*"
+      name="demoregistry"
+      class=".demoregistry.DemoRegistry"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoregistry.DemoRegistry"
+      attribute="displayHelp"
+      name="displayHelp"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoregistry.DemoRegistry"
+      attribute="hideHelp"
+      name="hideHelp"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="help.kss"
+    name="help.kss"
+    />
+
+
+  <!-- change tag content -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="basic_commands.pt"
+      name="basic_commands.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="basic_commands.kss"
+    name="basic_commands.kss"
+    />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="getDivContent"
+      name="getDivContent"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="copyFromDivContent"
+      name="copyFromDivContent"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="copyToDivContent"
+      name="copyToDivContent"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="moveToDivContent"
+      name="moveToDivContent"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="clearDivContent"
+      name="clearDivContent"
+      permission="zope.View"
+      />
+
+
+  <!-- two_selects content -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="two_selects.pt"
+      name="two_selects.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="two_selects.kss"
+    name="two_selects.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="getCorrespondingSelect"
+      name="getCorrespondingSelect"
+      permission="zope.View"
+      />
+
+
+  <!-- three autoupdate content -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="autoupdate.pt"
+      name="autoupdate.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="autoupdate.kss"
+    name="autoupdate.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="getCurrentTime"
+      name="getCurrentTime"
+      permission="zope.View"
+      />
+      
+      
+  <!-- inline edit content -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="inline_edit.pt"
+      name="inline_edit.html"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="getAutoupdateMarkup"
+      name="getAutoupdateMarkup"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="inline_edit.kss"
+    name="inline_edit.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="getInputField"
+      name="getInputField"
+      permission="zope.View"
+      />
+      
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="saveText"
+      name="saveText"
+      permission="zope.View"
+      />
+
+
+  <!-- xpath content -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="xpath.pt"
+      name="xpath.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="xpath.kss"
+    name="xpath.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="removeNodeXpath"
+      name="removeNodeXpath"
+      permission="zope.View"
+      />
+
+
+  <!-- cancel submit -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="cancel_submit.pt"
+      name="cancel_submit.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="cancel_submit.kss"
+    name="cancel_submit.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="cancelSubmitSave"
+      name="save"
+      permission="zope.View"
+      />
+
+  <!-- tree content -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="tree.pt"
+      name="tree.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="tree.kss"
+    name="tree.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="expandSubTree"
+      name="expandSubTree"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="collapseSubTree"
+      name="collapseSubTree"
+      permission="zope.View"
+      />
+
+
+  <!-- more selectors -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="more_selectors.pt"
+      name="more_selectors.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="more_selectors.kss"
+    name="more_selectors.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="clickedButton"
+      name="clickedButton"
+      permission="zope.View"
+      />
+ 
+      <kss:eventtype
+        name="annoyclicker.click"
+        jsfile="more_selectors.js"
+        />
+
+
+  <!-- two_selects revisited content -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="two_select_revisited.pt"
+      name="two_select_revisited.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="two_select_revisited.kss"
+    name="two_select_revisited.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="updateSlaveSelector"
+      name="updateSlaveSelector"
+      permission="zope.View"
+      />
+
+
+  <!-- form submit -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="form_submit.pt"
+      name="form_submit.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="form_submit.kss"
+    name="form_submit.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="formSubmitSave"
+      name="formSave"
+      permission="zope.View"
+      />
+
+
+  <!-- effects submit -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="effects.pt"
+      name="effects.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="effects.kss"
+    name="effects.kss"
+  />
+  
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="reset"
+      name="resetEffects"
+      permission="zope.View"
+      />
+
+
+  <!-- error handling -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="error_handling.pt"
+      name="error_handling.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="error_handling.kss"
+    name="error_handling.kss"
+  />
+  
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".demoview.KSSDemoView"
+      attribute="errTest"
+      name="errTest"
+      permission="zope.View"
+      />
+
+
+  <!-- preventdefault -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="preventdefault.pt"
+      name="preventdefault.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="preventdefault.kss"
+    name="preventdefault.kss"
+    />
+
+
+  <!-- html inserts -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="html_inserts.pt"
+      name="html_inserts.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="html_inserts.kss"
+    name="html_inserts.kss"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="htmlReplace"
+    name="htmlReplace"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="htmlInsertBefore"
+    name="htmlInsertBefore"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="htmlInsertAfter"
+    name="htmlInsertAfter"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="htmlInsertAsFirstChild"
+    name="htmlInsertAsFirstChild"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="htmlInsertAsLastChild"
+    name="htmlInsertAsLastChild"
+    permission="zope.View"
+    />
+
+
+  <!--Drag and drop -->
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    template="draganddrop.pt"
+    name="draganddrop.html"
+    permission="zope.View"
+    />
+
+  <browser:resource
+    file="draganddrop.kss"
+    name="draganddrop.kss"
+    />
+
+  <!-- protocol -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="protocol.pt"
+      name="client-server-protocol"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="protocol.kss"
+    name="protocol.kss"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="protocolSmallDataset"
+    name="protocolSmallDataset"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="protocolLargeDataset"
+    name="protocolLargeDataset"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="protocolSmallAttribute"
+    name="protocolSmallAttribute"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="protocolLargeAttribute"
+    name="protocolLargeAttribute"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="protocolAMP"
+    name="protocolAMP"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="protocolLT"
+    name="protocolLT"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="protocolGT"
+    name="protocolGT"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="protocolENDCDATA"
+    name="protocolENDCDATA"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="protocolAttributeAMP"
+    name="protocolAttributeAMP"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="protocolAttributeLT"
+    name="protocolAttributeLT"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="protocolAttributeGT"
+    name="protocolAttributeGT"
+    permission="zope.View"
+    />
+
+  <browser:page
+    for="kss.demo.interfaces.ISimpleContent"
+    class=".demoview.KSSDemoView"
+    attribute="protocolAttributeENDCDATA"
+    name="protocolAttributeENDCDATA"
+    permission="zope.View"
+    />
+
+  <!-- Dynamic table -->
+  <include file="addressbook.zcml" />
+
+  <!-- Typewriter -->
+  <include file="typewriter.zcml" />
+
+  <!-- CursorTest -->
+  <include file="snake.zcml" />
+
+</configure>
+

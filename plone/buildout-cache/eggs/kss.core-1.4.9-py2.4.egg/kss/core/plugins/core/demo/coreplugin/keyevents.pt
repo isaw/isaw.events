@@ -1,0 +1,47 @@
+<html tal:define="viewname string:kss_keyevents">
+  <head>
+    <metal:header use-macro="context/@@header_macros/header_resources">
+      <metal:custom_resources fill-slot="custom_resources"> 
+      </metal:custom_resources>
+    </metal:header>  
+  </head>
+  <body>   
+    <p metal:use-macro="context/@@body_macros/header">header</p>
+    <h3>Key events Demo</h3>
+    <p>
+    In this series of tests, the first input is bound without preventdefault.
+    The second one is bound with preventdefault=true. (This is to test that
+    key events have preventdefault=true by default, so the first two inputs 
+    should be identical.) The third input binds a single keycode ('a'). 
+    The fourth one binds a list of keycodes ('a', ENTER).
+    It is important to test with both alpha and controll characters, as well
+    as with small and big caps (only the small caps 'a' should trigger here.) 
+    </p>
+    <div id="target"></div>
+    <form action="reloaded.html">
+      <input type="submit" class="submut" id="clear" name="clear" value="Clear" />
+      <p>
+      Test the keypress event.
+      </p>
+      <input type="text" class="text" id="text01" name="text01" value="" />
+      <input type="text" class="text" id="text02" name="text02" value="" />
+      <input type="text" class="text" id="text03" name="text03" value="" />
+      <input type="text" class="text" id="text04" name="text04" value="" />
+      <p>
+      Test the keydown event.
+      </p>
+      <input type="text" class="text" id="text11" name="text11" value="" />
+      <input type="text" class="text" id="text12" name="text12" value="" />
+      <input type="text" class="text" id="text13" name="text13" value="" />
+      <input type="text" class="text" id="text14" name="text14" value="" />
+      <p>
+      Test the keyup event. Preventdefault is ineffective here, since
+      the keyup event has no default.
+      </p>
+      <input type="text" class="text" id="text21" name="text21" value="" />
+      <input type="text" class="text" id="text22" name="text22" value="" />
+      <input type="text" class="text" id="text23" name="text23" value="" />
+      <input type="text" class="text" id="text24" name="text24" value="" />
+    </form>
+  </body>
+</html>

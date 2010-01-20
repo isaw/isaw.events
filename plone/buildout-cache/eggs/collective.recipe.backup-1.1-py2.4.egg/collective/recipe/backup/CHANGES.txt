@@ -1,0 +1,106 @@
+1.1 (2009-08-21)
+================
+
+- Run the cleanup script (removing too old backups that we no longer
+  want to keep) for additional file storages as well.
+  Fixes https://bugs.launchpad.net/collective.buildout/+bug/408224
+  [maurits]
+
+- Moved everything into a src/ subdirectory to ease testing on buildbot (which
+  would grab all egss in the eggs/ dir that buildbot's mechanism creates.
+  [reinout]
+
+
+1.0 (2009-02-06)
+================
+
+- Quote all paths and arguments so that it works on paths that contain
+  spaces (specially on Windows). [sidnei]
+
+
+0.9 (2008-12-05)
+================
+
+- Windows path compatibility fix.  [Juan A. Diaz]
+
+
+0.8 (2008-09-23)
+================
+
+- Changed the default for gzipping to True. Adding ``gzip = true`` to all our
+  server deployment configs gets tired pretty quickly, so doing it by default
+  is the best default. Stuff like this needs to be changed **before** a 1.0
+  release :-) [reinout]
+
+- Backup of additional databases (if you have configured them) now takes place
+  before the backup of the main database (same with restore). [reinout]
+
+
+0.7 (2008-09-19)
+================
+
+- Added $BACKUP-style enviroment variable subsitution in addition to the tilde
+  expansion offered by 0.6. [reinout, idea by Fred van Dijk]
+
+
+0.6 (2008-09-19)
+================
+
+- Fixed the test setup so both bin/test and python setup.py test
+  work. [reinout+maurits]
+
+- Added support for ~ in path names. And fixed a bug at the same time that
+  would occur if you call the backup script from a different location than
+  your buildout directory in combination with a non-absolute backup
+  location. [reinout]
+
+
+0.5 (2008-09-18)
+================
+
+- Added support for additional_filestorages option, needed for for instance a
+  split-out catalog.fs. [reinout]
+
+- Test setup fixes. [reinout+maurits]
+
+
+0.4 (2008-08-19)
+================
+
+- Allowed the user to make the script more quiet (say in a cronjob)
+  by using 'bin/backup -q' (or --quiet).  [maurits]
+
+- Refactored initialization template so it is easier to change.  [maurits]
+
+
+0.3.1 (2008-07-04)
+==================
+
+- Added 'gzip' option, including changes to the cleanup functionality that
+  treats .fsz also as a full backup like .fs. [reinout]
+
+- Fixed typo: repoze is now repozo everywhere... [reinout]
+
+
+0.2 (2008-07-03)
+================
+
+- Extra tests and documentation change for 'keep': the default is to keep 2
+  backups instead of all backups. [reinout]
+
+- If debug=true, then repozo is also run in --verbose mode. [reinout]
+
+
+0.1 (2008-07-03)
+================
+
+- Added bin/restore. [reinout]
+
+- Added snapshot backups. [reinout]
+
+- Enabled cleaning up of older backups. [reinout]
+
+- First working version that runs repozo and that creates a backup dir if
+  needed. [reinout]
+
+- Started project based on zopeskel template. [reinout]

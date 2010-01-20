@@ -1,0 +1,15 @@
+<tal:block xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+	  
+<tal:block define="_dummy python:request.response.setHeader('content-type','text/html;;charset=utf-8')" />
+
+<metal:block use-macro="here/global_defines/macros/defines" />
+
+<metal:block use-macro="options/the_macro" >
+
+ XXX content
+ 
+</metal:block>
+
+</tal:block>

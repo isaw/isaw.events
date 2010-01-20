@@ -1,0 +1,55 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+           >
+ 
+    <!-- We do not import things directly from jsonserver, as
+         its presence is optional. We import these locally
+         and if the import fails, blind stubs are provided
+         for the necessary interfaces and factories. This
+         ensures that this zcml will always execute.
+         XXX But this should actually be done via
+         features / conditionals from here.
+    -->
+
+    <!-- View that renders the command -->
+    <adapter
+        for="kss.core.interfaces.IKSSCommands
+             .interfaces.IJSONRPCRequest"
+        provides="zope.interface.Interface"
+        factory=".utils.JsonCommandView"
+        name="render"
+    />
+ 
+    <!-- Json representation of commands -->
+    <adapter
+        for="kss.core.interfaces.IKSSCommand
+             .interfaces.IJSONWriter"
+        provides=".interfaces.IJSONStreamWriteable"
+        factory=".utils.KSSCommandWriter"
+    />
+    
+    <!-- provide z3 security for command elements -->
+    <class class="kss.core.commands.KSSCommands">
+        <require
+            permission="zope.Public"
+            attributes="__iter__"
+            />
+    </class>
+
+    <class class="kss.core.commands.KSSCommand">
+        <require
+            permission="zope.Public"
+            attributes="__dict__"
+            />
+    </class>
+    
+    <class class="kss.core.commands.KSSParam">
+        <require
+            permission="zope.Public"
+            attributes="name content"
+            />
+    </class>
+
+</configure>

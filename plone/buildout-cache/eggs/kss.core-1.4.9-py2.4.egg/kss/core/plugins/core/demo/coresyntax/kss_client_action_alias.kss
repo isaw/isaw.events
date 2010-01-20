@@ -1,0 +1,92 @@
+
+
+.clickable:click {
+    evt-click-preventdefault: true;
+}
+
+#button_1:click {
+    action-client: setStyle htmlid(button_2);
+    setStyle-name: backgroundColor;
+    setStyle-value: #FFa0a0;
+    action-client: setAttribute htmlid(button_2);
+    setAttribute-name: value;
+    setAttribute-value: 'RESET ME';
+
+    action-client: setStyle htmlid(button_3) alias(setStyleRight);
+    setStyleRight-name: backgroundColor;
+    setStyleRight-value: #a0FFa0;
+    action-client: setAttribute htmlid(button_3) alias(setAttributeRight);
+    setAttributeRight-name: value;
+    setAttributeRight-value: 'RESET ME TOO';
+}
+
+/* Similar to the first case, but we check
+ * if aliased actions merge properly.
+ */
+#button_4:click {
+    action-client: setStyle htmlid(button_5);
+    setStyle-name: backgroundColor;
+    setStyle-value: #FFa0a0;
+    action-client: setAttribute htmlid(button_5);
+    setAttribute-name: value;
+    setAttribute-value: 'RESET ME';
+
+    action-client: setStyle htmlid(button_6) alias(setStyleRight);
+    setStyleRight-name: backgroundColor;
+
+    action-client: setAttribute htmlid(button_6) alias(setAttributeRight);
+    setAttributeRight-name: value;
+}
+/* this will merge to the previous one. */
+#button_4:click {
+    setStyleRight-value: #a0FFa0;
+    setAttributeRight-value: 'RESET ME TOO';
+}
+
+
+/* Similar to the first case, but we check
+ * if aliased actions merge properly.
+ * We override the action completely.
+ */
+#button_7:click {
+    action-client: setStyle htmlid(button_8);
+    setStyle-name: backgroundColor;
+    setStyle-value: #FFa0a0;
+    action-client: setAttribute htmlid(button_8);
+    setAttribute-name: value;
+    setAttribute-value: 'RESET ME';
+
+    action-client: setStyle htmlid(button_6) alias(setStyleRight);
+    setStyleRight-name: backgroundColor;
+
+    action-client: setAttribute htmlid(button_6) alias(setAttributeRight);
+    setAttributeRight-name: value;
+}
+/* this will merge to the previous one. This will act on button_9
+ * and _not_ on button_6 as the previous
+ * rule would have specified.
+ *
+ * Note that overriding the action _name_ is not allowed but we
+ * cannot test this here, because it would give parsing error.*/
+#button_7:click {
+    action-client: setStyle htmlid(button_9) alias(setStyleRight);
+    setStyleRight-value: #a0FFa0;
+
+    action-client: setAttribute htmlid(button_9) alias(setAttributeRight);
+    setAttributeRight-value: 'RESET ME TOO';
+}
+
+
+
+/* Resetting the buttons */
+#button_2:click, #button_3:click,
+#button_5:click, #button_6:click,
+#button_8:click, #button_9:click {
+    action-client: setStyle;
+    setStyle-name: backgroundColor;
+    setStyle-value: white;
+    action-client: setAttribute;
+    setAttribute-name: value;
+    setAttribute-value: 'Watch me';
+}
+

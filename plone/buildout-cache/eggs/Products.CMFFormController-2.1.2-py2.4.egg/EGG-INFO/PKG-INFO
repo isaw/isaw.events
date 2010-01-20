@@ -1,0 +1,17 @@
+Metadata-Version: 1.0
+Name: Products.CMFFormController
+Version: 2.1.2
+Summary: CMFFormController provides a form validation mechanism for CMF.
+Home-page: http://svn.plone.org/svn/collective/CMFFormController/trunk
+Author: Geoff Davis
+Author-email: plone-developers@lists.sourceforge.net
+License: GPL
+Download-URL: http://plone.org/products/cmfformcontroller/releases
+Description: 
+Keywords: Zope CMF Plone form validation
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

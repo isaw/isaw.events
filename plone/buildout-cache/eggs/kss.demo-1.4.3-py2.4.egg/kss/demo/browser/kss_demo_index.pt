@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css"
+          tal:attributes="href string:${context/@@absolute_url}/@@kss_devel_mode/ui_css"/>
+  </head>
+  <body>
+    <h1>KSS demos</h1>
+    <p metal:use-macro="context/@@body_macros/kss_mode">Kss mode</p>
+    <h2>Tests</h2>
+    <ul>
+     <li><a href="@@kukittestsuite">ECMA unittests</a></li>
+     <li tal:condition="context/@@kss_demo_registry/getZuite">
+       <a tal:attributes="href string:${context/absolute_url}/zuite.html">
+          Selenium tests runner</a></li>
+    </ul>
+      <tal:groups repeat="demo_group context/@@kss_demo_registry/getDemoGroups">
+        <tal:plugin condition="python:demo_group['is_first_plugin_namespace'] and demo_group['plugin_namespace']==''">
+             <h2>Core plugin</h2>
+        </tal:plugin>
+        <tal:plugin condition="python:demo_group['is_first_plugin_namespace'] and demo_group['plugin_namespace']">
+             <h2>Plugin namespace: <b tal:content="demo_group/plugin_namespace">core</b></h2>
+        </tal:plugin>
+        <tal:category condition="python:demo_group['is_first_category'] and demo_group['category']">
+          <h3 tal:content="demo_group/category">Category</h3>
+        </tal:category>
+        <ul>
+          <tal:demos repeat="demo demo_group/demos">
+            <li><a href="demo_page.html"
+                   tal:attributes="href demo/page_url"
+                   tal:content="demo/title">A simple demo</a>
+                <tal:condition condition="demo/description">
+                    <small tal:content="demo/description" />
+                </tal:condition>
+            </li>
+          </tal:demos>
+        </ul>
+      </tal:groups>
+ 
+  </body>
+</html>

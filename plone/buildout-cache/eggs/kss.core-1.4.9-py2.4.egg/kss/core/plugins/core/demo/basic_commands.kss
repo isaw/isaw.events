@@ -1,0 +1,21 @@
+ 
+button#copyFrom:click {
+    action-server: copyFromDivContent;
+}
+
+button#copyTo:click {
+    action-server: copyToDivContent;
+}
+
+button#moveTo:click {
+    action-server: moveToDivContent;
+}
+
+button#clear:click {
+    action-server: clearDivContent;
+}
+
+button#change:click {
+    action-server: getDivContent;
+}
+

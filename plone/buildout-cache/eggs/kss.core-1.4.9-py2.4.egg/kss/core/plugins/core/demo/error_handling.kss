@@ -1,0 +1,63 @@
+
+
+.nothandled:click {
+    evt-click-preventdefault: true;
+    action-server:   errTest;
+    errTest-id:      nodeAttr(id);
+    errTest-act:     kssAttr(act);
+}
+
+/* This one adds the err handling to the second row 
+   It also demonstrates kss rules are merged like css ones
+*/
+
+
+.handled:click {
+    evt-click-preventdefault: true;
+    action-server:   errTest;
+    errTest-id:      nodeAttr(id);
+    errTest-act:     kssAttr(act);
+    errTest-error:  insertHTMLAsLastChild;
+    insertHTMLAsLastChild-kssSelector: #logger;
+    insertHTMLAsLastChild-html: "Error handler activated.";
+}
+
+.timeout:click { 
+    evt-click-preventdefault: true;
+    action-client: replaceInnerHTML;
+    replaceInnerHTML-kssSelector: #update-status;
+    replaceInnerHTML-html: "Test timeout";
+    action-client: setActionServerTimeout;
+    setActionServerTimeout-value: 100;
+    action-server:   errTest;
+    errTest-id:      nodeAttr(id);
+    errTest-act:     kssAttr(act);
+    errTest-error:  insertHTMLAsLastChild;
+    insertHTMLAsLastChild-kssSelector: #logger;
+    insertHTMLAsLastChild-html: "Timeout: error handler activated.";
+}
+
+/* Spinner control 
+*/
+
+#spinner-status:spinneron {
+    evt-spinneron-laziness: 0;
+    action-client: setStyle;
+    setStyle-name: display;
+    setStyle-value: block;
+}
+
+#spinner-status:spinneroff {
+    evt-spinneroff-laziness: 0;
+    action-client: setStyle;
+    setStyle-name: display;
+    setStyle-value: none;
+}
+
+/* Log control
+*/
+
+#log-reset a:click, #log-reset:click {
+    action-client: clearChildNodes;
+    clearChildNodes-kssSelector: #logger;
+}

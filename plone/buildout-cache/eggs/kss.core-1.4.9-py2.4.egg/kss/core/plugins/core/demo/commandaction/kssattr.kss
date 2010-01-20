@@ -1,0 +1,28 @@
+.get:click {
+    action-server: echo;
+    echo-value: kssAttr('name', true);
+}
+
+#command .set:click {
+    action-server: setKssAttribute;
+}
+
+#action .set:click {
+    action-client: setKssAttribute;
+    setKssAttribute-kssSelector: #action;
+    setKssAttribute-name: name;
+    setKssAttribute-value: value-from-action;
+}
+
+/* Log control
+*/
+
+#log-reset:click {
+    action-client: clearChildNodes;
+    clearChildNodes-kssSelector: #logger;
+}
+
+#log-reset a:click {
+    action-client: clearChildNodes;
+    clearChildNodes-kssSelector: #logger;
+}

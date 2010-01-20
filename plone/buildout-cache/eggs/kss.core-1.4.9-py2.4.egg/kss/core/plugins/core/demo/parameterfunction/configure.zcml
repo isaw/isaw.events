@@ -1,0 +1,70 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+		   i18n_domain="kss"
+		   >
+
+  <!-- Set up the demo utility -->
+  <configure zcml:condition="have kss_demo_version_1_2">
+      <utility
+        name="coreproviders"
+        factory=".zopeconfig.ValueProviderDemos"
+        provides="kss.demo.interfaces.IKSSDemoResource"
+        permission="zope.Public"
+        />
+  </configure>
+
+
+  <!-- forms -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="forms.pt"
+      name="pf_forms.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="forms.kss"
+    name="forms.kss"
+  />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".parameterfunction_view.ParameterFunctionView"
+      attribute="submitFullForm"
+      name="submitFullForm"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".parameterfunction_view.ParameterFunctionView"
+      attribute="submitFullFormIntoRequest"
+      name="submitFullFormIntoRequest"
+      permission="zope.View"
+      />
+
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      class=".parameterfunction_view.ParameterFunctionView"
+      attribute="submitMultiSelect"
+      name="submitMultiSelect"
+      permission="zope.View"
+      />
+
+
+  <!-- Form submit, with multiple properties -->
+  <browser:page
+      for="kss.demo.interfaces.ISimpleContent"
+      template="kss_form_submit_multiprop.pt"
+      name="kss_form_submit_multiprop.html"
+      permission="zope.View"
+      />
+
+  <browser:resource
+    file="kss_form_submit_multiprop.kss"
+    name="kss_form_submit_multiprop.kss"
+  />
+
+</configure>
+

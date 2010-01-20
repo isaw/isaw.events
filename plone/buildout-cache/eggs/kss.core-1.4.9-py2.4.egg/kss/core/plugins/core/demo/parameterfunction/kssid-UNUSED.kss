@@ -1,0 +1,91 @@
+#text:click {
+    action-client: executeCommand;
+    executeCommand-name: replaceInnerHTML;
+    executeCommand-selector: "#target";
+    executeCommand-html: currentFormVar();
+} 
+
+#text-by-name:click {
+    action-client: executeCommand;
+    executeCommand-name: replaceInnerHTML;
+    executeCommand-selector: "#target";
+    executeCommand-html: currentFormVar(text-by-name);
+} 
+
+#text-by-kssname:click {
+    action-client: executeCommand;
+    executeCommand-name: replaceInnerHTML;
+    executeCommand-selector: "#target";
+    executeCommand-html: currentFormVar(kssAttr(key1, true));
+}
+#textarea:click {
+    action-client: executeCommand;
+    executeCommand-name: replaceInnerHTML;
+    executeCommand-selector: "#target";
+    executeCommand-html: currentFormVar();
+} 
+
+#textarea-by-name:click {
+    action-client: executeCommand;
+    executeCommand-name: replaceInnerHTML;
+    executeCommand-selector: "#target";
+    executeCommand-html: currentFormVar("textarea-by-name");
+} 
+
+#radio1:click {
+    action-client: executeCommand;
+    executeCommand-name: replaceInnerHTML;
+    executeCommand-selector: "#target";
+    executeCommand-html: currentFormVar();
+} 
+
+#radio2:click {
+    action-client: executeCommand;
+    executeCommand-name: replaceInnerHTML;
+    executeCommand-selector: "#target";
+    executeCommand-html: currentFormVar();
+} 
+
+#radio-by-name:click {
+    action-client: executeCommand;
+    executeCommand-name: replaceInnerHTML;
+    executeCommand-selector: "#target";
+    executeCommand-html: currentFormVar(radio-by-name);
+} 
+
+#fullform-simple:click {
+    action-server: submitFullForm;
+    submitFullForm-form: currentForm();
+}
+
+#fullform-simplenamed:click {
+    action-server: submitFullForm;
+    submitFullForm-form: form(full1);
+}
+
+#fullform-current:click {
+    action-server:                             submitFullFormIntoRequest;
+    submitFullFormIntoRequest-kssSubmitForm:   currentForm();
+}
+
+#fullform-named:click {
+    action-server:                             submitFullFormIntoRequest;
+    submitFullFormIntoRequest-kssSubmitForm:   form(full2);
+}
+
+#fullform-namedbystring:click {
+    action-server:                             submitFullFormIntoRequest;
+    submitFullFormIntoRequest-kssSubmitForm:   'full2';
+}
+
+#single-select:click {
+    action-client: executeCommand;
+    executeCommand-name: replaceInnerHTML;
+    executeCommand-selector: "#target";
+    executeCommand-html: currentFormVar(single-select);
+} 
+
+#multiple-select:click {
+    action-server: submitMultiSelect;
+    submitMultiSelect-items: currentFormVar(multiple-select);
+} 

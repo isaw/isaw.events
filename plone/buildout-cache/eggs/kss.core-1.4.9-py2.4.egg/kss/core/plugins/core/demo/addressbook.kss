@@ -1,0 +1,40 @@
+input#submit:click {
+    evt-click-preventdefault:   true;
+    action-server:              addPerson;
+    addPerson-kssSubmitForm:       currentForm();
+}
+
+input#clean:click {
+    evt-click-preventdefault:   true;
+    action-server:              cleanPersons;
+}
+
+input.moveUp:click {
+    evt-click-preventdefault:   true;
+    action-server:              moveUp;
+    moveUp-pid:                 kssAttr(pid);
+}
+
+input.toBottom:click {
+    evt-click-preventdefault:   true;
+    action-server:              toBottom;
+    toBottom-pid:               kssAttr(pid);
+}
+
+input.toTop:click {
+    evt-click-preventdefault:   true;
+    action-server:              toTop;
+    toTop-pid:                  kssAttr(pid);
+}
+
+input.moveDown:click {
+    evt-click-preventdefault:   true;
+    action-server:              moveDown;
+    moveDown-pid:               kssAttr(pid);
+}
+
+input.remove:click {
+    evt-click-preventdefault:   true;
+    action-server:              removePerson;
+    removePerson-pid:           kssAttr(pid);
+}

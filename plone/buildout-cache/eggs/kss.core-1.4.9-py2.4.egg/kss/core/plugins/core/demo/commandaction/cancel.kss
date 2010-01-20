@@ -1,0 +1,24 @@
+#standard li:click {
+    action-server: cancel;
+} 
+
+#standard .without:click {
+    action-cancel: cancel;
+} 
+
+#alias li:click {
+    action-client: insertHTMLAsLastChild css(#logger) alias(test);
+    test-html: action;
+} 
+
+#alias .without:click {
+    action-cancel: test;
+}
+
+/* Log control
+*/
+
+#log-reset a:click, #log-reset:click {
+    action-client: clearChildNodes;
+    clearChildNodes-kssSelector: #logger;
+}

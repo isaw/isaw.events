@@ -1,0 +1,177 @@
+# Gettext Message File for Plone
+msgid ""
+msgstr ""
+"Project-Id-Version: Plone\n"
+"POT-Creation-Date: 2006-01-29 23:00+0000\n"
+"PO-Revision-Date: 2006-01-29 23:00+0000\n"
+"Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: plone\n"
+
+#. Default: "Categorization"
+#: ./ATContentTypes/content/schemata.py
+msgid "label_schema_categorization"
+msgstr ""
+
+#. Default: "Dates"
+#: ./ATContentTypes/content/schemata.py
+msgid "label_schema_dates"
+msgstr ""
+
+#. Default: "Default"
+#: ./ATContentTypes/content/schemata.py
+msgid "label_schema_default"
+msgstr ""
+
+#. Default: "Metadata"
+#: ./ATContentTypes/content/schemata.py
+msgid "label_schema_metadata"
+msgstr ""
+
+#. Default: "Ownership"
+#: ./ATContentTypes/content/schemata.py
+msgid "label_schema_ownership"
+msgstr ""
+
+#. Default: "Settings"
+#: ./ATContentTypes/content/schemata.py
+msgid "label_schema_settings"
+msgstr ""
+
+#: Metadata which might show up in atct_topic_view
+msgid "Description"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+#. Default: "Placeful Workflow"
+#: action_icon id placefulworkflow_icon.png - category controlpanel
+msgid "Placeful Workflow"
+msgstr ""
+
+#: ./skins/plone_forms/folder_rename_form.cpt
+msgid "Please select one or more items to rename."
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+#. The variables used here are the same as used in the strftime formating.
+#. Supported are ${A}, ${a}, ${B}, ${b}, ${H}, ${I}, ${m}, ${d}, ${M}, ${p},
+#. ${S}, ${Y}, ${y}, ${Z}, each used as variable in the msgstr.
+#. For example: "${A} ${d}. ${B} ${Y}, ${H}:${M} ${Z}"
+#. In english speaking countries default is:
+#. ${Y}-${m}-${d} ${H}:${M}
+#: ./TranslationServiceTool.py
+msgid "date_format_long"
+msgstr ""
+
+#. The variables used here are the same as used in the strftime formating.
+#. Supported are ${A}, ${a}, ${B}, ${b}, ${H}, ${I}, ${m}, ${d}, ${M}, ${p},
+#. ${S}, ${Y}, ${y}, ${Z}, each used as variable in the msgstr.
+#. For example: "${A} ${d}. ${B} ${Y}, ${H}:${M} ${Z}"
+#. In english speaking countries default is:
+#. ${Y}-${m}-${d}
+#: ./TranslationServiceTool.py
+msgid "date_format_short"
+msgstr ""
+
+#. Default: "description"
+#: Memberproperty
+msgid "description"
+msgstr ""
+
+#. Default: "E-Mail"
+#: Memberproperty
+msgid "email"
+msgstr ""
+
+#: prefs_user_group_search_form.pt
+msgid "none specified"
+msgstr ""
+
+#. Default: "Your form has not been saved. All changes you have made will be lost"
+#: ./skins/plone_ecmascript/plone_javascript_variables.js.dtml
+msgid "text_form_modified_message"
+msgstr ""
+
+#. Default: "You already clicked the submit button. Do you really want to submit this form again?"
+#: ./skins/plone_ecmascript/plone_javascript_variables.js.dtml
+msgid "text_form_resubmit_message"
+msgstr ""
+
+#. Default: "title"
+#: Memberproperty
+msgid "title"
+msgstr ""
+
+#. Default: [···]
+#: ./utils.py:205
+msgid "title_unset"
+msgstr ""
+
+msgid "Contributor"
+msgstr ""
+
+msgid "Editor"
+msgstr ""
+
+msgid "Reader"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Member"
+msgstr ""
+
+msgid "Manager"
+msgstr ""
+
+msgid "Owner"
+msgstr ""
+
+#: ./Products.CMFPlacefulWorkflow/Products/CMFPlacefulWorkflow/profiles/default/controlpanel.xml
+msgid "Workflow Policies"
+msgstr ""
+
+#: ./plone.app.layout/plone/app/layout/viewlets/content_history.pt
+msgid "Edited"
+msgstr ""
+
+# Only on Plone 3.2 
+#. Default: "This product has been upgraded. Filesystem version is ${version}. Reinstall: ${reinstall_button}"
+#: CMFPlone/skins/plone_prefs/prefs_install_products_form.pt:188
+msgid "label_outdated_product_reinstall"
+msgstr ""
+
+# Only on Plone 3.2 
+#. Default: "To make new products show up here, put them in the directory ${location} on the file system, and restart the server process."
+#: CMFPlone/skins/plone_prefs/prefs_install_products_form.pt:37
+msgid "description_product_location"
+msgstr ""
+
+# Only on Plone 3.2 
+#: CMFPlone/skins/plone_prefs/prefs_reinstallProducts.py:22
+msgid "Reinstalled ${product}"
+msgstr ""
+
+# Only on Plone 3.2 
+#. Default: "This product has been upgraded. Old version was ${version}."
+#: CMFPlone/skins/plone_prefs/prefs_install_products_form.pt:179
+msgid "label_product_upgrade_version"
+msgstr ""
+
+# Only on Plone < 3.3.3
+#. Default: "Send a mail with the password"
+#: CMFPlone/skins/plone_login/join_form.cpt:205
+msgid "label_mail_password"
+msgstr ""
