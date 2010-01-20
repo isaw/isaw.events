@@ -1,4 +1,8 @@
-"""Definition of the Events content type
+"""
+Definition of the ISAW Events content type
+Christopher Warner <christopher.warner@nyu.edu>
+Please see sample data below
+
 """
 
 from zope.interface import implements, directlyProvides
@@ -13,7 +17,121 @@ from isaw.events.config import PROJECTNAME
 
 EventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
-    # -*- Your Archetypes field definitions here ... -*-
+    # -*- Events Schema -*-
+
+    """ Date - datetime
+        Time - datetime
+        Speaker - string/user profile
+        Location - string
+        Reception - bool (reception to follow?)
+        Leadin - string (short description)
+        Short description - text
+        Long description - text
+        
+        
+        Sample pulled from http://www.nyu.edu/isaw/events/fernandez-2010-01-19.htm
+        
+        Visiting Research Scholar Lecture
+        Living in the Heights: Hilltop settlement and the changing landscape of northern Hispania during late antiquity.
+
+        Speaker: Damián Fernández
+        Location: 2nd Floor Lecture Room
+        Date: Tuesday, January 19 2010
+        Time: 6:00 p.m.
+        *reception to follow
+
+        Bookmark and Share
+
+        Hilltop settlement was one of the most prominent characteristics in the landscape of the northern
+        Iberian Peninsula until the Roman conquest. With the establishment of Roman rule in the decades
+        around the turn of the era, several of the pre-Roman hilltop forts were abandoned in favor of a
+        developed network of lowland cities that became the backbone of the regional settlement hierarchy.
+        This process was somewhat reversed after the late-third century CE, when archaeologists have dated
+        the beginning of the occupation of hilltops (and, sometimes, the re-occupation of Iron Age sites).
+        The ‘movement towards the highlands’ has traditionally been interpreted either as reemergence of
+        indigenous social structures that had survived the Roman conquest or as the result of the
+        insecurity provoked by the presence of barbarian armies in the third and fifth centuries.
+
+        In the last two decades, piecemeal archaeological research in the northern Iberian Peninsula has
+        begun to provide us with new information about these sites. Their material culture and the more
+        accurate chronology indicate that traditional interpretations about the phenomenon of hilltop
+        occupation are no longer valid. After reviewing some paradigmatic sites, this lecture will offer an
+        alternative model to understanding the change in settlement patterns. It will be argued that
+        occupation of hilltops must be understood in the context of the administrative reforms of the late
+        Roman Empire and the economic changes that occurred in northern Iberia during late antiquity. """
+
+    atapi.DateTimeField(
+    name='event_DateTime',
+    widget=atapi.CalendarWidget(
+        label=u'Event Date and Time',
+        label_msgid='ISAW_Event_DateTime',
+        il8n_domain='ISAW_Event',
+        ),
+    
+    required=False,
+    searchable=True),
+
+    atapi.StringField(
+        name='event_Speaker',
+        widget=atapi.StringWidget(
+            label=u'Event Speaker',
+            label_msgid='ISAW_Event_Speaker',
+            il8n_domain='ISAW_Event',
+            maxlength=255,
+            size=50,
+            ),
+            
+        required=False,
+        searchable=True),
+        
+    atapi.StringField(
+        name='event_Location',
+        widget=atapi.StringWidget(
+            label=u'Event Location',
+            label_msgid='ISAW_Event_location',
+            il8n_domain='ISAW_Event',
+            maxlength=255,
+            size=50,
+            ),
+            
+        required=False,
+        searchable=True),
+    
+    atapi.BooleanField(
+        name='event_Reception',
+        widget=atapi.BooleanWidget(
+            label=u'Event Reception',
+            label_msgid='ISAW_Event_reception',
+            il8n_domain='ISAW_Event',
+            size=50,
+            ),
+            
+        required=False,
+        searchable=True),
+        
+    atapi.TextField(
+        name='event_Leadin',
+        widget=atapi.TextAreaWidget(
+            label=u'Event Leadin',
+            label_msgid='ISAW_Event_leadin',
+            il8n_domain='ISAW_Event',
+            size=50,
+            ),
+            
+        required=False,
+        searchable=True),
+        
+    atapi.TextField(
+        name='event_ShortDescription',
+        widget=atapi.TextAreaWidget(
+            label=u'Event Short Description',
+            label_msgid='ISAW_Event_shortdescription',
+            il8n_domain='ISAW_Event',
+            size=50,
+            ),
+        
+        required=False,
+        searchable=True),
 
 ))
 
@@ -30,7 +148,7 @@ schemata.finalizeATCTSchema(
 )
 
 class Events(folder.ATFolder):
-    """ISAW Events Module"""
+    """ISAW Events"""
     implements(IEvents)
 
     meta_type = "Events"
