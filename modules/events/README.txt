@@ -7,7 +7,7 @@ http://development.kernelcode.com:8080/Plone
 Username: admin
 Password: YH4iZbqU
 
-You can currently find more info the Events class
+You can currently find more info in the Events class
 
 .. Note!
    -----
