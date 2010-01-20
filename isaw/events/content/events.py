@@ -148,7 +148,7 @@ schemata.finalizeATCTSchema(
 )
 
 class Events(folder.ATFolder):
-    """ISAW Events"""
+    """ISAW Events Module"""
     implements(IEvents)
 
     meta_type = "Events"
