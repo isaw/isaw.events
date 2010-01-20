@@ -6,5 +6,15 @@
   <!-- configure your content components here -->
   
   <!-- -*- extra stuff goes here -*- -->
+  <class class=".events.events">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.Ievents"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.Ievents"
+        />
+  </class>
 
 </configure>

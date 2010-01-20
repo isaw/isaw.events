@@ -8,6 +8,7 @@ Events.egg-info/dependency_links.txt
 Events.egg-info/entry_points.txt
 Events.egg-info/namespace_packages.txt
 Events.egg-info/not-zip-safe
+Events.egg-info/paster_plugins.txt
 Events.egg-info/requires.txt
 Events.egg-info/top_level.txt
 isaw/__init__.py
