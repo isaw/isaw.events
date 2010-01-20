@@ -1,6 +1,12 @@
 .. contents::
 Institute for the Study of the Ancient World Event Module.
 
+You can test drive here
+http://development.kernelcode.com:8080/Plone
+
+Username: admin
+Password: YH4iZbqU
+
 You can currently find more info the Events class
 
 .. Note!
