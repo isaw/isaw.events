@@ -1,17 +1,13 @@
 .. contents::
+Institute for the Study of the Ancient World Event Module.
+
+You can currently find more info the Events class
 
 .. Note!
    -----
-   Update the following URLs to point to your:
+christopher.warner@nyu.edu if you have questions for now.
 
-   - code repository
-   - bug tracker
-   - questions/comments feedback mail
-   (do not set a real mail, to avoid spams)
-
-   Or remove it if not used.
-
-- Code repository: http://svn.somewhere.com/...
-- Questions and comments to somemailing_list
-- Report bugs at http://bug.somewhere.com/..
+- Code repository: http://github.com/christophwarner/isaw/tree/master/modules/events/
+- Questions and comments to christopher.warner@nyu.edu
+- Report bugs at christopher.warner@nyu.edu
 
