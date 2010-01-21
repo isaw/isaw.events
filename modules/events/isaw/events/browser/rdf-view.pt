@@ -1,5 +1,43 @@
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title tal:content="string:${context/title}"/>
+	</head>
+	<!-- iCalendar Event -->
+	<rdf:RDF 
+		xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' 
+		xmlns='http://www.w3.org/2002/12/cal/ical#'>
+		
+		<Vcalendar>
+			METHOD: <method>PUBLISH</method><br />
+			VERSION: <version>2.0</version><br />
+			PRODUCT ID: <prodid>-//Institute for the Study of the Ancient World//Content Management System//EN</prodid><br />
+			CALENDAR SCALE: <calscale>GREGORIAN</calscale><br />
+				<component>
+					<Vtimezone>
+						
+						<tzid>America/New_York</tzid><br />
+						<dtstart rdf:parseType='Resource'>
+							<dateTime tal:content="string:DATE START: ${context/event_DateTime}" /><br />
+						</dtstart>
+						
+						<dtend rdf:parseType='Resource'>
+							<dateTime tal:content="string:DATE END: ${context/event_DateTime}" /><br />
+						</dtend>
+				</component>
+				<component>
+				<Vevent>
+				<attendee rdf:parseType='Resource'>
+					<calAddress tal:content="string:ATTENDEE: ${context/event_Speaker}" /><br />
+				</attendee>
+				<summary tal:content="string:SUMMARY: ${context/event_ShortDescription}" /><br />
+				<description rdf:parseType='Resource' tal:content="string:DESCRIPTION: ${context/Description}" /><br />
+				<location rdf:parseType='Resource' tal:content="string:LOCATION: ${context/event_Location}" /><br />
+			</Vevent>
+		</component>
+		</Vcalendar>
+	</rdf:RDF>
 	
-	This is the rdf-view
-	
+<br />
+<b>NOTE: This is the rdf-view</b>
+
 </html>
