@@ -10,15 +10,28 @@
 	<div typeof="vcal:Vevent"
 		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 		xmlns:vcal="http://www.w3.org/2002/12/cal/icaltzd#">
+		<span property="rdfs:label vcal:summary" tal:content="string:SUMMARY: ${context/Description}" /><br />
 		<span property="vcal:dtstart" datatype="xsd:dateTime" tal:content="string:DATE START: ${context/event_StartDateTime}" /><br />
 		<span property="val:dtend" datatype="xsd:dateTime" tal:content="string:DATE END: ${context/event_EndDateTime}" /><br />
-		<span property="rdfs:label vcal:summary" tal:content="string:SUMMARY: ${context/Description}" /><br />
 				<div rel="vcal:location">
 					<div typeof="vcard:Vcard commerce:Exhibit">
 						<span property="vcard:fn" tal:content="string:ATTENDEE: ${context/event_Speaker}" /><br />
 						<div rel="vcard:adr">
 							<div typeof="vcard:Address">
 								<span property="vcard:street-address" tal:content="string:LOCATION: ${context/event_Location}" /><br />
+								
+								<br />
+								<div xmlns:v="http://rdf.data-vocabulary.org/#" typeof="v:Organization">
+								   <span property="v:name">Institute for the Study of the Ancient World</span>
+								   <span property="v:tel">(212) 992-7843</span>
+								   <div rel="v:address">
+								     <span property="v:street-address">15 East 84th Street</span>
+								     <span property="v:locality">New York</span>
+								     <span property="v:region">NY</span>
+								     <span property="v:postal-code">10028</span>
+								   </div>
+								</div>
+							
 							</div>
 						</div>
 					</div>
