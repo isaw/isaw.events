@@ -1,14 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="profile" href="http://microformats.org/profile/hcalendar">
+		<link rel="profile" href="http://microformats.org/profile/hcalendar" />
 		<title tal:content="string:${context/title}"/>
 	</head>
 	
 	<body>
 	<!-- iCalendar Event -->
-	<div class="vevent"
+	<div class="vevent">
 		<span class="summary" tal:content="string:SUMMARY: ${context/Description}" /><br />
 		<abbr class="dtstart" title="${context/event_StartDateTime}" tal:content="string:DATE START: ${context/event_StartDateTime}" /><br />
 		<abbr class="dtend" title="${context/event_EndDateTime}" tal:content="string:DATE END: ${context/event_EndDateTime}" /><br />
@@ -21,13 +21,11 @@
 <b>NOTE: This is the hCal-view</b>
 </p>
 
-<p about=""
-     resource="http://www.w3.org/TR/rdfa-syntax"
-     rel="dct:conformsTo" xmlns:dc="http://purl.org/dc/terms/">
+<p>
     <a href="http://validator.w3.org/check?uri=referer"><img
-        src="http://www.w3.org/Icons/valid-xhtml-rdfa"
-        alt="Valid XHTML + RDFa"   /></a>
-  </p>
+        src="http://www.w3.org/Icons/valid-xhtml11"
+        alt="Valid XHTML 1.1" height="31" width="88" /></a>
+</p>
 
 </body>
 </html>
