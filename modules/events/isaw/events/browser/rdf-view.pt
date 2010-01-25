@@ -2,41 +2,26 @@
 	<head>
 		<title tal:content="string:${context/title}"/>
 	</head>
-	<!-- iCalendar Event -->
-	<rdf:RDF 
-		xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' 
-		xmlns='http://www.w3.org/2002/12/cal/ical#'>
-		
-		<Vcalendar>
-			METHOD: <method>PUBLISH</method><br />
-			VERSION: <version>2.0</version><br />
-			PRODUCT ID: <prodid>-//Institute for the Study of the Ancient World//Content Management System//EN</prodid><br />
-			CALENDAR SCALE: <calscale>GREGORIAN</calscale><br />
-				<component>
-					<Vtimezone>
-						<!-- This is static since events only take place at the Institute -->
-						<tzid>America/New_York</tzid><br />
-						<dtstart rdf:parseType='Resource'>
-							<dateTime tal:content="string:DATE START: ${context/event_StartDateTime}" /><br />
-						</dtstart>
-						
-						<dtend rdf:parseType='Resource'>
-							<dateTime tal:content="string:DATE END: ${context/event_EndDateTime}" /><br />
-						</dtend>
-				</component>
-				<component>
-				<Vevent>
-				<attendee rdf:parseType='Resource'>
-					<calAddress tal:content="string:ATTENDEE: ${context/event_Speaker}" /><br />
-				</attendee>
-				<summary tal:content="string:SUMMARY: ${context/event_ShortDescription}" /><br />
-				<description rdf:parseType='Resource' tal:content="string:DESCRIPTION: ${context/Description}" /><br />
-				<location rdf:parseType='Resource' tal:content="string:LOCATION: ${context/event_Location}" /><br />
-			</Vevent>
-		</component>
-		</Vcalendar>
-	</rdf:RDF>
 	
+	<!-- iCalendar Event -->
+	<div typeof="vcal:Vevent"
+		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+		xmlns:vcal="http://www.w3.org/2002/12/cal/icaltzd#">
+		<span property="vcal:dtstart" datatype="xsd:dateTime" tal:content="string:DATE START: ${context/event_StartDateTime}" /><br />
+		<span property="val:dtend" datatype="xsd:dateTime" tal:content="string:DATE END: ${context/event_EndDateTime}" /><br />
+		<span property="vcal:description rdfs:comment" tal:content="string:SUMMARY: ${context/Description}" /><br />
+				<div rel="vcal:location">
+					<div typeof="vcard:Vcard commerce:Exhibit">
+						<span property="vcard:fn" tal:content="string:ATTENDEE: ${context/event_Speaker}" /><br />
+						<div rel="vcard:adr">
+							<div typeof="vcard:Address">
+								<span property="vcard:street-address" tal:content="string:LOCATION: ${context/event_Location}" /><br />
+							</div>
+						</div>
+					</div>
+				</div>
+	</div>
+								
 <br />
 <b>NOTE: This is the rdf-view</b>
 
