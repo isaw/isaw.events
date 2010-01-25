@@ -8,7 +8,7 @@
   <!-- -*- extra stuff goes here -*- -->
 
 	<browser:page
-		for="*"
+		for="..interfaces.events.Ievents"
 		name="rdf-view"
 		class=".browser.RdfView"
 		template="rdf-view.pt"
