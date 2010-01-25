@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
-    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title tal:content="string:${context/title}"/>
 	</head>
 	
@@ -12,7 +12,7 @@
 		xmlns:vcal="http://www.w3.org/2002/12/cal/icaltzd#">
 		<span property="vcal:dtstart" datatype="xsd:dateTime" tal:content="string:DATE START: ${context/event_StartDateTime}" /><br />
 		<span property="val:dtend" datatype="xsd:dateTime" tal:content="string:DATE END: ${context/event_EndDateTime}" /><br />
-		<span property="vcal:description rdfs:comment" tal:content="string:SUMMARY: ${context/Description}" /><br />
+		<span property="rdfs:label vcal:summary" tal:content="string:SUMMARY: ${context/Description}" /><br />
 				<div rel="vcal:location">
 					<div typeof="vcard:Vcard commerce:Exhibit">
 						<span property="vcard:fn" tal:content="string:ATTENDEE: ${context/event_Speaker}" /><br />
@@ -29,6 +29,14 @@
 <br />
 <b>NOTE: This is the rdf-view</b>
 </p>
+
+<p about=""
+     resource="http://www.w3.org/TR/rdfa-syntax"
+     rel="dct:conformsTo" xmlns:dc="http://purl.org/dc/terms/">
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-xhtml-rdfa"
+        alt="Valid XHTML + RDFa"   /></a>
+  </p>
 
 </body>
 </html>
