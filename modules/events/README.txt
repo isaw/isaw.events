@@ -17,3 +17,4 @@ christopher.warner@nyu.edu if you have questions for now.
 - Questions and comments to christopher.warner@nyu.edu
 - Report bugs at christopher.warner@nyu.edu
 
+Week 2
