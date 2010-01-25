@@ -56,10 +56,21 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 # -*- Events Schema -*- #
 
     atapi.DateTimeField(
-    name='event_DateTime',
+    name='event_StartDateTime',
     widget=atapi.CalendarWidget(
-        label=u'Event Date and Time',
-        label_msgid='ISAW_Event_DateTime',
+        label=u'Event Start Date and Time',
+        label_msgid='ISAW_Event_StartDateTime',
+        il8n_domain='ISAW_Event',
+        ),
+
+    required=False,
+    searchable=True),
+
+    atapi.DateTimeField(
+    name='event_EndDateTime',
+    widget=atapi.CalendarWidget(
+        label=u'Event End Date and Time',
+        label_msgid='ISAW_Event_EndDateTime',
         il8n_domain='ISAW_Event',
         ),
 
@@ -148,6 +159,7 @@ class events(folder.ATFolder):
 
     meta_type = "events"
     schema = eventsSchema
+    toolicon = 'images/appointment-new.png'
 
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
