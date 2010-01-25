@@ -3,6 +3,7 @@
 		<title tal:content="string:${context/title}"/>
 	</head>
 	
+	<body>
 	<!-- iCalendar Event -->
 	<div typeof="vcal:Vevent"
 		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -21,6 +22,7 @@
 					</div>
 				</div>
 	</div>
+	</body>
 								
 <br />
 <b>NOTE: This is the rdf-view</b>
