@@ -17,11 +17,11 @@
 						<!-- This is static since events only take place at the Institute -->
 						<tzid>America/New_York</tzid><br />
 						<dtstart rdf:parseType='Resource'>
-							<dateTime tal:content="string:DATE START: ${context/event_DateTime}" /><br />
+							<dateTime tal:content="string:DATE START: ${context/event_StartDateTime}" /><br />
 						</dtstart>
 						
 						<dtend rdf:parseType='Resource'>
-							<dateTime tal:content="string:DATE END: ${context/event_DateTime}" /><br />
+							<dateTime tal:content="string:DATE END: ${context/event_EndDateTime}" /><br />
 						</dtend>
 				</component>
 				<component>
