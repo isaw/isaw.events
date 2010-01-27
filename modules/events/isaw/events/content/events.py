@@ -61,6 +61,8 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         label=u'Event Start Date and Time',
         label_msgid='ISAW_Event_StartDateTime',
         il8n_domain='ISAW_Event',
+        show_hm=False,
+        format='%A, %B %d %Y'
         ),
 
     required=False,

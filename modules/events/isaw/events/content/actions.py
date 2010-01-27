@@ -1,5 +1,7 @@
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
+from datetime import datetime as dt
+import time
 import xmlrpclib
 
 proxy = xmlrpclib.ServerProxy("http://blogs.nyu.edu/movabletype/mt-xmlrpc.cgi")
@@ -33,13 +35,14 @@ def event_blogpublish(post, event):
         else:
             reception = None
         
-        date = post.Date
-        # replace "Click here for more information with a strong or annotation on the object so this can be changed"    
+        event_date = dt.fromtimestamp(post.event_StartDateTime).strftime('%A, %B %d %Y')
+        event_time = dt.fromtimestamp(post.event_StartDateTime).strftime('%I:%M %p')
+        # replace "Click here for more information with a string or annotation on the object so this can be changed"    
         url = "<a href=\"%s\">Click here for more information.</a>" % post.absolute_url()
         formatted_post = "Title: %s\nSpeaker: %s\nLocation: %s\n<b>Date: %s</b>\nTime: %s\n%s\n%s" % (post.title, post.event_Speaker, 
                                                                                             post.event_Location, 
-                                                                                            post.event_StartDateTime, 
-                                                                                            date, reception, url)
+                                                                                            event_date, 
+                                                                                            event_time, reception, url)
         
         
         content = {'title': post.title, 
