@@ -6,6 +6,7 @@ import xmlrpclib
 
 # TODO Add more error checking for each type of possible error
 # Eventually remove all print statements when finally complete
+# Need to add REMOVE post if an event is removed
 
 proxy = xmlrpclib.ServerProxy("http://blogs.nyu.edu/movabletype/mt-xmlrpc.cgi")
 username = 'te20'
