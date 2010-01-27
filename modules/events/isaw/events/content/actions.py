@@ -4,6 +4,9 @@ from datetime import datetime as dt
 import time
 import xmlrpclib
 
+# TODO Add more error checking for each type of possible error
+# Eventually remove all print statements when finally complete
+
 proxy = xmlrpclib.ServerProxy("http://blogs.nyu.edu/movabletype/mt-xmlrpc.cgi")
 username = 'te20'
 password = 'jvexa3dk'
@@ -49,7 +52,7 @@ def event_blogpublish(post, event):
         'description': formatted_post,
         }
         
-        #We always publish a new blog entry for track 1
+        # We always publish a new blog entry for track 1
         publish = 1
         
         try:
@@ -57,7 +60,7 @@ def event_blogpublish(post, event):
             post.plone_utils.addPortalMessage(_(u'This event has been published on the live website as well as the blog website'))
             # Update category information; there is currently no xml-rpc I can see for this so i'm not sure the below works
             # to be safe i've commented it out
-            #cat = proxy.metaWeblog.setPostCategories(res, username, password, )
+            # cat = proxy.metaWeblog.setPostCategories(res, username, password, )
         except xmlrpclib.Error, x:
             print "Error occured %s" % x
     else:
