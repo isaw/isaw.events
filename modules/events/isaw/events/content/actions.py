@@ -1,4 +1,5 @@
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone import PloneMessageFactory as _
 import xmlrpclib
 
 proxy = xmlrpclib.ServerProxy("http://blogs.nyu.edu/movabletype/mt-xmlrpc.cgi")
@@ -32,6 +33,7 @@ def event_blogpublish(post, event):
         else:
             reception = None
         
+        date = post.Date
         # replace "Click here for more information with a strong or annotation on the object so this can be changed"    
         url = "<a href=\"%s\">Click here for more information.</a>" % post.absolute_url()
         formatted_post = "Title: %s\nSpeaker: %s\nLocation: %s\n<b>Date: %s</b>\nTime: %s\n%s\n%s" % (post.title, post.event_Speaker, 
@@ -49,7 +51,10 @@ def event_blogpublish(post, event):
         
         try:
             res = proxy.metaWeblog.newPost(blog_id, username, password, content, 1)
-            cat = proxy.metaWeblog.setPostCategories(res, username, password, )
+            post.plone_utils.addPortalMessage(_(u'This event has been published on the live website as well as the blog website'))
+            # Update category information; there is currently no xml-rpc I can see for this so i'm not sure the below works
+            # to be safe i've commented it out
+            #cat = proxy.metaWeblog.setPostCategories(res, username, password, )
         except xmlrpclib.Error, x:
             print "Error occured %s" % x
     else:
