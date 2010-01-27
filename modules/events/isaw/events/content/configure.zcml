@@ -17,4 +17,9 @@
         />
   </class>
 
+	<subscriber
+		for="..interfaces.Ievents
+		Products.CMFCore.interfaces.IActionSucceededEvent"
+		handler=".actions.event_blogpublish" />
+		
 </configure>
