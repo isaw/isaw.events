@@ -61,7 +61,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         label=u'Event Start Date and Time',
         label_msgid='ISAW_Event_StartDateTime',
         il8n_domain='ISAW_Event',
-        show_hm=False,
+        show_hm=True,
         format='%A, %B %d %Y'
         ),
 
@@ -117,6 +117,18 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     required=False,
     searchable=True),
     
+    atapi.BooleanField(
+    name='event_VRS',
+    widget=atapi.BooleanWidget(
+        label=u'Is this event being held by a Visiting Research Scholar?',
+        label_msgid='ISAW_Event_vrs',
+        il8n_domain='ISAW_Event',
+        size=50,
+        ),
+        
+    required=False,
+    searchable=True),
+    
     atapi.TextField(
     name='event_Leadin',
     widget=atapi.TextAreaWidget(
@@ -140,6 +152,24 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     
     required=False,
     searchable=True),
+    
+    # After about 10 minutes deliberation
+    # instead of making this an Annotation i've added it to the object itself
+    # the reason being is all data should be stored/managed in the object if it's small enough
+    
+    atapi.IntegerField(
+    name='event_BlogId',
+    widget=atapi.IntegerWidget(
+        label=u'Event Blog id',
+        label_msgid='ISAW_Event_blogid',
+        il8n_domain='ISAW_Event',
+        size=10,
+        visible={'view': 'visible', 'edit': 'hidden'},
+        ),
+    
+    # Does isMetadata work anymore?
+    isMetadata=True,
+    required=False),
 
 ))
 

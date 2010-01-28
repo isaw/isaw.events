@@ -15,4 +15,12 @@
 		permission="zope2.View"
 		/>
 		
+	<browser:page
+		for="..interfaces.events.Ievents"
+		name="hcal-view"
+		class=".browser.HcalView"
+		template="hcal-view.pt"
+		permission="zope2.View"
+		/>
+		
 </configure>
