@@ -54,6 +54,17 @@ Roman Empire and the economic changes that occurred in northern Iberia during la
 eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     
 # -*- Events Schema -*- #
+    atapi.TextField(
+    name='event_ShortDescription',
+    widget=atapi.TextAreaWidget(
+        label=u'Event Short Description',
+        label_msgid='ISAW_Event_shortdescription',
+        il8n_domain='ISAW_Event',
+        size=50,
+        ),
+
+    required=False,
+    searchable=True),
 
     atapi.DateTimeField(
     name='event_StartDateTime',
@@ -129,29 +140,37 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     required=False,
     searchable=True),
     
-    atapi.TextField(
-    name='event_Leadin',
-    widget=atapi.TextAreaWidget(
-        label=u'Event Leadin',
-        label_msgid='ISAW_Event_leadin',
+    # Please use Products.ImageEditor
+    # It will be added to the project buildout
+    # This is here in the event (no-pun intended) that you're using a standalone binary instance
+
+    # The behavior we would really want is to allow image editor to modify events content type
+    # I can make products.imageeditor do this; it would mean keeping our own branch with the 
+    # events module
+    atapi.ImageField(
+    name='event_Image',
+    widget=atapi.ImageWidget(
+        label=u'Optional Image associated with the Event',
+        label_msgid='ISAW_Event_image',
         il8n_domain='ISAW_Event',
-        size=50,
         ),
         
     required=False,
-    searchable=True),
+    searchable=False),
     
-    atapi.TextField(
-    name='event_ShortDescription',
-    widget=atapi.TextAreaWidget(
-        label=u'Event Short Description',
-        label_msgid='ISAW_Event_shortdescription',
-        il8n_domain='ISAW_Event',
-        size=50,
-        ),
-    
-    required=False,
-    searchable=True),
+
+#    atapi.TextField(
+#    name='event_Leadin',
+#    widget=atapi.TextAreaWidget(
+#        label=u'Event Leadin',
+#        label_msgid='ISAW_Event_leadin',
+#        il8n_domain='ISAW_Event',
+#        size=50,
+#        ),
+#        
+#    required=False,
+#   searchable=True),
+
     
     # After about 10 minutes deliberation
     # instead of making this an Annotation i've added it to the object itself
@@ -164,7 +183,8 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         label_msgid='ISAW_Event_blogid',
         il8n_domain='ISAW_Event',
         size=10,
-        visible={'view': 'visible', 'edit': 'hidden'},
+        visible={'view': 'visible', 
+                'edit': 'hidden'},
         ),
     
     # Does isMetadata work anymore?

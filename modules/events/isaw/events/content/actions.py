@@ -5,7 +5,6 @@ import xmlrpclib
 
 # TODO Add more error checking for each type of possible error
 # Eventually remove all print statements when finally complete
-# Need to add REMOVE post if an event is removed
 
 proxy = xmlrpclib.ServerProxy("http://blogs.nyu.edu/movabletype/mt-xmlrpc.cgi")
 username = 'te20'
@@ -32,7 +31,7 @@ def event_blogpublish(post, event):
         
         
         # TODO: Check post attributes to ensure they exist
-        if post.event_Reception == 1:
+        if post.event_Reception == True:
             # replace this with a string or annotation on the object so this can be changed
             reception = '*reception to follow; event is free and open to the public'
         else:
@@ -53,13 +52,13 @@ def event_blogpublish(post, event):
         }
         
         # We always publish a new blog entry for track 1
-        publish = 1
+        publish = True
         
         try:
             # Res returns the blog id for the new post and then we set event_BlogId 
             # So that we know the id should we have to retract or make the event private
 
-            res = proxy.metaWeblog.newPost(blog_id, username, password, content, 1)
+            res = proxy.metaWeblog.newPost(blog_id, username, password, content, True)
             f = post.getField("event_BlogId")
             f.set(post, res)
             print post.event_BlogId
@@ -72,8 +71,8 @@ def event_blogpublish(post, event):
             print "Error occured %s" % x
     elif (publish_state == 'private'):
         print 'Retracting %s with blogid %s' % (post.title, post.event_BlogId)
-        res = proxy.metaWeblog.deletePost(blog_id, post.event_BlogId, username, password, 1)
-        if (res == 1):
+        res = proxy.metaWeblog.deletePost(blog_id, post.event_BlogId, username, password, True)
+        if (res == True):
             post.plone_utils.addPortalMessage(_(u'This event has been made private (meaning it is not visible on the public website)'))
         else:
             post.plone_utils.addPortalMessage(_(u'There was a problem removing this from http://blogs.nyu.edu please contact an Administrator immediately'))

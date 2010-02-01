@@ -17,7 +17,9 @@ isaw/events/__init__.py
 isaw/events/config.py
 isaw/events/configure.zcml
 isaw/events/browser/__init__.py
+isaw/events/browser/browser.py
 isaw/events/browser/configure.zcml
+isaw/events/browser/rdf-view.pt
 isaw/events/content/._events.py
 isaw/events/content/__init__.py
 isaw/events/content/configure.zcml

@@ -9,7 +9,13 @@ License: GPL
 Description: .. contents::
         Institute for the Study of the Ancient World Event Module.
         
-        You can currently find more info the Events class
+        You can test drive here
+        http://development.kernelcode.com:8080/Plone
+        
+        Username: admin
+        Password: YH4iZbqU
+        
+        You can currently find more info in the Events class
         
         .. Note!
         -----
@@ -19,7 +25,7 @@ Description: .. contents::
         - Questions and comments to christopher.warner@nyu.edu
         - Report bugs at christopher.warner@nyu.edu
         
-        
+        Week 2
         Change history
         **************
         
