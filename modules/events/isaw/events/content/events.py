@@ -119,10 +119,9 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     atapi.BooleanField(
     name='event_Reception',
     widget=atapi.BooleanWidget(
-        label=u'Event Reception',
+        label=u'Will there be a reception?',
         label_msgid='ISAW_Event_reception',
         il8n_domain='ISAW_Event',
-        size=50,
         ),
         
     required=False,
@@ -134,7 +133,28 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         label=u'Is this event being held by a Visiting Research Scholar?',
         label_msgid='ISAW_Event_vrs',
         il8n_domain='ISAW_Event',
-        size=50,
+        ),
+        
+    required=False,
+    searchable=True),
+    
+    atapi.BooleanField(
+    name='event_exhibition',
+    widget=atapi.BooleanWidget(
+        label=u'Is this an exhibition event?',
+        label_msgid='ISAW_Event_exhibit',
+        il8n_domain='ISAW_Event',
+        ),
+        
+    required=False,
+    searchable=True),
+    
+    atapi.BooleanField(
+    name='event_rsvp',
+    widget=atapi.BooleanWidget(
+        label=u'Does one need to RSVP for this event?',
+        label_msgid='ISAW_Event_rsvp',
+        il8n_domain='ISAW_Event',
         ),
         
     required=False,
@@ -211,7 +231,7 @@ class events(folder.ATFolder):
 
     meta_type = "events"
     schema = eventsSchema
-    toolicon = 'images/appointment-new.png'
+    content_icon = 'images/appointment-new.png'
 
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
