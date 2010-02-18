@@ -6,6 +6,7 @@ from zope.interface import implements, directlyProvides
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
+from Products.Archetypes.public import DisplayList
 
 from isaw.events import eventsMessageFactory as _
 from isaw.events.interfaces import Ievents
@@ -116,6 +117,24 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     required=False,
     searchable=True),
 
+    atapi.LinesField(
+    name='event_Type',
+    vocabulary = DisplayList((
+        ('lecture', 'An event lecture'),
+        ('conference', 'An event conference'),
+        ('film', 'An event where a film will be shown'),
+        ('concert', 'An event where a concert will be held'),
+        )),
+        
+        widget=atapi.PicklistWidget(
+        label=u'What type of Event is this?',
+        label_msgid='ISAW_Event_type',
+        il8n_domain='ISAW_Event',
+        ),
+        
+    required=False,
+    searchable=True),
+    
     atapi.BooleanField(
     name='event_Reception',
     widget=atapi.BooleanWidget(
