@@ -7,6 +7,8 @@ from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 from Products.Archetypes.public import DisplayList
+from Products.DynamicSelect.DynamicSelectWidget import DynamicSelectWidget
+
 
 from isaw.events import eventsMessageFactory as _
 from isaw.events.interfaces import Ievents
@@ -106,7 +108,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     
     atapi.StringField(
     name='event_Location',
-    widget=atapi.StringWidget(
+    widget=DynamicSelectWidget(
         label=u'Event Location',
         label_msgid='ISAW_Event_location',
         il8n_domain='ISAW_Event',
@@ -114,6 +116,16 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         size=50,
         ),
         
+    vocabulary=DisplayList((
+    ('Library', u'Oak Library'),
+    ('Lecture', u'Lecture Hall'),
+    ('Seminar', u'Seminar Room'),
+    ('Gallery 1', u'Gallery 1'),
+    ('Gallery 2', u'Gallery 2'),
+    ('Lunch', u'Lunch Room (basement)'),
+    ('Garden', u'Garden')
+    )),
+    
     required=False,
     searchable=True),
 
