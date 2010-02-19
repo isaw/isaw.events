@@ -1,0 +1,27 @@
+Metadata-Version: 1.0
+Name: Products.DynamicSelect
+Version: 0.8
+Summary: The DynamicSelectWidget is a implementation of the dojo selectbox (combobox)
+Home-page: http://svn.plone.org/svn/plone/plone.example
+Author: Gabriel Pendl
+Author-email: gabriel.pendl@dek.at
+License: GPL
+Description: Introduction
+        ============
+        
+        
+        
+        Changelog
+        =========
+        
+        1.0 - Unreleased
+        ----------------
+        
+        * Initial release
+        
+        
+Keywords: widget widgets combobox plone dynamicselectwidget
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

@@ -1,0 +1,47 @@
+<input type="checkbox" name="" value=""><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <head><title></title></head>
+  <body>
+
+    <!-- String Widgets -->
+    <metal:view_macro define-macro="view"
+		      tal:replace="structure python:field.Vocabulary(here).getValue(accessor())" />
+
+    <metal:define define-macro="edit">
+      <metal:use use-macro="field_macro | here/widgets/field/macros/edit">
+
+
+ <metal:widget metal:fill-slot="widget_body" tal:define="vocab python:field.Vocabulary(here);">
+
+
+
+
+
+<script type="text/javascript" tal:define="widgetValue python:vocab.getValue(value);" tal:content="string:dojo.addOnLoad(function() {init('$fieldName','$widgetValue', '$value')})">
+	
+</script>
+
+	<select style="width:400px" tal:attributes="style string:width:${widget/width};name fieldName; id fieldName; tabindex tabindex/next;" dojoType="Select" >
+	
+	<option tal:repeat="item vocab" tal:attributes="value item;"  tal:content="python: vocab.getValue(item)">Alabama</option>
+	
+	</select>
+
+ 	</metal:widget>
+
+      </metal:use>
+    </metal:define>
+
+    <div metal:define-macro="search">
+      <div metal:use-macro="here/widgets/string/macros/edit">
+      </div>
+    </div>
+
+  </body>
+
+</html>
+
+
