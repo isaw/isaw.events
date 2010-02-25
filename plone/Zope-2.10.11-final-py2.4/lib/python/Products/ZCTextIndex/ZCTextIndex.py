@@ -216,13 +216,14 @@ class ZCTextIndex(Persistent, Acquisition.Implicit, SimpleItem):
         record = parseIndexRequest(request, self.id, self.query_options)
         if record.keys is None:
             return None
-        query_str = ' '.join(record.keys)
-        if not query_str:
+        try:
+            query_str = ' '.join(record.keys)
+            tree = QueryParser(self.getLexicon()).parseQuery(query_str)
+            results = tree.executeQuery(self.index)
+            return  results, (self.id,)
+        except TypeError:
             return None
-        tree = QueryParser(self.getLexicon()).parseQuery(query_str)
-        results = tree.executeQuery(self.index)
-        return  results, (self.id,)
-
+            
     def getEntryForObject(self, documentId, default=None):
         """Return the list of words indexed for documentId"""
         try:
