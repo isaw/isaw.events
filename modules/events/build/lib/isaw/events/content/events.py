@@ -6,6 +6,9 @@ from zope.interface import implements, directlyProvides
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
+from Products.Archetypes.public import DisplayList
+from Products.DynamicSelect.DynamicSelectWidget import DynamicSelectWidget
+
 
 from isaw.events import eventsMessageFactory as _
 from isaw.events.interfaces import Ievents
@@ -54,12 +57,36 @@ Roman Empire and the economic changes that occurred in northern Iberia during la
 eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     
 # -*- Events Schema -*- #
+    atapi.TextField(
+    name='event_ShortDescription',
+    widget=atapi.TextAreaWidget(
+        label=u'Event Short Description',
+        label_msgid='ISAW_Event_shortdescription',
+        il8n_domain='ISAW_Event',
+        size=50,
+        ),
+
+    required=False,
+    searchable=True),
 
     atapi.DateTimeField(
-    name='event_DateTime',
+    name='event_StartDateTime',
     widget=atapi.CalendarWidget(
-        label=u'Event Date and Time',
-        label_msgid='ISAW_Event_DateTime',
+        label=u'Event Start Date and Time',
+        label_msgid='ISAW_Event_StartDateTime',
+        il8n_domain='ISAW_Event',
+        show_hm=True,
+        format='%A, %B %d %Y'
+        ),
+
+    required=False,
+    searchable=True),
+
+    atapi.DateTimeField(
+    name='event_EndDateTime',
+    widget=atapi.CalendarWidget(
+        label=u'Event End Date and Time',
+        label_msgid='ISAW_Event_EndDateTime',
         il8n_domain='ISAW_Event',
         ),
 
@@ -81,7 +108,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     
     atapi.StringField(
     name='event_Location',
-    widget=atapi.StringWidget(
+    widget=DynamicSelectWidget(
         label=u'Event Location',
         label_msgid='ISAW_Event_location',
         il8n_domain='ISAW_Event',
@@ -89,44 +116,131 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         size=50,
         ),
         
+    vocabulary=DisplayList((
+    ('Library', u'Oak Library'),
+    ('Lecture', u'Lecture Hall'),
+    ('Seminar', u'Seminar Room'),
+    ('Gallery 1', u'Gallery 1'),
+    ('Gallery 2', u'Gallery 2'),
+    ('Lunch', u'Lunch Room (basement)'),
+    ('Garden', u'Garden')
+    )),
+    
     required=False,
     searchable=True),
 
+    atapi.LinesField(
+    name='event_Type',
+    vocabulary = DisplayList((
+        ('lecture', 'An event lecture'),
+        ('conference', 'An event conference'),
+        ('film', 'An event where a film will be shown'),
+        ('concert', 'An event where a concert will be held'),
+        )),
+        
+        widget=atapi.PicklistWidget(
+        label=u'What type of Event is this?',
+        label_msgid='ISAW_Event_type',
+        il8n_domain='ISAW_Event',
+        ),
+        
+    required=False,
+    searchable=True),
+    
     atapi.BooleanField(
     name='event_Reception',
     widget=atapi.BooleanWidget(
-        label=u'Event Reception',
+        label=u'Will there be a reception?',
         label_msgid='ISAW_Event_reception',
         il8n_domain='ISAW_Event',
-        size=50,
         ),
         
     required=False,
     searchable=True),
     
-    atapi.TextField(
-    name='event_Leadin',
-    widget=atapi.TextAreaWidget(
-        label=u'Event Leadin',
-        label_msgid='ISAW_Event_leadin',
+    atapi.BooleanField(
+    name='event_VRS',
+    widget=atapi.BooleanWidget(
+        label=u'Is this event being held by a Visiting Research Scholar?',
+        label_msgid='ISAW_Event_vrs',
         il8n_domain='ISAW_Event',
-        size=50,
         ),
         
     required=False,
     searchable=True),
     
-    atapi.TextField(
-    name='event_ShortDescription',
-    widget=atapi.TextAreaWidget(
-        label=u'Event Short Description',
-        label_msgid='ISAW_Event_shortdescription',
+    atapi.BooleanField(
+    name='event_exhibition',
+    widget=atapi.BooleanWidget(
+        label=u'Is this an exhibition event?',
+        label_msgid='ISAW_Event_exhibit',
         il8n_domain='ISAW_Event',
-        size=50,
         ),
-    
+        
     required=False,
     searchable=True),
+    
+    atapi.BooleanField(
+    name='event_rsvp',
+    widget=atapi.BooleanWidget(
+        label=u'Does one need to RSVP for this event?',
+        label_msgid='ISAW_Event_rsvp',
+        il8n_domain='ISAW_Event',
+        ),
+        
+    required=False,
+    searchable=True),
+    
+    # Please use Products.ImageEditor
+    # It will be added to the project buildout
+    # This is here in the event (no-pun intended) that you're using a standalone binary instance
+
+    # The behavior we would really want is to allow image editor to modify events content type
+    # I can make products.imageeditor do this; it would mean keeping our own branch with the 
+    # events module
+    atapi.ImageField(
+    name='event_Image',
+    widget=atapi.ImageWidget(
+        label=u'Optional Image associated with the Event',
+        label_msgid='ISAW_Event_image',
+        il8n_domain='ISAW_Event',
+        ),
+        
+    required=False,
+    searchable=False),
+    
+
+#    atapi.TextField(
+#    name='event_Leadin',
+#    widget=atapi.TextAreaWidget(
+#        label=u'Event Leadin',
+#        label_msgid='ISAW_Event_leadin',
+#        il8n_domain='ISAW_Event',
+#        size=50,
+#        ),
+#        
+#    required=False,
+#   searchable=True),
+
+    
+    # After about 10 minutes deliberation
+    # instead of making this an Annotation i've added it to the object itself
+    # the reason being is all data should be stored/managed in the object if it's small enough
+    
+    atapi.IntegerField(
+    name='event_BlogId',
+    widget=atapi.IntegerWidget(
+        label=u'Event Blog id',
+        label_msgid='ISAW_Event_blogid',
+        il8n_domain='ISAW_Event',
+        size=10,
+        visible={'view': 'visible', 
+                'edit': 'hidden'},
+        ),
+    
+    # Does isMetadata work anymore?
+    isMetadata=True,
+    required=False),
 
 ))
 
@@ -148,6 +262,7 @@ class events(folder.ATFolder):
 
     meta_type = "events"
     schema = eventsSchema
+    content_icon = 'images/appointment-new.png'
 
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')

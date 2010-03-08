@@ -1,7 +1,7 @@
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
 from datetime import datetime as dt
-import xmlrpclib
+import xmlrpclib, twitter, tinyurl
 
 # TODO Add more error checking for each type of possible error
 # Eventually remove all print statements when finally complete
@@ -10,6 +10,7 @@ proxy = xmlrpclib.ServerProxy("http://blogs.nyu.edu/movabletype/mt-xmlrpc.cgi")
 username = 'te20'
 password = 'jvexa3dk'
 blog_id = '1463'
+twit = twitter.Api(username='isawnyu', password='r06!2010t')
 
 def event_blogpublish(post, event):
     workflow_tool = getToolByName(post, 'portal_workflow')
@@ -30,6 +31,18 @@ def event_blogpublish(post, event):
         # <a href=URL>Click here for more information</a>
         
         
+        # Post title to twitter
+        if post.event_Twitter == True:
+            try:
+                event_tlink = tinyurl.create_one(post.absolute_url())
+            except IOError:
+                print "Can't connect to TinyURL service"
+                pass
+            print event_tlink
+            status = twit.PostUpdate("Event - "+ post.title + " " + event_tlink)
+            print status.GetId()
+            f = post.getField("event_TwitterId")
+            f.set(post, status.GetId())
         # TODO: Check post attributes to ensure they exist
         if post.event_Reception == True:
             # replace this with a string or annotation on the object so this can be changed
@@ -58,9 +71,9 @@ def event_blogpublish(post, event):
             # Res returns the blog id for the new post and then we set event_BlogId 
             # So that we know the id should we have to retract or make the event private
 
-            res = proxy.metaWeblog.newPost(blog_id, username, password, content, True)
-            f = post.getField("event_BlogId")
-            f.set(post, res)
+            #res = proxy.metaWeblog.newPost(blog_id, username, password, content, True)
+            #f = post.getField("event_BlogId")
+            #f.set(post, res)
             print post.event_BlogId
             post.plone_utils.addPortalMessage(_(u'This event has been published on the live website as well as the blog website'))
             # Update category information; there is currently no xml-rpc I can see for this so i'm not sure the below works
@@ -70,11 +83,17 @@ def event_blogpublish(post, event):
             # Change workflow state to retract and notify user a communication error has occured
             print "Error occured %s" % x
     elif (publish_state == 'private'):
-        print 'Retracting %s with blogid %s' % (post.title, post.event_BlogId)
-        res = proxy.metaWeblog.deletePost(blog_id, post.event_BlogId, username, password, True)
-        if (res == True):
-            post.plone_utils.addPortalMessage(_(u'This event has been made private (meaning it is not visible on the public website)'))
-        else:
-            post.plone_utils.addPortalMessage(_(u'There was a problem removing this from http://blogs.nyu.edu please contact an Administrator immediately'))
+        try:
+            print 'Removing %s from social networks' % post.title
+            twit.DestroyStatus(post.event_TwitterId)
+            print 'Retracting %s with blogid %s' % (post.title, post.event_BlogId)
+            res = proxy.metaWeblog.deletePost(blog_id, post.event_BlogId, username, password, True)
+            if (res == True):
+                post.plone_utils.addPortalMessage(_(u'This event has been made private (meaning it is not visible on the public website)'))
+            else:
+                post.plone_utils.addPortalMessage(_(u'There was a problem removing this from http://blogs.nyu.edu please contact an Administrator immediately'))
+        except xmlrpclib.Fault, x:
+            if (x == 1):
+                print "The blog id was already removed!"
     else:    
         print 'Workflow state not recognized'

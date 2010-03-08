@@ -181,7 +181,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     searchable=True),
     
     atapi.BooleanField(
-    name='event_rsvp',
+    name='event_Rsvp',
     widget=atapi.BooleanWidget(
         label=u'Does one need to RSVP for this event?',
         label_msgid='ISAW_Event_rsvp',
@@ -241,7 +241,46 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     # Does isMetadata work anymore?
     isMetadata=True,
     required=False),
+    
 
+    atapi.BooleanField(
+    schemata='Social',
+    name='event_Twitter',
+    widget=atapi.BooleanWidget(
+        label=u'Apply this event to Twitter?',
+        label_msgid='ISAW_Event_twitter',
+        il8n_domain='ISAW_Event',
+        ),
+        
+    required=False,
+    searchable=True),
+    
+    atapi.BooleanField(
+    schemata='Social',
+    name='event_Facebook',
+    widget=atapi.BooleanWidget(
+        label=u'Apply this event to Facebook?',
+        label_msgid='ISAW_Event_facebook',
+        il8n_domain='ISAW_Event',
+        ),
+
+    required=False,
+    searchable=True),
+    
+    atapi.IntegerField(
+    name='event_TwitterId',
+    widget=atapi.IntegerWidget(
+        label=u'Event Twitter id',
+        label_msgid='ISAW_Event_twitterid',
+        il8n_domain='ISAW_Event',
+        size=10,
+        visible={'view': 'visible', 
+                'edit': 'hidden'},
+        ),
+    
+    # Does isMetadata work anymore?
+    isMetadata=True,
+    required=False),
 ))
 
 # Set storage on fields copied from ATFolderSchema, making sure
