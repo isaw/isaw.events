@@ -5,6 +5,7 @@ import xmlrpclib, twitter, tinyurl
 
 # TODO Add more error checking for each type of possible error
 # Eventually remove all print statements when finally complete
+# Add facebook support (please note; that Facebook architecture is crappy)
 
 proxy = xmlrpclib.ServerProxy("http://blogs.nyu.edu/movabletype/mt-xmlrpc.cgi")
 username = 'te20'
@@ -29,8 +30,10 @@ def event_blogpublish(post, event):
         # Time: 6:00 p.m.
         # *reception to follow; event is free and open to the public
         # <a href=URL>Click here for more information</a>
+        # Sponsored by <a href=URL>Lockheed Martin</a>
         
-        
+         # If this gets to 5 if/else statements
+         # # write a function that checks all bool fields and replace the below
         # Post title to twitter
         if post.event_Twitter == True:
             try:
@@ -38,27 +41,32 @@ def event_blogpublish(post, event):
             except IOError:
                 print "Can't connect to TinyURL service"
                 pass
-            print event_tlink
+                
             status = twit.PostUpdate("Event - "+ post.title + " " + event_tlink)
             print status.GetId()
             f = post.getField("event_TwitterId")
             f.set(post, status.GetId())
         # TODO: Check post attributes to ensure they exist
+       
         if post.event_Reception == True:
             # replace this with a string or annotation on the object so this can be changed
             reception = '*reception to follow; event is free and open to the public'
         else:
             reception = None
+            
+        if post.event_Sponsor == True:
+            sponsor = "Sponsored by <a href=\"%s\">%s</a>" % (post.event_Sponsor_Url, post.event_Sponsor_Name)
+        else:
+            sponsor = None
         
         event_date = dt.fromtimestamp(post.event_StartDateTime).strftime('%A, %B %d %Y')
         event_time = dt.fromtimestamp(post.event_StartDateTime).strftime('%I:%M %p')
         # replace "Click here for more information with a string or annotation on the object so this can be changed"    
         url = "<a href=\"%s\">Click here for more information.</a>" % post.absolute_url()
-        formatted_post = "Title: <i>%s</i>\nSpeaker: %s\nLocation: %s\n<b>Date: %s</b>\nTime: %s\n%s\n%s" % (post.title, post.event_Speaker, 
+        formatted_post = "Title: <i>%s</i>\nSpeaker: %s\nLocation: %s\n<b>Date: %s</b>\nTime: %s\n%s\n%s\n%s" % (post.title, post.event_Speaker, 
                                                                                             post.event_Location, 
                                                                                             event_date, 
-                                                                                            event_time, reception, url)
-        
+                                                                                            event_time, reception, url, sponsor)
         
         content = {'title': post.title, 
         'description': formatted_post,

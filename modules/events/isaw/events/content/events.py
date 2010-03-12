@@ -79,7 +79,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         format='%A, %B %d %Y'
         ),
 
-    required=False,
+    required=True,
     searchable=True),
 
     atapi.DateTimeField(
@@ -90,7 +90,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         il8n_domain='ISAW_Event',
         ),
 
-    required=False,
+    required=True,
     searchable=True),
 
     atapi.StringField(
@@ -140,7 +140,60 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         
         widget=atapi.PicklistWidget(
         label=u'What type of Event is this?',
-        label_msgid='ISAW_Event_type',
+        label_msgid='ISAW_Event_Type',
+        il8n_domain='ISAW_Event',
+        ),
+        
+    required=False,
+    searchable=True),
+    
+    atapi.BooleanField(
+    name='event_Sponsor',
+    schemata='Sponsor',
+    widget=atapi.BooleanWidget(
+        label=u'Is this event sponsored?',
+        label_msgid='ISAW_Event_Sponsor',
+        il8n_domain='ISAW_Event',
+        ),
+        
+    required=False,
+    searchable=True),
+    
+    atapi.StringField(
+    name='event_Sponsor_Name',
+    schemata='Sponsor',
+    widget=atapi.StringWidget(
+        label=u'Event Sponsor Name',
+        label_msgid='ISAW_Event_Sponsor_Name',
+        il8n_domain='ISAW_Event',
+        maxlength=255,
+        size=50,
+        ),
+        
+    required=False,
+    searchable=True),
+    
+    atapi.StringField(
+    name='event_Sponsor_Url',
+    schemata='Sponsor',
+    validators = ('isURL'),
+    widget=atapi.StringWidget(
+        label=u'Event Sponsor Url',
+        label_msgid='ISAW_Event_Sponsor_Url',
+        il8n_domain='ISAW_Event',
+        maxlength=255,
+        size=50,
+        ),
+        
+    required=False,
+    searchable=True),
+    
+    atapi.ImageField(
+    name='event_Sponsor_Logo',
+    schemata='Sponsor',
+    widget=atapi.ImageWidget(
+        label=u'Event Sponsor Logo',
+        label_msgid='ISAW_Event_Sponsor_Logo',
         il8n_domain='ISAW_Event',
         ),
         
