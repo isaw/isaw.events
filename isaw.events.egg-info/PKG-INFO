@@ -1,9 +1,9 @@
 Metadata-Version: 1.0
 Name: isaw.events
-Version: 0.1dev
+Version: 0.1
 Summary: UNKNOWN
 Home-page: http://svn.plone.org/svn/plone/plone.example
-Author: Christopher Warner - ISAW
+Author: Christopher Warner
 Author-email: christopher.warner@nyu.edu
 License: GPL
 Description: Introduction
@@ -394,6 +394,7 @@ Description: Introduction
         Download
         ********
         
+Keywords: events isaw schedule calendar
 Platform: UNKNOWN
 Classifier: Framework :: Plone
 Classifier: Intended Audience :: Developers

@@ -45,8 +45,8 @@ setup(name='isaw.events',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         ],
-      keywords='',
-      author='Christopher Warner - ISAW',
+      keywords='events isaw schedule calendar',
+      author='Christopher Warner',
       author_email='christopher.warner@nyu.edu',
       url='http://svn.plone.org/svn/plone/plone.example',
       license='GPL',
@@ -54,20 +54,20 @@ setup(name='isaw.events',
       namespace_packages=['isaw', ],
       include_package_data=True,
       zip_safe=False,
+      dependency_links=['http://code.google.com/p/python-twitter/'],
       install_requires=['setuptools',
+                        'python-twitter >= 0.6',
                         'simplejson',
-                        # -*- Extra requirements: -*-
                         ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
       test_suite = 'isaw.events.tests.test_docs.test_suite',
       entry_points="""
-      # -*- entry_points -*- 
-      [distutils.setup_keywords]
-      paster_plugins = setuptools.dist:assert_string_list
-
-      [egg_info.writers]
-      paster_plugins.txt = setuptools.command.egg_info:write_arg
+      # -*- entry_points -*-
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
-      paster_plugins = ["ZopeSkel"],
+      setup_requires=["PasteScript"],
+      paster_plugins=["ZopeSkel"],
       )
+ 
