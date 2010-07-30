@@ -7,7 +7,7 @@ from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 from Products.Archetypes.public import DisplayList
-from Products.DynamicSelect.DynamicSelectWidget import DynamicSelectWidget
+#from Products.DynamicSelect.DynamicSelectWidget import DynamicSelectWidget
 
 
 from isaw.events import eventsMessageFactory as _
@@ -28,7 +28,7 @@ Sample pulled from http://www.nyu.edu/isaw/events/fernandez-2010-01-19.htm
 Visiting Research Scholar Lecture
 Living in the Heights: Hilltop settlement and the changing landscape of northern Hispania during late antiquity.
 
-Speaker: Damián Fernández
+Speaker: Damian Fernandez
 Location: 2nd Floor Lecture Room
 Date: Tuesday, January 19 2010
 Time: 6:00 p.m.
@@ -42,7 +42,7 @@ around the turn of the era, several of the pre-Roman hilltop forts were abandone
 developed network of lowland cities that became the backbone of the regional settlement hierarchy.
 This process was somewhat reversed after the late-third century CE, when archaeologists have dated
 the beginning of the occupation of hilltops (and, sometimes, the re-occupation of Iron Age sites).
-The ‘movement towards the highlands’ has traditionally been interpreted either as reemergence of
+The movement towards the highlands has traditionally been interpreted either as reemergence of
 indigenous social structures that had survived the Roman conquest or as the result of the
 insecurity provoked by the presence of barbarian armies in the third and fifth centuries.
 
@@ -108,7 +108,10 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     
     atapi.StringField(
     name='event_Location',
-    widget=DynamicSelectWidget(
+    # I don't like the dependence on this widget
+    # will think about either extending DynamicSelectWidget
+    # or releasing a new version of it
+    widget=atapi.StringWidget(
         label=u'Event Location',
         label_msgid='ISAW_Event_location',
         il8n_domain='ISAW_Event',
@@ -116,15 +119,15 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         size=50,
         ),
         
-    vocabulary=DisplayList((
-    ('Library', u'Oak Library'),
-    ('Lecture', u'Lecture Hall'),
-    ('Seminar', u'Seminar Room'),
-    ('Gallery 1', u'Gallery 1'),
-    ('Gallery 2', u'Gallery 2'),
-    ('Lunch', u'Lunch Room (basement)'),
-    ('Garden', u'Garden')
-    )),
+#    vocabulary=DisplayList((
+#    ('Library', u'Oak Library'),
+#    ('Lecture', u'Lecture Hall'),
+#    ('Seminar', u'Seminar Room'),
+#    ('Gallery 1', u'Gallery 1'),
+#    ('Gallery 2', u'Gallery 2'),
+#    ('Lunch', u'Lunch Room (basement)'),
+#    ('Garden', u'Garden')
+#    )),
     
     required=False,
     searchable=True),

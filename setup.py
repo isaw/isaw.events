@@ -34,7 +34,7 @@ long_description = (
 
 tests_require=['zope.testing']
 
-setup(name='Events',
+setup(name='isaw.events',
       version=version,
       description="",
       long_description=long_description,
@@ -55,6 +55,7 @@ setup(name='Events',
       include_package_data=True,
       zip_safe=False,
       install_requires=['setuptools',
+                        'simplejson',
                         # -*- Extra requirements: -*-
                         ],
       tests_require=tests_require,

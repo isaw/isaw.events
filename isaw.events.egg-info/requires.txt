@@ -1,4 +1,5 @@
 setuptools
+simplejson
 
 [tests]
 zope.testing
