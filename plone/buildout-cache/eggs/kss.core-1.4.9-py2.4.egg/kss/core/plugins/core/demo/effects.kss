@@ -1,9 +1,0 @@
-.effects:click {
-    action-client: effect;
-    effect-type: nodeAttr('id');
-}
-
-input#resetEffects:click {
-    action-server: resetEffects;
-}
-

@@ -1,9 +1,0 @@
-#!/usr/local/www/repos/Events/plone/Python-2.4/bin/python
-# EASY-INSTALL-ENTRY-SCRIPT: 'zc.buildout==1.4.2','console_scripts','buildout'
-__requires__ = 'zc.buildout==1.4.2'
-import sys
-from pkg_resources import load_entry_point
-
-sys.exit(
-   load_entry_point('zc.buildout==1.4.2', 'console_scripts', 'buildout')()
-)

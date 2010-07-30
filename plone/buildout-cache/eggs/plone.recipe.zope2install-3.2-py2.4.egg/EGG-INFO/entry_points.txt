@@ -1,3 +1,0 @@
-[zc.buildout]
-default = plone.recipe.zope2install:Recipe
-

@@ -1,6 +1,0 @@
-setuptools
-Products.CMFTestCase
-Products.CMFCore >=2.1
-Products.CMFDefault
-Products.GenericSetup >=1.4.0
-zope.interface

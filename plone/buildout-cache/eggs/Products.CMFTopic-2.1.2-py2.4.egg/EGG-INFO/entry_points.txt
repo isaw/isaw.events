@@ -1,4 +1,0 @@
-
-      [zope2.initialize]
-      Products.CMFTopic = Products.CMFTopic:initialize
-      

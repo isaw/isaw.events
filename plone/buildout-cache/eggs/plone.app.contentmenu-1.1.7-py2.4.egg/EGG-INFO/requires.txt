@@ -1,4 +1,0 @@
-setuptools
-plone.locking
-plone.memoize
-plone.app.content

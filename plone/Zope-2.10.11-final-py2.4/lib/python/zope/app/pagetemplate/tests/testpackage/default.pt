@@ -1,1 +1,0 @@
-<span tal:replace="context/getSomethingThatDoesNotExist|default">42</span>

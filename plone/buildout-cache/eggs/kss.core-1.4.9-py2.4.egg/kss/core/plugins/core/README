@@ -1,4 +1,0 @@
-
-The core plugins have a missing browser directory as
-the plugins are included in kukit/kukit.js.
-

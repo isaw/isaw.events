@@ -1,4 +1,0 @@
-setuptools
-Products.CMFCore
-Products.DCWorkflow
-Products.GenericSetup >= 1.3.3

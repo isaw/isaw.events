@@ -1,4 +1,0 @@
-setuptools
-plone.portlets >=1.1dev
-feedparser
-plone.app.layout >= 1.2dev

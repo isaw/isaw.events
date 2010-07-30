@@ -1,5 +1,0 @@
-#!/usr/local/www/repos/Events/plone/Python-2.4/bin/python
-
-import pydoc
-if __name__ == '__main__':
-    pydoc.cli()

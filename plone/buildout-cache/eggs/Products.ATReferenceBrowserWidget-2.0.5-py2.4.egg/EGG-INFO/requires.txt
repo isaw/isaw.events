@@ -1,3 +1,0 @@
-setuptools
-Products.Archetypes
-Products.CMFCore

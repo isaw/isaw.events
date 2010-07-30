@@ -1,7 +1,0 @@
-Zope Permission: Define new Permissions.
-  
-  Description
-
-    Zope Permissions allow you to define new permissions.
-
-    Typically new Permissions are associated with operations on ZClasses.

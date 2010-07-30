@@ -1,4 +1,0 @@
-select#first:change {
-    action-server: getCorrespondingSelect;
-    getCorrespondingSelect-value:      currentFormVar(value);
-}

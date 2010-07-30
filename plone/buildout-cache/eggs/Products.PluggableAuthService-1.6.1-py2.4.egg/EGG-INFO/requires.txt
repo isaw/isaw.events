@@ -1,6 +1,0 @@
-setuptools
-Products.PluginRegistry
-Products.GenericSetup
-
-[ip_range]
-IPy

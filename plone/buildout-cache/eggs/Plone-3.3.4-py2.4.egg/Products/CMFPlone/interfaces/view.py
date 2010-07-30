@@ -1,3 +1,0 @@
-from Products.CMFDynamicViewFTI.interface import IDynamicViewTypeInformation
-from Products.CMFDynamicViewFTI.interface import IBrowserDefault
-from Products.CMFDynamicViewFTI.interface import ISelectableBrowserDefault

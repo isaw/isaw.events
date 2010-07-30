@@ -1,1 +1,0 @@
-https://codespeak.net/svn/kukit/kss.core/branch/1.4#egg=kss.core-dev

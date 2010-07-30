@@ -1,5 +1,0 @@
-<html metal:use-macro="views/apidoc_macros/static_menu">
-<body>
-
-</body>
-</html>

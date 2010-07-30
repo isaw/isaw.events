@@ -1,6 +1,0 @@
-
-- better unit tests
-
-- make usage easier
-
-- decrease amount of spaghetti code in stng and document

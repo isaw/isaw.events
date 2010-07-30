@@ -1,1 +1,0 @@
-Need to check for this to ensure setuphandlers don't run when they shouldn't.

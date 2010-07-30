@@ -1,2 +1,0 @@
-setuptools
-zope.component < 3.6dev

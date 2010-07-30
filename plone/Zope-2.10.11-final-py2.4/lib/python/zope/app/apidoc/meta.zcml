@@ -1,8 +1,0 @@
-<configure
-    xmlns:meta="http://namespaces.zope.org/meta"
-    xmlns:zcml="http://namespaces.zope.org/zcml"
-    zcml:condition="have devmode">
-  <include package=".codemodule" file="meta.zcml"/>
-  <include package=".bookmodule" file="meta.zcml"/>
-  <meta:provides feature="apidoc" />
-</configure>
