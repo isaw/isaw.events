@@ -1,0 +1,26 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="isaw.events">
+
+  <include package="plone.app.contentmenu" />
+
+  <!-- -*- extra stuff goes here -*- -->
+
+	<browser:page
+		for="..interfaces.events.Ievents"
+		name="rdf-view"
+		class=".browser.RdfView"
+		template="rdf-view.pt"
+		permission="zope2.View"
+		/>
+		
+	<browser:page
+		for="..interfaces.events.Ievents"
+		name="hcal-view"
+		class=".browser.HcalView"
+		template="hcal-view.pt"
+		permission="zope2.View"
+		/>
+		
+</configure>
