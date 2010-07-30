@@ -22,7 +22,6 @@ isaw/events/browser/configure.zcml
 isaw/events/browser/hcal-view.pt
 isaw/events/browser/rdf-view.pt
 isaw/events/content/.actions.py.swp
-isaw/events/content/.events.py.swp
 isaw/events/content/__init__.py
 isaw/events/content/actions.py
 isaw/events/content/configure.zcml
