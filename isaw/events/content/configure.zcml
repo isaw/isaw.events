@@ -6,6 +6,42 @@
   <!-- configure your content components here -->
   
   <!-- -*- extra stuff goes here -*- -->
+  <class class=".performance.Performance">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IPerformance"
+        />
+  </class>
+  <class class=".exhibition.Exhibition">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IExhibition"
+        />
+  </class>
+  <class class=".sponsored.Sponsored">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ISponsored"
+        />
+  </class>
+  <class class=".conference.Conference">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IConference"
+        />
+  </class>
+  <class class=".seminar.Seminar">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ISeminar"
+        />
+  </class>
+  <class class=".lecture.Lecture">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ILecture"
+        />
+  </class>
   <class class=".events.events">
     <require
         permission="zope2.View"

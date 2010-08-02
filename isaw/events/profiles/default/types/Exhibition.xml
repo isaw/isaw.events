@@ -6,7 +6,7 @@
   <property name="description"
     i18n:translate="">Exhibition Event</property>
   <property name="content_meta_type">Exhibition</property>
-  <property name="content_icon">folder_icon.gif</property>
+  <property name="content_icon">++resource++icons/event.png</property>
   <property name="product">isaw.events</property>
   <property name="factory">addExhibition</property>
   <property name="immediate_view">atct_edit</property>
