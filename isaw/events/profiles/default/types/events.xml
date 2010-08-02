@@ -2,7 +2,7 @@
 <object name="events"
    meta_type="Factory-based Type Information with dynamic views"
    i18n:domain="isaw.events" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
-  <property name="title" i18n:translate="">events</property>
+  <property name="title" i18n:translate="">General Event</property>
   <property name="description"
     i18n:translate="">General Event</property>
   <property name="content_meta_type">events</property>
@@ -11,7 +11,15 @@
   <property name="factory">addevents</property>
   <property name="immediate_view">atct_edit</property>
   <property name="global_allow">True</property>
-  <property name="filter_content_types">False</property>
+  <property name="filter_content_types">True</property>
+  <property name="allowed_content_types">
+    <element value="Conference" />
+    <element value="Exhibition" />
+    <element value="Lecture" />
+    <element value="Performance" />
+    <element value="Seminar" />
+    <element value="Sponsored" />
+  </property>
   <property name="allow_discussion">True</property>
   <property name="default_view">base_view</property>
   <property name="view_methods">

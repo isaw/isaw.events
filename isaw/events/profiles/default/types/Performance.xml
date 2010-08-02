@@ -11,7 +11,15 @@
   <property name="factory">addPerformance</property>
   <property name="immediate_view">atct_edit</property>
   <property name="global_allow">True</property>
-  <property name="filter_content_types">False</property>
+  <property name="filter_content_types">True</property>
+  <property name="allowed_content_types">
+    <element value="events" />
+    <element value="Exhibition" />
+    <element value="Lecture" />
+    <element value="Conference" />
+    <element value="Seminar" />
+    <element value="Sponsored" />
+  </property>
   <property name="allow_discussion">True</property>
   <property name="default_view">base_view</property>
   <property name="view_methods">

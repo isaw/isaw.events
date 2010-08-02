@@ -361,7 +361,7 @@ class events(folder.ATFolder):
     """Isaw Events Module"""
     implements(Ievents)
 
-    meta_type = "events"
+    meta_type = "General"
     schema = eventsSchema
 
     title = atapi.ATFieldProperty('title')
