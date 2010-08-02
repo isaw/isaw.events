@@ -55,8 +55,9 @@ occupation of hilltops must be understood in the context of the administrative r
 Roman Empire and the economic changes that occurred in northern Iberia during late antiquity."""
 
 eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
-    
+
 # -*- Events Schema -*- #
+
     atapi.TextField(
     name='event_ShortDescription',
     widget=atapi.TextAreaWidget(
@@ -105,6 +106,8 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         
     required=False,
     searchable=True),
+
+    # Organizers/Contributors
     
     atapi.StringField(
     name='event_Location',
@@ -132,29 +135,40 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     required=False,
     searchable=True),
 
-    atapi.LinesField(
-    name='event_Type',
-    vocabulary = DisplayList((
-        ('lecture', 'An event lecture'),
-        ('conference', 'An event conference'),
-        ('film', 'An event where a film will be shown'),
-        ('concert', 'An event where a concert will be held'),
-        )),
-        
-        widget=atapi.PicklistWidget(
-        label=u'What type of Event is this?',
-        label_msgid='ISAW_Event_Type',
+#    atapi.LinesField(
+#    name='event_Type',
+#    vocabulary = DisplayList((
+#        ('lecture', 'An event lecture'),
+#        ('conference', 'An event conference'),
+#        ('film', 'An event where a film will be shown'),
+#        ('concert', 'An event where a concert will be held'),
+#        )),
+#        
+#        widget=atapi.PicklistWidget(
+#        label=u'What type of Event is this?',
+#        label_msgid='ISAW_Event_Type',
+#        il8n_domain='ISAW_Event',
+#        ),
+#        
+#    required=False,
+#    searchable=True),
+    
+    atapi.BooleanField(
+    name='event_Private',
+    widget=atapi.BooleanWidget(
+        label=u'Private Event?',
+        label_msgid='ISAW_Event_Private',
         il8n_domain='ISAW_Event',
         ),
         
     required=False,
-    searchable=True),
-    
+    searchable=False),
+
     atapi.BooleanField(
     name='event_Sponsor',
     schemata='Sponsor',
     widget=atapi.BooleanWidget(
-        label=u'Is this event sponsored?',
+        label=u'Sponsored Event?',
         label_msgid='ISAW_Event_Sponsor',
         il8n_domain='ISAW_Event',
         ),
@@ -212,7 +226,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         ),
         
     required=False,
-    searchable=True),
+    searchable=False),
     
     atapi.BooleanField(
     name='event_VRS',
@@ -225,16 +239,16 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     required=False,
     searchable=True),
     
-    atapi.BooleanField(
-    name='event_exhibition',
-    widget=atapi.BooleanWidget(
-        label=u'Is this an exhibition event?',
-        label_msgid='ISAW_Event_exhibit',
-        il8n_domain='ISAW_Event',
-        ),
-        
-    required=False,
-    searchable=True),
+#    atapi.BooleanField(
+#    name='event_exhibition',
+#    widget=atapi.BooleanWidget(
+#        label=u'Is this an exhibition event?',
+#        label_msgid='ISAW_Event_exhibit',
+#        il8n_domain='ISAW_Event',
+#        ),
+#        
+#    required=False,
+#    searchable=True),
     
     atapi.BooleanField(
     name='event_Rsvp',
@@ -247,13 +261,6 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     required=False,
     searchable=True),
     
-    # Please use Products.ImageEditor
-    # It will be added to the project buildout
-    # This is here in the event (no-pun intended) that you're using a standalone binary instance
-
-    # The behavior we would really want is to allow image editor to modify events content type
-    # I can make products.imageeditor do this; it would mean keeping our own branch with the 
-    # events module
     atapi.ImageField(
     name='event_Image',
     widget=atapi.ImageWidget(
