@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<object name="events"
+<object name="Conference"
    meta_type="Factory-based Type Information with dynamic views"
    i18n:domain="isaw.events" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
-  <property name="title" i18n:translate="">events</property>
+  <property name="title" i18n:translate="">Conference</property>
   <property name="description"
-    i18n:translate="">General Event</property>
-  <property name="content_meta_type">events</property>
-  <property name="content_icon">document_icon.gif</property>
+    i18n:translate="">Conference Event</property>
+  <property name="content_meta_type">Conference</property>
+  <property name="content_icon">folder_icon.gif</property>
   <property name="product">isaw.events</property>
-  <property name="factory">addevents</property>
+  <property name="factory">addConference</property>
   <property name="immediate_view">atct_edit</property>
   <property name="global_allow">True</property>
   <property name="filter_content_types">False</property>

@@ -70,30 +70,6 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     required=False,
     searchable=True),
 
-    atapi.DateTimeField(
-    name='event_StartDateTime',
-    widget=atapi.CalendarWidget(
-        label=u'Event Start Date and Time',
-        label_msgid='ISAW_Event_StartDateTime',
-        il8n_domain='ISAW_Event',
-        show_hm=True,
-        format='%A, %B %d %Y'
-        ),
-
-    required=True,
-    searchable=True),
-
-    atapi.DateTimeField(
-    name='event_EndDateTime',
-    widget=atapi.CalendarWidget(
-        label=u'Event End Date and Time',
-        label_msgid='ISAW_Event_EndDateTime',
-        il8n_domain='ISAW_Event',
-        ),
-
-    required=True,
-    searchable=True),
-
     atapi.StringField(
     name='event_Speaker',
     widget=atapi.StringWidget(
@@ -134,6 +110,30 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     
     required=False,
     searchable=True),
+    atapi.DateTimeField(
+    name='event_StartDateTime',
+    widget=atapi.CalendarWidget(
+        label=u'Event Start Date and Time',
+        label_msgid='ISAW_Event_StartDateTime',
+        il8n_domain='ISAW_Event',
+        show_hm=True,
+        format='%A, %B %d %Y'
+        ),
+
+    required=True,
+    searchable=True),
+
+    atapi.DateTimeField(
+    name='event_EndDateTime',
+    widget=atapi.CalendarWidget(
+        label=u'Event End Date and Time',
+        label_msgid='ISAW_Event_EndDateTime',
+        il8n_domain='ISAW_Event',
+        ),
+
+    required=True,
+    searchable=True),
+
 
 #    atapi.LinesField(
 #    name='event_Type',
@@ -156,7 +156,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     atapi.BooleanField(
     name='event_Private',
     widget=atapi.BooleanWidget(
-        label=u'Private Event?',
+        label=u'Private Event',
         label_msgid='ISAW_Event_Private',
         il8n_domain='ISAW_Event',
         ),
@@ -164,11 +164,13 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     required=False,
     searchable=False),
 
+    ###################
+    # SPONSOR
+    ###################
     atapi.BooleanField(
     name='event_Sponsor',
-    schemata='Sponsor',
     widget=atapi.BooleanWidget(
-        label=u'Sponsored Event?',
+        label=u'Sponsored Event',
         label_msgid='ISAW_Event_Sponsor',
         il8n_domain='ISAW_Event',
         ),
@@ -178,7 +180,6 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     
     atapi.StringField(
     name='event_Sponsor_Name',
-    schemata='Sponsor',
     widget=atapi.StringWidget(
         label=u'Event Sponsor Name',
         label_msgid='ISAW_Event_Sponsor_Name',
@@ -192,7 +193,6 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     
     atapi.StringField(
     name='event_Sponsor_Url',
-    schemata='Sponsor',
     validators = ('isURL'),
     widget=atapi.StringWidget(
         label=u'Event Sponsor Url',
@@ -207,7 +207,6 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     
     atapi.ImageField(
     name='event_Sponsor_Logo',
-    schemata='Sponsor',
     widget=atapi.ImageWidget(
         label=u'Event Sponsor Logo',
         label_msgid='ISAW_Event_Sponsor_Logo',
@@ -359,12 +358,11 @@ schemata.finalizeATCTSchema(
 )
 
 class events(folder.ATFolder):
-    """ISAW Events Module"""
+    """Isaw Events Module"""
     implements(Ievents)
 
     meta_type = "events"
     schema = eventsSchema
-    content_icon = 'images/appointment-new.png'
 
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')

@@ -8,6 +8,18 @@
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
   <!-- -*- extra stuff goes here -*- -->
+  <object name="Performance"
+    meta_type="Factory-based Type Information with dynamic views" />
+  <object name="Exhibition"
+    meta_type="Factory-based Type Information with dynamic views" />
+  <object name="Sponsored"
+    meta_type="Factory-based Type Information with dynamic views" />
+  <object name="Conference"
+    meta_type="Factory-based Type Information with dynamic views" />
+  <object name="Seminar"
+    meta_type="Factory-based Type Information with dynamic views" />
+  <object name="Lecture"
+    meta_type="Factory-based Type Information with dynamic views" />
   <object name="events"
     meta_type="Factory-based Type Information with dynamic views" />
 </object>
