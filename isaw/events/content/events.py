@@ -7,6 +7,7 @@ from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 from Products.Archetypes.public import DisplayList
+
 #from Products.DynamicSelect.DynamicSelectWidget import DynamicSelectWidget
 
 
@@ -57,14 +58,27 @@ Roman Empire and the economic changes that occurred in northern Iberia during la
 eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
 # -*- Events Schema -*- #
+    atapi.ImageField(
+    name='event_Image',
+    widget=atapi.ImageWidget(
+        label=u'Event Image',
+        description=_(u'event_image', default=u'Optional image associated with the event.'),
+        label_msgid='ISAW_Event_image',
+        il8n_domain='ISAW_Event',
+        ),
+        
+    required=False,
+    searchable=False),
+    
+
 
     atapi.TextField(
-    name='event_ShortDescription',
+    name='event_Abstract',
     widget=atapi.TextAreaWidget(
-        label=u'Event Short Description',
-        label_msgid='ISAW_Event_shortdescription',
+        label=u'Event Abstract',
+        description=_(u'event_abstract', default=u'A short description of the event.'),
+        label_msgid='ISAW_Event_abstract',
         il8n_domain='ISAW_Event',
-        size=50,
         ),
 
     required=False,
@@ -73,6 +87,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     atapi.StringField(
     name='event_Speaker',
     widget=atapi.StringWidget(
+        description=_(u'event_Speaker', default=u'The person speaking or holding the event.'),
         label=u'Event Speaker',
         label_msgid='ISAW_Event_Speaker',
         il8n_domain='ISAW_Event',
@@ -85,18 +100,18 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
     # Organizers/Contributors
     
-    atapi.StringField(
-    name='event_Location',
+#    atapi.StringField(
+#    name='event_Location',
     # I don't like the dependence on this widget
     # will think about either extending DynamicSelectWidget
     # or releasing a new version of it
-    widget=atapi.StringWidget(
-        label=u'Event Location',
-        label_msgid='ISAW_Event_location',
-        il8n_domain='ISAW_Event',
-        maxlength=255,
-        size=50,
-        ),
+#    widget=atapi.StringWidget(
+#        label=u'Event Location',
+#        label_msgid='ISAW_Event_location',
+#        il8n_domain='ISAW_Event',
+#        maxlength=255,
+#        size=50,
+#        ),
         
 #    vocabulary=DisplayList((
 #    ('Library', u'Oak Library'),
@@ -108,11 +123,13 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 #    ('Garden', u'Garden')
 #    )),
     
-    required=False,
-    searchable=True),
+#    required=False,
+#    searchable=True),
+
     atapi.DateTimeField(
     name='event_StartDateTime',
     widget=atapi.CalendarWidget(
+        description=_(u'event_startdatetime', default=u'The date and/or time when the event starts.'),
         label=u'Event Start Date and Time',
         label_msgid='ISAW_Event_StartDateTime',
         il8n_domain='ISAW_Event',
@@ -126,6 +143,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     atapi.DateTimeField(
     name='event_EndDateTime',
     widget=atapi.CalendarWidget(
+        description=_(u'event_enddatetime', default=u'The date and/or time when the event ends.'),
         label=u'Event End Date and Time',
         label_msgid='ISAW_Event_EndDateTime',
         il8n_domain='ISAW_Event',
@@ -155,7 +173,9 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     
     atapi.BooleanField(
     name='event_Private',
+    schemata='options',
     widget=atapi.BooleanWidget(
+        description=_(u'event_private', default=u'If selected, only ISAW faculty/admin/staff will be able to view this event.'),
         label=u'Private Event',
         label_msgid='ISAW_Event_Private',
         il8n_domain='ISAW_Event',
@@ -164,62 +184,12 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     required=False,
     searchable=False),
 
-    ###################
-    # SPONSOR
-    ###################
-    atapi.BooleanField(
-    name='event_Sponsor',
-    widget=atapi.BooleanWidget(
-        label=u'Sponsored Event',
-        label_msgid='ISAW_Event_Sponsor',
-        il8n_domain='ISAW_Event',
-        ),
-        
-    required=False,
-    searchable=True),
-    
-    atapi.StringField(
-    name='event_Sponsor_Name',
-    widget=atapi.StringWidget(
-        label=u'Event Sponsor Name',
-        label_msgid='ISAW_Event_Sponsor_Name',
-        il8n_domain='ISAW_Event',
-        maxlength=255,
-        size=50,
-        ),
-        
-    required=False,
-    searchable=True),
-    
-    atapi.StringField(
-    name='event_Sponsor_Url',
-    validators = ('isURL'),
-    widget=atapi.StringWidget(
-        label=u'Event Sponsor Url',
-        label_msgid='ISAW_Event_Sponsor_Url',
-        il8n_domain='ISAW_Event',
-        maxlength=255,
-        size=50,
-        ),
-        
-    required=False,
-    searchable=True),
-    
-    atapi.ImageField(
-    name='event_Sponsor_Logo',
-    widget=atapi.ImageWidget(
-        label=u'Event Sponsor Logo',
-        label_msgid='ISAW_Event_Sponsor_Logo',
-        il8n_domain='ISAW_Event',
-        ),
-        
-    required=False,
-    searchable=True),
-    
     atapi.BooleanField(
     name='event_Reception',
+    schemata='options',
     widget=atapi.BooleanWidget(
-        label=u'Will there be a reception?',
+        description=_(u'event_reception', default=u'If selected, the event will have a reception following.'),
+        label=u'Reception?',
         label_msgid='ISAW_Event_reception',
         il8n_domain='ISAW_Event',
         ),
@@ -228,62 +198,17 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     searchable=False),
     
     atapi.BooleanField(
-    name='event_VRS',
-    widget=atapi.BooleanWidget(
-        label=u'Is this event being held by a Visiting Research Scholar?',
-        label_msgid='ISAW_Event_vrs',
-        il8n_domain='ISAW_Event',
-        ),
-        
-    required=False,
-    searchable=True),
-    
-#    atapi.BooleanField(
-#    name='event_exhibition',
-#    widget=atapi.BooleanWidget(
-#        label=u'Is this an exhibition event?',
-#        label_msgid='ISAW_Event_exhibit',
-#        il8n_domain='ISAW_Event',
-#        ),
-#        
-#    required=False,
-#    searchable=True),
-    
-    atapi.BooleanField(
     name='event_Rsvp',
+    schemata='options',
     widget=atapi.BooleanWidget(
         label=u'Does one need to RSVP for this event?',
+        description=_(u'event_rsvp', default=u'If selected, one will need to RSVP for this event.'),
         label_msgid='ISAW_Event_rsvp',
         il8n_domain='ISAW_Event',
         ),
         
     required=False,
     searchable=True),
-    
-    atapi.ImageField(
-    name='event_Image',
-    widget=atapi.ImageWidget(
-        label=u'Optional Image associated with the Event',
-        label_msgid='ISAW_Event_image',
-        il8n_domain='ISAW_Event',
-        ),
-        
-    required=False,
-    searchable=False),
-    
-
-#    atapi.TextField(
-#    name='event_Leadin',
-#    widget=atapi.TextAreaWidget(
-#        label=u'Event Leadin',
-#        label_msgid='ISAW_Event_leadin',
-#        il8n_domain='ISAW_Event',
-#        size=50,
-#        ),
-#        
-#    required=False,
-#   searchable=True),
-
     
     # After about 10 minutes deliberation
     # instead of making this an Annotation i've added it to the object itself
@@ -306,10 +231,11 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     
 
     atapi.BooleanField(
-    schemata='Social',
+    schemata='options',
     name='event_Twitter',
     widget=atapi.BooleanWidget(
-        label=u'Apply this event to Twitter?',
+        description=_(u'event_twitter', default=u'If selected, this event will appear on Twitter'),
+        label=u'Post this event on Twitter?',
         label_msgid='ISAW_Event_twitter',
         il8n_domain='ISAW_Event',
         ),
@@ -318,11 +244,25 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     searchable=True),
     
     atapi.BooleanField(
-    schemata='Social',
+    schemata='options',
     name='event_Facebook',
     widget=atapi.BooleanWidget(
-        label=u'Apply this event to Facebook?',
+        description=_(u'event_facebook', default=u'If selected, this event will appear on Facebook'),
+        label=u'Post this event on Facebook?',
         label_msgid='ISAW_Event_facebook',
+        il8n_domain='ISAW_Event',
+        ),
+
+    required=False,
+    searchable=True),
+
+    atapi.BooleanField(
+    schemata='options',
+    name='event_Blog',
+    widget=atapi.BooleanWidget(
+        description=_(u'event_blog', default=u'If selected, this event will appear on the news blog'),
+        label=u'Post this event on the news blog?',
+        label_msgid='ISAW_Event_blog',
         il8n_domain='ISAW_Event',
         ),
 
@@ -351,7 +291,63 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 eventsSchema['title'].storage = atapi.AnnotationStorage()
 eventsSchema['description'].storage = atapi.AnnotationStorage()
 
-schemata.finalizeATCTSchema(
+#override finalizeATCTSchema
+def finalizeATCTSchema(schema, folderish=False, moveDiscussion=True):
+    """Finalizes an ATCT type schema to alter some fields
+       for the event type. This had to be overrided - cwarner
+    """
+    schema.moveField('relatedItems', pos='bottom')
+    if folderish:
+        schema['relatedItems'].widget.visible['edit'] = 'invisible'
+    schema.moveField('excludeFromNav', after='allowDiscussion')
+    if moveDiscussion:
+        schema.moveField('allowDiscussion', after='relatedItems')
+
+    schema.moveField('event_Image', after='title')
+
+    # Categorization
+    if schema.has_key('subject'):
+        schema.changeSchemataForField('subject', 'tags')
+    if schema.has_key('relatedItems'):
+        schema.changeSchemataForField('relatedItems', 'tags')
+    if schema.has_key('location'):
+        schema.changeSchemataForField('location', 'default')
+        schema.moveField('location', after='event_Speaker')
+    if schema.has_key('language'):
+        schema.changeSchemataForField('language', 'default')
+
+    # Dates
+    if schema.has_key('effectiveDate'):
+        schema.changeSchemataForField('effectiveDate', 'default')
+        schema.moveField('effectiveDate', after='event_EndDateTime')
+    if schema.has_key('expirationDate'):
+        schema.changeSchemataForField('expirationDate', 'default')    
+        schema.moveField('expirationDate', after='effectiveDate')
+    if schema.has_key('creation_date'):
+        schema.changeSchemataForField('creation_date', 'dates')    
+    if schema.has_key('modification_date'):
+        schema.changeSchemataForField('modification_date', 'dates')    
+
+    # Ownership
+    if schema.has_key('creators'):
+        schema.changeSchemataForField('creators', 'organizers')
+    if schema.has_key('contributors'):
+        schema.changeSchemataForField('contributors', 'organizers')
+    if schema.has_key('rights'):
+        schema.changeSchemataForField('rights', 'organizers')
+
+    # Settings
+    if schema.has_key('allowDiscussion'):
+        schema.changeSchemataForField('allowDiscussion', 'options')
+    if schema.has_key('excludeFromNav'):
+        schema.changeSchemataForField('excludeFromNav', 'options')
+    if schema.has_key('nextPreviousEnabled'):
+        schema.changeSchemataForField('nextPreviousEnabled', 'options')
+
+    schemata.marshall_register(schema)
+    return schema
+
+finalizeATCTSchema(
     eventsSchema,
     folderish=True,
     moveDiscussion=False
@@ -366,7 +362,7 @@ class events(folder.ATFolder):
 
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
-    
+
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
 
 atapi.registerType(events, PROJECTNAME)
