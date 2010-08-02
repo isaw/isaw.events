@@ -1,6 +1,14 @@
 Changelog
 =========
 
+0.2 (2010-02-08)
+---------------
+
+- Broke events into multiple types
+- Cleanups
+- Overriding finalizeATCTSchema method in all events
+- Cleaned up rich snippets a bit
+
 0.1 (2010-25-01)
 ----------------
 

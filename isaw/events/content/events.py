@@ -189,7 +189,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     schemata='options',
     widget=atapi.BooleanWidget(
         description=_(u'event_reception', default=u'If selected, the event will have a reception following.'),
-        label=u'Reception?',
+        label=u'Reception',
         label_msgid='ISAW_Event_reception',
         il8n_domain='ISAW_Event',
         ),
@@ -234,7 +234,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     schemata='options',
     name='event_Twitter',
     widget=atapi.BooleanWidget(
-        description=_(u'event_twitter', default=u'If selected, this event will appear on Twitter'),
+        description=_(u'event_twitter', default=u'If selected, this event will appear on Twitter @ http://twitter.com/isawnyu'),
         label=u'Post this event on Twitter?',
         label_msgid='ISAW_Event_twitter',
         il8n_domain='ISAW_Event',

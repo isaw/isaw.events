@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '0.1'
+version = '0.2'
 
 long_description = (
     read('README.txt')
@@ -48,7 +48,7 @@ setup(name='isaw.events',
       keywords='events isaw schedule calendar',
       author='Christopher Warner',
       author_email='christopher.warner@nyu.edu',
-      url='http://svn.plone.org/svn/plone/plone.example',
+      url='http://github.com/christophwarner/isaw.events',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['isaw', ],

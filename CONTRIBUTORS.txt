@@ -1,2 +1,1 @@
-Christopher Warner - ISAW, Author
-
+Christopher Warner <christopher.warner@nyu.edu>
