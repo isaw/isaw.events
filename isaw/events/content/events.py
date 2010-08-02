@@ -247,7 +247,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     schemata='options',
     name='event_Facebook',
     widget=atapi.BooleanWidget(
-        description=_(u'event_facebook', default=u'If selected, this event will appear on Facebook'),
+        description=_(u'event_facebook', default=u'If selected, this event will appear on Facebook.'),
         label=u'Post this event on Facebook?',
         label_msgid='ISAW_Event_facebook',
         il8n_domain='ISAW_Event',
@@ -260,7 +260,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     schemata='options',
     name='event_Blog',
     widget=atapi.BooleanWidget(
-        description=_(u'event_blog', default=u'If selected, this event will appear on the news blog'),
+        description=_(u'event_blog', default=u'If selected, this event will appear on the news blog.'),
         label=u'Post this event on the news blog?',
         label_msgid='ISAW_Event_blog',
         il8n_domain='ISAW_Event',
@@ -268,7 +268,20 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
     required=False,
     searchable=True),
-    
+
+    atapi.BooleanField(
+    schemata='options',
+    name='event_Invite',
+    widget=atapi.BooleanWidget(
+        description=_(u'event_invite', default=u'If selected, this event will be invitation only.'),
+        label=u'Invitation only',
+        label_msgid='ISAW_Event_isaw',
+        il8n_domain='ISAW_Event',
+        ),
+
+    required=False,
+    searchable=True),
+
     atapi.IntegerField(
     name='event_TwitterId',
     widget=atapi.IntegerWidget(
