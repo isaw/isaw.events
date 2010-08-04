@@ -15,7 +15,7 @@ twit = twitter.Api(username='isawnyu', password='r06!2010t')
 
 # Rewrite this later; it's ugly - christopher.warner@nyu.edu
 # The orignal iteration published to blog/twitter etc
-# This function is changing to encompass all types
+# This method is changing to encompass all types
 
 def event_publish(post, event):
     workflow_tool = getToolByName(post, 'portal_workflow')
@@ -74,9 +74,9 @@ def event_publish(post, event):
             # Res returns the blog id for the new post and then we set event_BlogId 
             # So that we know the id should we have to retract or make the event private
 
-            #res = proxy.metaWeblog.newPost(blog_id, username, password, content, True)
-            #f = post.getField("event_BlogId")
-            #f.set(post, res)
+                #res = proxy.metaWeblog.newPost(blog_id, username, password, content, True)
+                #f = post.getField("event_BlogId")
+                #f.set(post, res)
                 print post.event_BlogId
                 post.plone_utils.addPortalMessage(_(u'This event has been published on the live website as well as the blog website'))
                 # Update category information; there is currently no xml-rpc I can see for this so i'm not sure the below works
