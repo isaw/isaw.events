@@ -134,7 +134,7 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         label_msgid='ISAW_Event_StartDateTime',
         il8n_domain='ISAW_Event',
         show_hm=True,
-        format='%A, %B %d %Y'
+        format='%A, %B %d %Y %X %p %z'
         ),
 
     required=True,
@@ -147,6 +147,8 @@ eventsSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         label=u'Event End Date and Time',
         label_msgid='ISAW_Event_EndDateTime',
         il8n_domain='ISAW_Event',
+        show_hm=True,
+        format='%A, %B %d %Y %X %p %z'
         ),
 
     required=True,

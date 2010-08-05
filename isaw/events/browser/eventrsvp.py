@@ -5,7 +5,7 @@ from Products.Five.formlib import formbase
 
 from zope.schema import ValidationError
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
-from Acquisition import aq_parent, aq_inner
+from Acquisition import aq_inner
 
 class InvalidEmailAddress(ValidationError):
     "Invalid email address"
